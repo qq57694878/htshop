@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jldata</groupId>
+    <artifactId>mp-test</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>resttest</name>
+    <description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <groovy.version>2.4.6</groovy.version>
+        <gmaven.version>1.5</gmaven.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <jackson1.version>1.9.11</jackson1.version>
+        <jackson2.version>2.9.4</jackson2.version>
+        <maven-javadoc.version>2.9.1</maven-javadoc.version>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <asciidoctorj.version>1.5.6</asciidoctorj.version>
+        <asciidoctorj.diagram.version>1.5.4.1</asciidoctorj.diagram.version>
+        <jruby.version>1.7.26</jruby.version>
+        <!--
+             <asciidoctorj.pdf.version>1.5.0-alpha-zh.16</asciidoctorj.pdf.version>
+        -->
+        <asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
+        <asciidoctor.input.directory>${project.basedir}/src/main/asciidoc</asciidoctor.input.directory>
+        <snippets.asciidoc.directory>${project.build.directory}/generated-snippets</snippets.asciidoc.directory>
+        <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
+        <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--文档生成 start-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-restassured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-asciidoctor</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.ccil.cowan.tagsoup</groupId>
+            <artifactId>tagsoup</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson2.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jackson1.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson1.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.2</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>${hamcrest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${hamcrest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+
+        <!--文档生成 end-->
+        <dependency>
+            <groupId>com.zuifuli</groupId>
+            <artifactId>icare-open-sdk</artifactId>
+            <version>1.1.39</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--编译设置-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!--生成文档-->
+            <!-- tag::asciidoc[] -->
+            <!--
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-docs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html</backend>
+                            <attributes>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                                <encoding>UTF-8</encoding>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.restdocs</groupId>
+                        <artifactId>spring-restdocs-asciidoctor</artifactId>
+                        <version>1.2.1.RELEASE</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            -->
+
+            <!-- end::asciidoc[] -->
+            <!--
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.5</version>
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <sourceHighlighter>prettify</sourceHighlighter>
+                            <attributes>
+                                <toc>left</toc>
+                                <icons>font</icons>
+                                <sectanchors>true</sectanchors>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                                <encoding>UTF-8</encoding>
+                                <idprefix/>
+                            </attributes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <doctype>book</doctype>
+                            <attributes>
+                                <icons>font</icons>
+                                <pagenums/>
+                                <toc/>
+                                <idprefix/>
+                                <idseparator>-</idseparator>
+                                <pdf-fontsdir>data/fonts</pdf-fontsdir>
+                                <pdf-stylesdir>data/themes</pdf-stylesdir>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                            </attributes>
+                        </configuration>
+                    </execution>
+
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>${jruby.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj</artifactId>
+                        <version>${asciidoctorj.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-diagram</artifactId>
+                        <version>${asciidoctorj.diagram.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/book</outputDirectory>
+                    <sourceDocumentName>book.adoc</sourceDocumentName>
+                    <imagesDir>./</imagesDir>
+                    <preserveDirectories>false</preserveDirectories>
+                    <requires>
+                        <require>asciidoctor-diagram</require>
+                    </requires>
+                </configuration>
+        </plugin>
+        -->
+            <!--
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.5</version>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>${jruby.version}</version>
+                    </dependency>
+                </dependencies>
+
+                <configuration>
+                    <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
+                    <sourceDocumentName>index.adoc</sourceDocumentName>
+                    <attributes>
+                        <doctype>book</doctype>
+                        <toc>left</toc>
+                        <toclevels>1</toclevels>
+                        <numbered></numbered>
+                        <hardbreaks></hardbreaks>
+                        <sectlinks></sectlinks>
+                        <sectanchors></sectanchors>
+                        <snippets>${snippets.asciidoc.directory}</snippets>
+                    </attributes>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <doctype>book</doctype>
+                            <attributes>
+                                <pdf-stylesdir>${project.basedir}/src/themes</pdf-stylesdir>
+                                <pdf-style>cn</pdf-style>
+                                <pdf-fontsdir>${project.basedir}/src/fonts</pdf-fontsdir>
+                                <icons>font</icons>
+                                <toc>left</toc>
+                                <toclevels>1</toclevels>
+                                <pagenums/>
+                                <idprefix/>
+                                <idseparator>-</idseparator>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+              <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.5</version>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>${jruby.version}</version>
+                    </dependency>
+                </dependencies>
+
+                <configuration>
+                    <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
+                    <sourceDocumentName>index.adoc</sourceDocumentName>
+                    <attributes>
+                        <doctype>book</doctype>
+                        <toc>left</toc>
+                        <toclevels>2</toclevels>
+                        <hardbreaks></hardbreaks>
+                        <sectlinks></sectlinks>
+                        <sectanchors></sectanchors>
+                        <snippets>${snippets.asciidoc.directory}</snippets>
+                        <encoding>UTF-8</encoding>
+                    </attributes>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <attributes>
+                                <encoding>UTF-8</encoding>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                    <!--
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <doctype>book</doctype>
+                            <attributes>
+                                <pdf-stylesdir>${project.basedir}/src/themes</pdf-stylesdir>
+                                <pdf-style>cn</pdf-style>
+                                <pdf-fontsdir>${project.basedir}/src/fonts</pdf-fontsdir>
+                                <icons>font</icons>
+                                <toc>left</toc>
+                                <toclevels>2</toclevels>
+                                <encoding>UTF-8</encoding>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                    -->
+                </executions>
+            </plugin>
+
+    </plugins>
+</build>
+
+<distributionManagement>
+
+<snapshotRepository>
+    <id>oss-snapshot</id>
+    <name>OSS Snapshots Repository</name>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</snapshotRepository>
+<repository>
+    <id>oss-release</id>
+    <name>OSS Staging Repository</name>
+    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+</repository>
+
+</distributionManagement>
+        </project>

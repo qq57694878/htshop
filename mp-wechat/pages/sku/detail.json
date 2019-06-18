@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "服务卡详情",
+  "usingComponents": {
+    "shortcut": "/mc/shortcut/shortcut"
+  }
+}

@@ -1,0 +1,18 @@
+<wxs src="../../vant-weapp/wxs/utils.wxs" module="utils" />
+
+<view
+  class="custom-class iconfont van-icon {{ utils.isSrc(name) ? 'van-icon__image' : name }}"
+  style="{{ color ? 'color: ' + color + ';' : '' }}{{ size ? 'font-size: ' + size + ';' : '' }}{{ customStyle }}"
+  bind:tap="onClick"
+>
+  <van-info
+    wx:if="{{ info !== null }}"
+    info="{{ info }}"
+    custom-class="van-icon__info"
+  />
+  <image
+    wx:if="{{ utils.isSrc(name) }}"
+    src="{{ name }}"
+    class="van-icon__image"
+  />
+</view>

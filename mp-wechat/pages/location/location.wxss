@@ -1,0 +1,14 @@
+.my-text{
+  font-size:16px;
+}
+.my-footer{
+  padding:10rpx;
+  position:fixed;
+  bottom:0px;
+  height:60rpx;
+  width:100%;
+}
+.my-align-right{
+ text-align: right; 
+ padding-right:10px;
+}

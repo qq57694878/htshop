@@ -1,0 +1,18 @@
+{
+  "success": "true",
+  "resultCode": "0",
+  "resultMsg": null,
+  "result": {
+    "policyInfoList": [
+      {
+        "sort": null,
+        "orderNo": "116481556604619902",
+        "prtNo": "1316650000660421",
+        "needDoubleRecord": "Y",
+        "needBnfDocument": "N",
+        "status": "3",
+        "message": ""
+      }
+    ]
+  }
+}

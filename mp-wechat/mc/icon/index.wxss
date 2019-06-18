@@ -1,0 +1,2 @@
+.van-icon{position:relative;font:normal normal normal 14px/1 vant-icon;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased}.van-icon,.van-icon:before{display:inline-block}
+.van-icon__info{z-index:1;right:-8px !important;}

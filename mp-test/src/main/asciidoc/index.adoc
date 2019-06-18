@@ -1,0 +1,874 @@
+= *接口文档*
+
+= 1.api-version-controller : 版本控制使用示例.
+== 1.1 helloV1 调用V1版本的接口示例.
+.request
+include::{snippets}/ApiVersionControllerTest/helloV1/http-request.adoc[]
+
+.response
+include::{snippets}/ApiVersionControllerTest/helloV1/http-response.adoc[]
+
+== 1.2 helloV2 调用V2版本的接口示例.
+.request
+include::{snippets}/ApiVersionControllerTest/helloV2/http-request.adoc[]
+
+.response
+include::{snippets}/ApiVersionControllerTest/helloV2/http-response.adoc[]
+
+== 1.2 helloV3 调用V3版本的接口示例.
+.request
+include::{snippets}/ApiVersionControllerTest/helloV3/http-request.adoc[]
+
+.response
+include::{snippets}/ApiVersionControllerTest/helloV3/http-response.adoc[]
+
+= 2.catalog-controller : 获取职业或地区信息接口.
+== 2.1 /api/masterataapi/masterdata/getalloccupation 获取职业信息接口
+.request
+include::{snippets}/CatalogControllerTest/getalloccupation/http-request.adoc[]
+
+.response
+include::{snippets}/CatalogControllerTest/getalloccupation/http-response.adoc[]
+
+== 2.2 /api/masterataapi/masterdata/getalladdress 获取地区信息接口.
+.request
+include::{snippets}/CatalogControllerTest/getalladdress/http-request.adoc[]
+
+.response
+include::{snippets}/CatalogControllerTest/getalladdress/http-response.adoc[]
+
+= 3.cms-activity-controller : 活动管理接口.
+== 3.1 /api/cms/cmsActivity/findActivityList 获取活动列表(首页弹屏).
+.request
+include::{snippets}/CmsActivityControllerTest/findActivityList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/findActivityList/http-response.adoc[]
+
+== 3.2GET /api/cms/cmsActivity/getActivityCenterList获取活动中心列表.
+.request
+include::{snippets}/CmsActivityControllerTest/getActivityCenterList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/getActivityCenterList/http-response.adoc[]
+
+== 3.3GET /api/cms/cmsActivity/getDiscoverActivityList  获取展示活动列表.
+.request
+include::{snippets}/CmsActivityControllerTest/getDiscoverActivityList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/getDiscoverActivityList/http-response.adoc[]
+
+== 3.4 /api/cms/cmsActivity/getIntegral 新手注册领取百家豆.
+.request
+include::{snippets}/CmsActivityControllerTest/getIntegral/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/getIntegral/http-response.adoc[]
+
+== 3.5 /api/cms/cmsActivity/getRegister 获取用户是否领取新手注册活动积分.
+.request
+include::{snippets}/CmsActivityControllerTest/getRegister/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/getRegister/http-response.adoc[]
+
+== 3.6 /api/cms/cmsActivity/selectInfoList 活动列表页面.
+.request
+include::{snippets}/CmsActivityControllerTest/selectInfoList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsActivityControllerTest/selectInfoList/http-response.adoc[]
+
+}
+
+= 4.cms-content-controller : 内容模块接口.
+
+== 4.1 /api/cms/content/article 首页头条资讯模块.
+.request
+include::{snippets}/CmsContentControllerTest/article/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/article/http-response.adoc[]
+
+== 4.2 /api/cms/content/findArticleList 获取资讯列表.
+.request
+include::{snippets}/CmsContentControllerTest/findArticleList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/findArticleList/http-response.adoc[]
+
+== 4.3 /api/cms/content/image 获取首页banner、平台专享、明星甄选、爆款.
+.request
+include::{snippets}/CmsContentControllerTest/image/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/image/http-response.adoc[]
+
+== 4.4 /api/cms/content/selArticle 文章对应推荐阅读.
+.request
+include::{snippets}/CmsContentControllerTest/selArticle/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/selArticle/http-response.adoc[]
+
+== 4.5 /api/cms/content/selAttachment 文章对应资源.
+.request
+include::{snippets}/CmsContentControllerTest/selAttachment/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/selAttachment/http-response.adoc[]
+
+== 4.6 /api/cms/content/selProduct 文章对应产品.
+.request
+include::{snippets}/CmsContentControllerTest/selProduct/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/selProduct/http-response.adoc[]
+
+== 4.7 /api/cms/content/selectInfoById 资讯详情.
+.request
+include::{snippets}/CmsContentControllerTest/selectInfoById/http-request.adoc[]
+
+.response
+include::{snippets}/CmsContentControllerTest/selectInfoById/http-response.adoc[]
+
+= 5.cms-notice-controller : 消息通知接口.
+== 5.1 /api/cms/notice/findNoticeList 获取消息列表.
+.request
+include::{snippets}/CmsNoticeControllerTest/findNoticeList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsNoticeControllerTest/findNoticeList/http-response.adoc[]
+
+== 5.2 /api/cms/notice/getNewestNotice 获取最新通知消息.
+.request
+include::{snippets}/CmsNoticeControllerTest/getNewestNotice/http-request.adoc[]
+
+.response
+include::{snippets}/CmsNoticeControllerTest/getNewestNotice/http-response.adoc[]
+
+== 5.3 POST /api/cms/notice/getNoticeAndNum 获取每个类型的最近一条数据和数量.
+.request
+include::{snippets}/CmsNoticeControllerTest/getNoticeAndNum/http-request.adoc[]
+
+.response
+include::{snippets}/CmsNoticeControllerTest/getNoticeAndNum/http-response.adoc[]
+
+== 5.4 POST /api/cms/notice/getReadNum 获取两个表未读信息数量.
+.request
+include::{snippets}/CmsNoticeControllerTest/getReadNum/http-request.adoc[]
+
+.response
+include::{snippets}/CmsNoticeControllerTest/getReadNum/http-response.adoc[]
+
+= 6 cms-search-contoller : 搜索接口.
+
+== 6.1 GET /api/cms/search/hotSearch 获取热门搜索.
+.request
+include::{snippets}/CmsSearchControllerTest/hotSearch/http-request.adoc[]
+
+.response
+include::{snippets}/CmsSearchControllerTest/hotSearch/http-response.adoc[]
+
+== 6.2 POST /api/cms/search/searchList  获取搜索结果信息接口.
+.request
+include::{snippets}/CmsSearchControllerTest/searchList/http-request.adoc[]
+
+.response
+include::{snippets}/CmsSearchControllerTest/searchList/http-response.adoc[]
+
+= 7.cms-share-controller : 分享模块接口.
+== 7.1 POST /api/cms/share/getShareInfo 获取分享信息.
+.request
+include::{snippets}/CmsShareControllerTest/getShareInfo/http-request.adoc[]
+
+.response
+include::{snippets}/CmsShareControllerTest/getShareInfo/http-response.adoc[]
+
+= 8.contract-controller : 保险交易接口.
+== 8.1 POST /api/contract/cancelPolicy 撤单.
+.request
+include::{snippets}/ContractControllerTest/cancelPolicy/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/cancelPolicy/http-response.adoc[]
+
+== 8.2 POST /api/contract/getPolicyDetail 获取保单详情.
+.request
+include::{snippets}/ContractControllerTest/getPolicyDetail/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/getPolicyDetail/http-response.adoc[]
+
+== 8.3 POST /api/contract/getPolicyList 获取保单列表(五要素或客户号).
+.request
+include::{snippets}/ContractControllerTest/getPolicyList/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/getPolicyList/http-response.adoc[]
+
+== 8.4 GET /api/contract/getPolicyList/current 根据客户号获取保单列表.
+.request
+include::{snippets}/ContractControllerTest/current/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/current/http-response.adoc[]
+
+== 8.5 GET /api/contract/getPolicyList/{customerNo} 根据客户号获取保单列表.
+.request
+include::{snippets}/ContractControllerTest/getPolicyListCustomerNo/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/getPolicyListCustomerNo/http-response.adoc[]
+
+== 8.6 POST /api/contract/getreturnpolicy 即时回访交易.
+.request
+include::{snippets}/ContractControllerTest/getreturnpolicy/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/getreturnpolicy/http-response.adoc[]
+
+== 8.7 POST /api/contract/policyquery 保单状态查询.
+.request
+include::{snippets}/ContractControllerTest/policyquery/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/policyquery/http-response.adoc[]
+
+== 8.8 POST /api/contract/policytrade 投核保交易.
+.request
+include::{snippets}/ContractControllerTest/policytrade/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/policytrade/http-response.adoc[]
+
+== 8.9 POST /api/contract/risk/policycharge 承保交易.
+.request
+include::{snippets}/ContractControllerTest/policycharge/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/policycharge/http-response.adoc[]
+
+== 8.10 POST /api/contract/uwstatusquery 人工核保状态查询.
+.request
+include::{snippets}/ContractControllerTest/uwstatusquery/http-request.adoc[]
+
+.response
+include::{snippets}/ContractControllerTest/uwstatusquery/http-response.adoc[]
+
+= 9.dict-controller : 获取字典信息接口.
+== 9.1 POST /api/sys/dict/type 获取字典信息接口.
+.request
+include::{snippets}/DictControllerTest/type/http-request.adoc[]
+
+.response
+include::{snippets}/DictControllerTest/type/http-response.adoc[]
+= 10 ins-about-controller : 保险预约接口.
+== 10.1 POST /api/ins/about/addAbout 保险预约信息.
+.request
+include::{snippets}/InsAboutControllerTest/addAbout/http-request.adoc[]
+
+.response
+include::{snippets}/InsAboutControllerTest/addAbout/http-response.adoc[]
+
+= 11.ins-order-controller : 订单接口.
+== 11.1 GET /api/ins/order/selectInfoByName 通过当前人手机查询订单信息.
+.request
+include::{snippets}/InsOrderControllerTest/selectInfoByName/http-request.adoc[]
+
+.response
+include::{snippets}/InsOrderControllerTest/selectInfoByName/http-response.adoc[]
+= 12.ins-product-controller : 产品接口.
+== 12.1 GET /api/ins/product/hotStyleFlag/productInfoList 获取爆款产品信息列表.
+.request
+include::{snippets}/InsProductControllerTest/productInfoList/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/productInfoList/http-response.adoc[]
+
+== 12.2 GET /api/ins/product/insProductNotice/{productId} 获取产品投保须知列表.
+.request
+include::{snippets}/InsProductControllerTest/insProductNotice/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/insProductNotice/http-response.adoc[]
+
+== 12.3 GET /api/ins/product/insProductProtection/{productId} 获取产品保障责任列表.
+.request
+include::{snippets}/InsProductControllerTest/insProductProtection/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/insProductProtection/http-response.adoc[]
+
+== 12.4 GET /api/ins/product/product/risk/{productId} 查询险种信息.
+.request
+include::{snippets}/InsProductControllerTest/risk/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/risk/http-response.adoc[]
+
+== 12.5 GET /api/ins/product/product/riskDuty/{productId} 获取险种责任简要信息列表.
+.request
+include::{snippets}/InsProductControllerTest/riskDuty/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/riskDuty/http-response.adoc[]
+
+== 12.6 GET /api/ins/product/productInfoList/{riskType} 分类获取产品信息列表.
+.request
+include::{snippets}/InsProductControllerTest/productInfoListRiskType/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/productInfoListRiskType/http-response.adoc[]
+
+== 12.7 POST /api/ins/product/productplatform/duty/calPAWithRule 保额保费计算(含规则校验).
+.request
+include::{snippets}/InsProductControllerTest/calPAWithRule/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/calPAWithRule/http-response.adoc[]
+
+== 12.8 POST /api/ins/product/productplatform/duty/confirmPACalResult 保障计划.
+.request
+include::{snippets}/InsProductControllerTest/confirmPACalResult/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/confirmPACalResult/http-response.adoc[]
+
+== 12.9 POST /api/ins/product/productplatform/risk/getriskfileinfoinner 获取险种条款和说明文档信息.
+.request
+include::{snippets}/InsProductControllerTest/getriskfileinfoinner/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/getriskfileinfoinner/http-response.adoc[]
+
+== 12.10 GET /api/ins/product/{id} 根据id产品信息.
+.request
+include::{snippets}/InsProductControllerTest/product/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductControllerTest/product/http-response.adoc[]
+
+= 13.ins-product-visit-controller : 产品回访调研.
+== 13.1 POST /api/ins/visit/addAnswer 保存问卷答案并发放积分.
+.request
+include::{snippets}/InsProductVisitControllerTest/addAnswer/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductVisitControllerTest/addAnswer/http-response.adoc[]
+
+== 13.2 POST /api/ins/visit/addInsProductVisit 保存产品在线回访.
+.request
+include::{snippets}/InsProductVisitControllerTest/addInsProductVisit/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductVisitControllerTest/addInsProductVisit/http-response.adoc[]
+
+== 13.3 GET /api/ins/visit/getAnswer/{orderNo} 获取用户是否答题.
+.request
+include::{snippets}/InsProductVisitControllerTest/getAnswer/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductVisitControllerTest/getAnswer/http-response.adoc[]
+
+== 13.4 GET /api/ins/visit/getSuccess/{orderNo} 获取用户是否完成回访调研.
+.request
+include::{snippets}/InsProductVisitControllerTest/getSuccess/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductVisitControllerTest/getSuccess/http-response.adoc[]
+
+== 13.5 GET /api/ins/visit/insProductVisit/{orderNo} 获取产品在线回访.
+.request
+include::{snippets}/InsProductVisitControllerTest/insProductVisit/http-request.adoc[]
+
+.response
+include::{snippets}/InsProductVisitControllerTest/insProductVisit/http-response.adoc[]
+
+= 14. login-controller : 注册、登录、找回密码相关接口.
+== 14.1 POST /api/portal/fast/register 快速注册接口(手机号、短信验证码必传).
+.request
+include::{snippets}/LoginControllerTest/fastRegister/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/fastRegister/http-response.adoc[]
+
+== 14.2 POST /api/portal/loginByCode 短信验证码登录接口.
+.request
+include::{snippets}/LoginControllerTest/loginByCode/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/loginByCode/http-response.adoc[]
+
+== 14.3 POST /api/portal/loginByPwd 用户名密码登录接口.
+.request
+include::{snippets}/LoginControllerTest/loginByPwd/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/loginByPwd/http-response.adoc[]
+
+== 14.4 GET /api/portal/refurbishToken/{deviceNo} 刷新token.
+.request
+include::{snippets}/LoginControllerTest/refurbishToken/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/refurbishToken/http-response.adoc[]
+
+== 14.5 POST /api/portal/register 注册接口.
+.request
+include::{snippets}/LoginControllerTest/register/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/register/http-response.adoc[]
+
+== 14.6 POST /api/portal/resetPwd 重置密码.
+.request
+include::{snippets}/LoginControllerTest/resetPwd/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/resetPwd/http-response.adoc[]
+
+== 14.7 POST /api/portal/sendSmsCode 发送短信验证码.
+.request
+include::{snippets}/LoginControllerTest/sendSmsCode/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/sendSmsCode/http-response.adoc[]
+
+== 14.8 GET /api/portal/subscriber/{cardNo} 手机号绑定身份证唯一.
+.request
+include::{snippets}/LoginControllerTest/subscriber/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/subscriber/http-response.adoc[]
+
+== 14.9 GET /api/portal/validSmsCode/{userName}/{smsCode} 校验短信验证码.
+.request
+include::{snippets}/LoginControllerTest/validSmsCode/http-request.adoc[]
+
+.response
+include::{snippets}/LoginControllerTest/validSmsCode/http-response.adoc[]
+
+= 15 ocr-controller : OCR接口.
+== 15.1 POST /api/ocr/ocr/getappocrinfo 获取OCR信息.
+.request
+include::{snippets}/OcrControllerTest/getappocrinfo/http-request.adoc[]
+
+.response
+include::{snippets}/OcrControllerTest/getappocrinfo/http-response.adoc[]
+
+= 16 question-controller : 智能核保接口.
+== 16.1 POST /api/question/allQuestion 全部问题接口.
+.request
+include::{snippets}/QuestionControllerTest/allQuestion/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/allQuestion/http-response.adoc[]
+
+== 16.2 POST /api/question/createQuestionnaireNo 创建问卷接口.
+.request
+include::{snippets}/QuestionControllerTest/createQuestionnaireNo/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/createQuestionnaireNo/http-response.adoc[]
+
+== 16.3 POST /api/question/getMoreimpartinfo 补充客户告知接口.
+.request
+include::{snippets}/QuestionControllerTest/getMoreimpartinfo/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/getMoreimpartinfo/http-response.adoc[]
+
+== 16.4 POST /api/question/queryQuestionnaireNoLis 问卷查看接口.
+.request
+include::{snippets}/QuestionControllerTest/queryQuestionnaireNoLis/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/queryQuestionnaireNoLis/http-response.adoc[]
+
+== 16.5 POST /api/question/submitConfirm 问卷提交接口.
+.request
+include::{snippets}/QuestionControllerTest/submitConfirm/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/submitConfirm/http-response.adoc[]
+
+== 16.6 POST /api/question/submitQuestion 问题提交接口.
+.request
+include::{snippets}/QuestionControllerTest/submitQuestion/http-request.adoc[]
+
+.response
+include::{snippets}/QuestionControllerTest/submitQuestion/http-response.adoc[]
+
+= 17.shop-floor-controller : 商城模块接口.
+== 17.1 GET /api/shopFloor/selectInfo 查询商城模块信息列表.
+.request
+include::{snippets}/ShopFloorControllerTest/selectInfo/http-request.adoc[]
+
+.response
+include::{snippets}/ShopFloorControllerTest/selectInfo/http-response.adoc[]
+
+= 18.shop-product-controller : 在线商城产品管理.
+== 18.1 GET /api/shop/product 获取发现页产品.
+.request
+include::{snippets}/ShopProductControllerTest/product/http-request.adoc[]
+
+.response
+include::{snippets}/ShopProductControllerTest/product/http-response.adoc[]
+
+== 18.2 GET /api/shop/zuifuli/login 最福利登录.
+.request
+include::{snippets}/ShopProductControllerTest/login/http-request.adoc[]
+
+.response
+include::{snippets}/ShopProductControllerTest/login/http-response.adoc[]
+
+= 19.sys-app-version-controller : 获取最新版本信息.
+== 19.1GET /api/app/version/{platform} 根据平台获取最新版本信息.
+.request
+include::{snippets}/SysAppVersionControllerTest/version/http-request.adoc[]
+
+.response
+include::{snippets}/SysAppVersionControllerTest/version/http-response.adoc[]
+= 20 sys-config-controller : 获取系统配置信息.
+== 20.1 GET /api/config/list 根据系统配置信息列表.
+.request
+include::{snippets}/SysConfigControllerTest/list/http-request.adoc[]
+
+.response
+include::{snippets}/SysConfigControllerTest/list/http-response.adoc[]
+= 21 upload-controller : 图片上传接口.
+== 21.1 POST /api/file/upload 图片上传.
+.request
+include::{snippets}/UploadControllerTest/upload/http-request.adoc[]
+
+.response
+include::{snippets}/UploadControllerTest/upload/http-response.adoc[]
+= 22 validate-code-controller : 获取图片验证码接口.
+== 22.1 GET /api/code/{randomStr}  创建图片验证码.
+.request
+include::{snippets}/ValidateCodeControllerTest/code/http-request.adoc[]
+
+.response
+include::{snippets}/ValidateCodeControllerTest/code/http-response.adoc[]
+
+= 23. vip-user-assembly-controller : 国民大集结活动接口.
+== 23.1 POST /api/assembly/saveReadRecord 保存国民大集结活动记录表.
+.request
+include::{snippets}/VipUserAssemlyControllerTest/saveReadRecord/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserAssemlyControllerTest/saveReadRecord/http-response.adoc[]
+== 23.2 GET /api/assembly/selUserReadId 获取国民大集结阅读记录数.
+.request
+include::{snippets}/VipUserAssemlyControllerTest/selUserReadId/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserAssemlyControllerTest/selUserReadId/http-response.adoc[]
+
+== 23.3  GET /api/assembly/updateScore 国民大集结领取积分.
+.request
+include::{snippets}/VipUserAssemlyControllerTest/updateScore/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserAssemlyControllerTest/updateScore/http-response.adoc[]
+
+= 24 vip-user-bankcard-controller : 用户银行卡信息接口.
+== 24.1 POST /api/ins/vipUserBankcard/addBankcard 添加银行卡信息.
+.request
+include::{snippets}/VipUserBankcardControllerTest/addBankcard/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserBankcardControllerTest/addBankcard/http-response.adoc[]
+
+== 24.2  DELETE /api/ins/vipUserBankcard/deleteById/{id} 根据银行卡id删除银行卡信息.
+.request
+include::{snippets}/VipUserBankcardControllerTest/deleteById/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserBankcardControllerTest/deleteById/http-response.adoc[]
+
+== 24.3 GET /api/ins/vipUserBankcard/list 根据客户号获取银行卡信息列表.
+.request
+include::{snippets}/VipUserBankcardControllerTest/list/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserBankcardControllerTest/list/http-response.adoc[]
+
+== 24.4 POST /api/ins/vipUserBankcard/verify 银行卡鉴权.
+.request
+include::{snippets}/VipUserBankcardControllerTest/verify/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserBankcardControllerTest/verify/http-response.adoc[]
+
+= 25、vip-user-contact-controller : 常用被保人相关接口.
+== 25.1 POST /api/vip/contact/addInsured 添加常用被保人.
+.request
+include::{snippets}/VipUserContactControllerTest/addInsured/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserContactControllerTest/addInsured/http-response.adoc[]
+
+== 25.2 DELETE /api/vip/contact/delInsured/{id} 删除常用被保人.
+.request
+include::{snippets}/VipUserContactControllerTest/delInsured/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserContactControllerTest/delInsured/http-response.adoc[]
+
+== 25.3 GET /api/vip/contact/getInsured 查询常用被保人.
+.request
+include::{snippets}/VipUserContactControllerTest/getInsured/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserContactControllerTest/getInsured/http-response.adoc[]
+
+== 25.4 POST /api/vip/contact/updInsured 编辑常用被保人.
+.request
+include::{snippets}/VipUserContactControllerTest/updInsured/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserContactControllerTest/updInsured/http-response.adoc[]
+
+= 26.vip-user-controller : 用户信息相关接口.
+== 26.1 POST /api/vip/user 五要素查询客户号.
+.request
+include::{snippets}/VipUserControllerTest/user/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/user/http-response.adoc[]
+
+== 26.2 PUT /api/vip/user/avator 修改用户头像信息.
+.request
+include::{snippets}/VipUserControllerTest/avator/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/avator/http-response.adoc[]
+
+== 26.3 GET /api/vip/user/current 获取登录用户信息.
+.request
+include::{snippets}/VipUserControllerTest/current/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/current/http-response.adoc[]
+
+== 26.4 PUT /api/vip/user/getContact 获取用户联系人.
+.request
+include::{snippets}/VipUserControllerTest/getContact/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/getContact/http-response.adoc[]
+
+== 26.5 GET /api/vip/user/getCustomerNo 通过用户名查询客户号.
+.request
+include::{snippets}/VipUserControllerTest/getCustomerNo/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/getCustomerNo/http-response.adoc[]
+
+== 26.6 PUT /api/vip/user/updateVipUserInfo 修改用户个人信息.
+.request
+include::{snippets}/VipUserControllerTest/updateVipUserInfo/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/updateVipUserInfo/http-response.adoc[]
+
+== 26.7 PUT /api/vip/user/vipUserReal 修改用户信息，改为实名认证.
+.request
+include::{snippets}/VipUserControllerTest/vipUserReal/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/vipUserReal/http-response.adoc[]
+
+== 26.8 GET /api/vip/user/{phone} 根据手机号获取用户信息.
+.request
+include::{snippets}/VipUserControllerTest/userPhone/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserControllerTest/userPhone/http-response.adoc[]
+
+= 27.vip-user-evaluation-controller : 智能评测接口.
+== 27.1 GET /api/vip/evaluation/answer/mine 获取本人智能评测答案.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/answerMine/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/answerMine/http-response.adoc[]
+
+== 27.2 POST /api/vip/evaluation/getShare 分享后生成测试报告.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/getShare/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/getShare/http-response.adoc[]
+
+== 27.3 GET /api/vip/evaluation/list 获取当前用户下所有智能评测报告.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/list/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/list/http-response.adoc[]
+
+== 27.4 GET /api/vip/evaluation/mine 获取当前用户本人智能评测报告.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/mine/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/mine/http-response.adoc[]
+
+== 27.5 GET /api/vip/evaluation/report/{id} 通过ID查询智能评测报告.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/report/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/report/http-response.adoc[]
+
+== 27.6 POST /api/vip/evaluation/save 保存智能评测答案.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/save/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/save/http-response.adoc[]
+
+== 27.7 GET /api/vip/evaluation/share/{userCode} 通过userCode查询智能评测报告.
+.request
+include::{snippets}/VipUserEvaluationControllerTest/share/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserEvaluationControllerTest/share/http-response.adoc[]
+
+= 28. vip-user-grade-controller : 会员权益相关接口.
+== 28.1 GET /api/vip/grade/current 获取当前登录用户会员信息.
+.request
+include::{snippets}/VipUserGradeControllerTest/current/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserGradeControllerTest/current/http-response.adoc[]
+
+== 28.2 GET /api/vip/grade/details 获取礼包详情.
+.request
+include::{snippets}/VipUserGradeControllerTest/details/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserGradeControllerTest/details/http-response.adoc[]
+
+== 28.3 GET /api/vip/grade/discover 获取发现页会员权益信息.
+.request
+include::{snippets}/VipUserGradeControllerTest/discover/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserGradeControllerTest/discover/http-response.adoc[]
+
+== 28.4 GET /api/vip/grade/gift/{type}/{rank} 获取礼包积分.
+.request
+include::{snippets}/VipUserGradeControllerTest/gift/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserGradeControllerTest/gift/http-response.adoc[]
+
+= 29 vip-user-invite-record-controller : 活动管理接口.
+== 29.1 GET /api/vip/vipUserInviteRecord/getAcceptRecord 获取领奖记录.
+.request
+include::{snippets}/VipUserInviteRecordControllerTest/getAcceptRecord/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserInviteRecordControllerTest/getAcceptRecord/http-response.adoc[]
+
+== 29.2 GET /api/vip/vipUserInviteRecord/inviteeAddScore 邀请有奖活动被邀请人领取积分.
+.request
+include::{snippets}/VipUserInviteRecordControllerTest/inviteeAddScore/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserInviteRecordControllerTest/inviteeAddScore/http-response.adoc[]
+
+== 29.3 GET /api/vip/vipUserInviteRecord/inviterAddScore 邀请有奖活动邀请人领取积分.
+.request
+include::{snippets}/VipUserInviteRecordControllerTest/inviterAddScore/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserInviteRecordControllerTest/inviterAddScore/http-response.adoc[]
+
+== 29.4 GET /api/vip/vipUserInviteRecord/selRecordInfo 当前用户邀请好友记录.
+.request
+include::{snippets}/VipUserInviteRecordControllerTest/selRecordInfo/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserInviteRecordControllerTest/selRecordInfo/http-response.adoc[]
+
+= 30. vip-user-score-controller : 与用户积分相关的接口.
+== 30.1 GET /api/vip/score/current 获取当前登录用户积分.
+.request
+include::{snippets}/VipUserScoreControllerTest/current/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserScoreControllerTest/current/http-response.adoc[]
+
+== 30.2 GET /api/vip/score/record 获取积分明细记录.
+.request
+include::{snippets}/VipUserScoreControllerTest/record/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserScoreControllerTest/record/http-response.adoc[]
+
+= 31. vip-user-sign-controller : 签到接口.
+== 31.1 GET /api/vip/sign/getCalendar 获取签到日历.
+.request
+include::{snippets}/VipUserSignControllerTest/getCalendar/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserSignControllerTest/getCalendar/http-response.adoc[]
+
+== 31.2 GET /api/vip/sign/getDays 获取累计签到天数.
+.request
+include::{snippets}/VipUserSignControllerTest/getDays/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserSignControllerTest/getDays/http-response.adoc[]
+
+== 31.3 GET /api/vip/sign/getIntegral 签到获取积分.
+.request
+include::{snippets}/VipUserSignControllerTest/getIntegral/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserSignControllerTest/getIntegral/http-response.adoc[]
+
+== 31.4 GET /api/vip/sign/getSeventh 获取7天签到.
+.request
+include::{snippets}/VipUserSignControllerTest/getSeventh/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserSignControllerTest/getSeventh/http-response.adoc[]
+
+= 32. vip-user-turntable-controller : 用户大转盘抽奖.
+== 32.1 GET /api/vip/turntable/play 抽奖.
+.request
+include::{snippets}/VipUserTurntableControllerTest/play/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserTurntableControllerTest/play/http-response.adoc[]
+
+== 32.2 GET /api/vip/turntable/record/{size}  获取抽奖记录.
+.request
+include::{snippets}/VipUserTurntableControllerTest/record/http-request.adoc[]
+
+.response
+include::{snippets}/VipUserTurntableControllerTest/record/http-response.adoc[]
+
+
+= 33. x-face-controller : 智能认证.
+== 33.1 POST /api/xface/recognition（新XFACE人证核身）.
+.request
+include::{snippets}/XFaceControllerTest/recognition/http-request.adoc[]
+
+.response
+include::{snippets}/XFaceControllerTest/recognition/http-response.adoc[]
+
+= 34. zuifuli-shop-controller : 最福利对接接口.
+== 34.1 POST /api/zuifuli/v1 通过该接口可调用的服务 balance.query：积分查询；trade.pay:发起交易;trade.refund：退款;order.status.change:订单状态推送；trade.list:交易分页查询;trade.order.page:查询订单.
+.request
+include::{snippets}/ZuiluliShopControllerTest/v1/http-request.adoc[]
+
+.response
+include::{snippets}/ZuiluliShopControllerTest/v1/http-response.adoc[]

@@ -1,0 +1,106 @@
+
+
+var CODE_TABLE = {
+  "order_status":{"0":"待付款","1":"已取消","8":"已完成"},
+  "pay_status":{"0": "未支付","1": "已支付"},
+  "sku_status":{"1":"上架","2":"下架"},//商品状态（1上架2下架）
+  "gender":{"0": "未知","1":"男","2":"女"},//性别：0 未知， 1男， 2 女
+  "user_status":{"0":"启用","1": "禁用","2":"注销"},//用户状态 0 可用, 1 禁用, 2 注销
+  "valid_flag":{"0":"无效","1": "有效"},//用有效标记 0无效：1：有效
+  "buss_type":{"1": "次数卡","2":"E卡"},//商品业务类型 1次数卡 2 E卡
+}
+
+ 
+/*根据码值获得说明
+code 码值
+type 类型
+*/
+ function code2value(code, type) {
+   var result="";
+   if (CODE_TABLE[type]){
+     result = CODE_TABLE[type][code];
+   }
+  return result;
+}
+
+
+function formatNumber2Date(n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+function formatDateMD(timeMillis) {
+  var l = parseInt(timeMillis);
+  if (!l) return "";
+  var _date = getDate(l);
+  var month = _date.getMonth() + 1
+  var day = _date.getDate()
+  return [month, day].map(formatNumber2Date).join('-')
+}
+function formatDateYMD(timeMillis) {
+  var l = parseInt(timeMillis);
+  if (!l) return "";
+  var _date = getDate(l);
+  var year = _date.getFullYear()
+  var month = _date.getMonth() + 1
+  var day = _date.getDate()
+  var hour = _date.getHours()
+  var minute = _date.getMinutes()
+  var second = _date.getSeconds()
+
+  return [year, month, day].map(formatNumber2Date).join('-')
+}
+function formatDateYMDHMS(timeMillis) {
+  var l = parseInt(timeMillis);
+  if (!l) return "";
+  var _date = getDate(l);
+  var year = _date.getFullYear()
+  var month = _date.getMonth() + 1
+  var day = _date.getDate()
+  var hour = _date.getHours()
+  var minute = _date.getMinutes()
+  var second = _date.getSeconds()
+
+  return [year, month, day].map(formatNumber2Date).join('-') + ' ' + [hour, minute, second].map(formatNumber2Date).join(':')
+}
+function formatDateYMDHM(timeMillis) {
+  var l = parseInt(timeMillis);
+  if (!l) return "";
+  var _date = getDate(l);
+  var year = _date.getFullYear()
+  var month = _date.getMonth() + 1
+  var day = _date.getDate()
+  var hour = _date.getHours()
+  var minute = _date.getMinutes()
+  var second = _date.getSeconds()
+
+  return [year, month, day].map(formatNumber2Date).join('-') + ' ' + [hour, minute].map(formatNumber2Date).join(':')
+}
+function formatNumber(num, len) {
+  return num.toFixed(len);
+}
+function formatMoney3(money) {
+  if (!money) return '0.00';
+  var m = money.toFixed(2);
+  if (money < 1000) return m;
+  var ms = m.split(".");
+  var intPart = ms[0]; //获取整数部分
+  var reg = getRegExp("(\d)(?=(?:\d{3})+$)", "g");
+  var intPartFormat = ms[0].replace(reg, '$1,'); //将整数部分逢三一断
+  return intPartFormat + "." + ms[1];
+}
+function formatMoney(money) {
+  if (!money) return '0.00';
+  var mm = parseFloat(money);
+  var m = mm.toFixed(2);
+  return m;
+}
+module.exports = {
+  formatNumber: formatNumber,
+  formatMoney: formatMoney,
+  formatMoney3: formatMoney3,
+  formatDateYMD: formatDateYMD,
+  formatDateYMDHM: formatDateYMDHM,
+  formatDateYMDHMS: formatDateYMDHMS,
+  formatDateMD: formatDateMD,
+  code2value: code2value
+};

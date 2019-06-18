@@ -1,0 +1,187 @@
+{
+  "insuredInfoList": [
+    {
+      "birthday": "1986-10-06",
+      "socialSecurityFlag": "1",
+      "idNo": "210782198610064035",
+      "communicationInfo": {
+        "postalZipCode": "116004",
+        "mobile": "13842823735",
+        "otherMobile": "",
+        "postalAddressInfoList": [
+          {
+            "placeType": "01",
+            "placeName": "辽宁省",
+            "placeCode": "210000"
+          },
+          {
+            "placeType": "02",
+            "placeName": "大连市",
+            "placeCode": "210200"
+          },
+          {
+            "placeType": "03",
+            "placeName": "甘井子区",
+            "placeCode": "210211"
+          }
+        ],
+        "email": "7073339@qq.com",
+        "postalAddressText": "辽宁省大连市甘井子区宜居园8A号2单元802"
+      },
+      "rgtAddressInfoList": [],
+      "ifSmoke": "N",
+      "marriage": "0",
+      "rgtAddressZipCode": "210211",
+      "crsIdType": "0",
+      "specialImpartInfo": "被保人特殊告知",
+      "contInfo": {
+        "needBnfDocument": "N",
+        "chargeInfo": {
+          "bankCode": "14",
+          "payMode": "R",
+          "newBankAccNo": "6258091740862000",
+          "accName": "李金亮",
+          "newBankCode": "14",
+          "newAccName": "李金亮",
+          "bankAccNo": "6258091740862000"
+        },
+        "printPaperPolicy": "",
+        "needEmailSubscribe": "Y",
+        "saleMode": "6",
+        "remark": "",
+        "fileInfoList": [],
+        "loveLetterInfoList": [],
+        "prtNo": "",
+        "sumPrem": "2383",
+        "questionnaireNo": "",
+        "thirdClassDistributor": "",
+        "saleChnl": "7",
+        "smartUwConclusion": "",
+        "subSaleMode": "ONLINE",
+        "applyDate": "2019-04-30",
+        "secondaryDistributor": "",
+        "prem": "2383",
+        "manageCom": "86880101"
+      },
+      "idType": "0",
+      "avoirdupois": "76",
+      "sex": "0",
+      "degree": "1",
+      "relationToAppnt": "00",
+      "riskInfoList": [
+        {
+          "riskName": "百年加惠保重大疾病保险",
+          "insuYearFlag": "A",
+          "mult": "1",
+          "insuYear": "70",
+          "relaInfoList": [],
+          "clmGetIntv": "0",
+          "dutyCode": "5313D1",
+          "getRate": "",
+          "hesitatePeriod": "",
+          "bonusGetMode": "",
+          "payEndYear": "10",
+          "renewFlag": "Y",
+          "prem": "2383",
+          "amnt": "100000",
+          "payEndYearFlag": "Y",
+          "insuYearDesc": "",
+          "payIntv": "12",
+          "autoPayFlag": "N",
+          "riskCode": "5313",
+          "subRiskFlag": "M",
+          "getYearDesc": "",
+          "getYear": "",
+          "getYearFlag": "",
+          "accAutoPayFlag": "N",
+          "liveGetMode": "",
+          "payEndYearDesc": ""
+        }
+      ],
+      "impartInfoList": [],
+      "rgtAddressText": "辽宁省大连市甘井子区宜居园8A号2单元802",
+      "customerLevel": "0",
+      "idValidate": "2021-01-01",
+      "occupationCode": "7000001",
+      "occupationInfo": {
+        "occupationType": "1",
+        "occupationCode": "7000001",
+        "occupationName": "行政业务办公人员（内勤）",
+        "hosipRisk": "1"
+      },
+      "bnfInfoList": [
+        {
+          "birthday": "1987-06-14",
+          "code": "",
+          "idType": "0",
+          "proportion": "1",
+          "grade": "1",
+          "sex": "1",
+          "name": "徐宁",
+          "relationToAppnt": "01",
+          "type": "",
+          "idNo": "210281198706144028",
+          "relationToInsured": "01",
+          "idValidate": "2021-01-01"
+        }
+      ],
+      "name": "李金亮",
+      "stature": "178",
+      "nativePlace": "CHN"
+    }
+  ],
+  "appntInfo": {
+    "birthday": "1986-10-06",
+    "socialSecurityFlag": "1",
+    "idType": "0",
+    "avoirdupois": "76",
+    "sex": "0",
+    "degree": "1",
+    "idNo": "210782198610064035",
+    "customerLevel": "0",
+    "rgtAddressText": "辽宁省大连市甘井子区宜居园8A号2单元802",
+    "idValidate": "2021-01-01",
+    "communicationInfo": {
+      "postalZipCode": "116004",
+      "mobile": "13842823735",
+      "otherMobile": "",
+      "postalAddressInfoList": [
+        {
+          "placeType": "01",
+          "placeName": "辽宁省",
+          "placeCode": "210000"
+        },
+        {
+          "placeType": "02",
+          "placeName": "大连市",
+          "placeCode": "210200"
+        },
+        {
+          "placeType": "03",
+          "placeName": "甘井子区",
+          "placeCode": "210211"
+        }
+      ],
+      "email": "7073339@qq.com",
+      "postalAddressText": "辽宁省大连市甘井子区宜居园8A号2单元802"
+    },
+    "ifSmoke": "N",
+    "rgtAddressInfoList": [],
+    "occupationCode": "7000001",
+    "marriage": "0",
+    "occupationInfo": {
+      "occupationType": "1",
+      "occupationCode": "7000001",
+      "occupationName": "行政业务办公人员（内勤）",
+      "hosipRisk": "1"
+    },
+    "name": "李金亮",
+    "stature": "178",
+    "nativePlace": "CHN",
+    "crsIdType": "0"
+  },
+  "productId": "110",
+  "shareUserCode": "",
+  "agentInfoList": [],
+  "userCode": "110"
+}

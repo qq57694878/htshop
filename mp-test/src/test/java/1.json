@@ -1,0 +1,42 @@
+{
+  "appntInfo": {
+    "age": "18",
+    "birthday": "2001-04-30",
+    "ifSmoke": "N",
+    "occupationCode": "3030101",
+    "sex": "M",
+    "socialSecurityFlag": "N"
+  },
+  "cvalidate": "2019-5-1",
+  "insuredInfo": {
+    "age": "55",
+    "birthday": "1963-05-05",
+    "ifSmoke": "N",
+    "occupationCode": "3030101",
+    "sex": "M",
+    "socialSecurityFlag": "N"
+  },
+  "insuredRelationToAppnt": "SF",
+  "policyInfoList": [
+    {
+      "amnt": "100000",
+      "cvalidate": "2019-5-1",
+      "dutyCode": "5314D1",
+      "familyType": "",
+      "getLimit": "",
+      "getRate": "",
+      "getYear": "",
+      "getYearFlag": "",
+      "insuredYear": "106",
+      "insuredYearFlag": "A",
+      "mult": "1",
+      "payEndYear": "10",
+      "payEndYearFlag": "Y",
+      "payIntv": "12",
+      "prem": "7113",
+      "renewalFlag": "NC",
+      "riskCode": "5314"
+    }
+  ],
+  "saleChnl": "O"
+}

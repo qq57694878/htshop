@@ -1,0 +1,269 @@
+page {
+	min-height: 100%;
+}
+.container{
+  min-height: 100%;
+  background-color: #f4f4f4;
+  font-size: 24rpx;
+}
+
+.userbox {
+  overflow: hidden;
+  display: flex;
+	flex-direction: column;
+  width: 100%;
+  height: 260rpx;
+  align-items: center;
+  justify-content: center;
+}
+.userbox .userinfo {
+	display: flex;
+	flex-direction: column;
+  width: 750rpx;
+  z-index: 100;
+	align-items: center;
+  justify-content: center;
+}
+
+.userbox .userinfo .userinfo-avatar-wrap {
+  display: block;
+	width: 160rpx;
+	height: 160rpx;
+  border: 5rpx solid #eee;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userbox .userinfo .userinfo-avatar {
+  display: block;
+	width: 160rpx;
+	height: 160rpx;
+}
+
+
+
+
+.userbox .userinfo .userinfo-avatar-no {
+  display: block;
+	width: 160rpx;
+	height: 160rpx;
+  margin: 20rpx 0;
+  border: 5rpx solid #eee;
+  border-radius: 5%;
+}
+
+.userbox .userinfo .userinfo-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userbox .userinfo .userinfo-text .userinfo-nickname {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.userbox .userInfoMask{
+  width: 100%;
+  height: 310rpx;
+  z-index: 1;
+  position: relative;
+  bottom: 0rpx;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 70%;
+  background-color: #FFF;
+}
+
+.phoneNumber{
+  align-items: center;
+  font-size: 24rpx;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.pin-phoneNumber{
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+  font-size: 20rpx;
+  color: #ff5577;
+  background-color: #ffe8ee;
+  border-radius: 1% solid #ffe8ee;
+}
+
+.userbox .my-sign{
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  z-index: 100;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+
+
+/* 订单导航栏 */
+
+.order-navbar {
+
+  margin: auto;
+  padding: 15rpx 0;
+  width: 95%;
+  box-shadow: 0 1rpx 5rpx 0px rgba(0, 0, 0, 0.05);
+  font-size: 30rpx;
+  border-top: 1rpx solid #eee;
+  border-radius: 5rpx;
+  background: #fff;
+}
+
+.order-navbar-header {
+  margin: auto;
+  padding-bottom: 10rpx;
+  width: 91%;
+  height: 70rpx;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-navbar-footer {
+  width: 100%;
+  padding: 10rpx 0px;
+}
+
+.order-navbar-footer .order-navbar-item .order-navbar__icon {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  padding: 10rpx 0;
+  color: #000;
+  font-size: 36rpx;
+}
+
+.order-navbar-footer .order-navbar-item .order-navbar__name {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  margin-right: 10rpx;
+}
+
+.order-navbar-footer .order-navbar-item .order-badge {
+  position: absolute;
+  top: 0;
+  right: 55rpx;
+  font-size: 22rpx;
+  background: #ff495e;
+  text-align: center;
+  line-height: 28rpx;
+  color: #fff;
+  border-radius: 100%;
+  min-height: 30rpx;
+  min-width: 30rpx;
+  padding: 1rpx;
+}
+
+.h-contents{
+  z-index: 100;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.h-contents .a-item{
+  width: 27%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+
+.h-contents .a-item .my{
+  display: flex;
+  flex-direction: row;
+}
+
+.h-contents .a-item-no-right-border{
+  width: 19%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.user-menu{
+  width: 100%;
+  height: auto;
+  background: #FFF;
+}
+
+.user-menu .item{
+  float: left;
+  width: 249rpx;
+  height: 167.5rpx;/*187.5*/
+  border-top: 1px solid #EFEFEF; 
+  border-right: 1px solid #EFEFEF;
+  text-align: center;
+}
+
+.user-menu .item .a{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user-menu .item.no-border-right {
+  border-right: 0;
+}
+.user-menu .item.item-bottom {
+  border-bottom: 1px solid #EFEFEF;
+}
+.user-menu .item.no-border-bottom{
+  border-bottom: 1px solid #EFEFEF;
+  border-right: none;
+}
+.user-menu .icon{
+  margin: 0 auto;
+  display: block;
+  height: 60rpx;
+  width: 60rpx;
+  margin-bottom: 16rpx;
+}
+
+.user-menu .txt{
+  display: block;
+  height: auto;
+  width: 100%;
+  color:#333;
+}
+
+.my-item{
+    width: 30%;
+    background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 750rpx center;
+    background-size: 16rpx auto,750rpx auto;
+    margin: 20rpx 0; 
+    border-bottom: 1px solid #f4f4f4;
+    height: 80rpx;
+    line-height: 100rpx;
+    padding-left: 100rpx;
+}
+
+.version {
+  width:100%;
+  height: 30rpx;
+	line-height: 30rpx;
+	font-size: 24rpx;
+	text-align: center;  
+}

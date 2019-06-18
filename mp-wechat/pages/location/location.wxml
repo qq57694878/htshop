@@ -1,0 +1,16 @@
+<map style="width: 100%; height: {{height}}px;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" scale='18'>
+</map>
+
+
+
+   <view class="weui-flex my-footer">
+            <view class="weui-flex__item">
+                <view class="my-text">
+      <my-icon name="iconjuli" />
+      <text>距离我约：{{meters}}km</text>
+    </view>
+            </view>
+            <view class="weui-flex__item my-align-right">
+               <button bindtap="openTgLocation" class="weui-btn" size="mini" type="primary">导航</button>
+            </view>
+        </view>

@@ -1,0 +1,173 @@
+{
+  "insuredInfoList": [
+    {
+      "code": "556604619950",
+      "name": "姜鑫",
+      "sex": "0",
+      "crsIdType": "0",
+      "birthday": "1984-07-07",
+      "occupationCode": "2129901",
+      "nativePlace": "CHN",
+      "rgtAddressInfoList": [
+        {
+          "placeType": "01"
+        },
+        {
+          "placeType": "02"
+        }
+      ],
+      "rgtAddressText": "辽宁省大连市",
+      "idType": "0",
+      "idNo": "210204198407074290",
+      "idValidate": "2033-10-05",
+      "communicationInfo": {
+        "mobile": "18504228477",
+        "otherMobile": "",
+        "email": "935997184@qq.com",
+        "postalAddressInfoList": [
+          {
+            "placeCode": "210000",
+            "placeName": "辽宁省",
+            "placeType": "01"
+          },
+          {
+            "placeCode": "210200",
+            "placeName": "大连市",
+            "placeType": "02"
+          }
+        ],
+        "postalAddressText": "辽宁省大连市沙河口区体坛路22号1-1",
+        "postalZipCode": "116000"
+      },
+      "marriage": "1",
+      "degree": "2",
+      "stature": "170.00",
+      "avoirdupois": "60.00",
+      "customerLevel": "0",
+      "socialSecurityFlag": "0",
+      "relationToAppnt": "00",
+      "impartInfoList": [
+        {
+          "code": "001",
+          "param": "30,1、6",
+          "version": "01"
+        },
+        {
+          "code": "011",
+          "param": "是,",
+          "version": "01"
+        },
+        {
+          "code": "012",
+          "param": "是,",
+          "version": "01"
+        }
+      ],
+      "specialImpartInfo": "",
+      "bnfInfoList": [],
+      "riskInfoList": [
+        {
+          "riskCode": "1909",
+          "prem": 5376,
+          "amnt": 300000,
+          "payIntv": "12",
+          "mult": "0",
+          "insuYear": "106",
+          "insuYearFlag": "A",
+          "payEndYear": "20",
+          "payEndYearFlag": "Y"
+        }
+      ],
+      "contInfo": {
+        "saleMode": "2",
+        "subSaleMode": "M",
+        "saleChnl": "1",
+        "fileInfoList": [],
+        "orderNo": "116481556604619902",
+        "printPaperPolicy": "Y",
+        "chargeInfo": {
+          "newAccName": "姜鑫",
+          "accName": "姜鑫",
+          "newBankCode": "04",
+          "bankCode": "04",
+          "newBankAccNo": "6013827014004211020",
+          "bankAccNo": "6013827014004211020",
+          "payMode": "R"
+        },
+        "applyDate": "2019-04-30"
+      }
+    }
+  ],
+  "appntInfo": {
+    "code": "556604619950",
+    "name": "姜鑫",
+    "sex": "0",
+    "crsIdType": "0",
+    "birthday": "1984-07-07",
+    "occupationCode": "2129901",
+    "nativePlace": "CHN",
+    "rgtAddressInfoList": [
+      {
+        "placeType": "01"
+      },
+      {
+        "placeType": "02"
+      }
+    ],
+    "rgtAddressText": "辽宁省大连市",
+    "idType": "0",
+    "idNo": "210204198407074290",
+    "idValidate": "2033-10-05",
+    "communicationInfo": {
+      "mobile": "18504228477",
+      "otherMobile": "",
+      "email": "935997184@qq.com",
+      "postalAddressInfoList": [
+        {
+          "placeCode": "210000",
+          "placeName": "辽宁省",
+          "placeType": "01"
+        },
+        {
+          "placeCode": "210200",
+          "placeName": "大连市",
+          "placeType": "02"
+        }
+      ],
+      "postalAddressText": "辽宁省大连市沙河口区体坛路22号1-1",
+      "postalZipCode": "116000"
+    },
+    "marriage": "1",
+    "degree": "2",
+    "stature": "170.00",
+    "avoirdupois": "60.00",
+    "customerLevel": "0",
+    "socialSecurityFlag": "0",
+    "impartInfoList": [
+      {
+        "code": "001",
+        "param": "30,1、6",
+        "version": "01"
+      },
+      {
+        "code": "011",
+        "param": "是,",
+        "version": "01"
+      },
+      {
+        "code": "012",
+        "param": "是,",
+        "version": "01"
+      }
+    ],
+    "specialImpartInfo": ""
+  },
+  "agentInfoList": [
+    {
+      "code": "1880100269",
+      "name": "郭伟冬",
+      "order": "1"
+    }
+  ],
+  "userCode": "1880100269"
+}

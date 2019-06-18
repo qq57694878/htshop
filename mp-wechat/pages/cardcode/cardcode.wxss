@@ -1,0 +1,28 @@
+.my-wrap{
+  padding:20rpx;
+}
+.my-codes-text {
+  text-align:center;
+  color: #333;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.my-codes-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding-top: 60rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-radius: 30rpx;
+}
+.my-barcode{
+  width: 660rpx;height: 200rpx;
+}
+.my-qrcode{
+  width: 500rpx;height: 500rpx;
+}

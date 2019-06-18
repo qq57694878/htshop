@@ -1,0 +1,47 @@
+.my-list{
+    padding:20rpx;
+  overflow: hidden;
+    background-color:#00afb4;
+}
+.my-list-item{
+  margin-bottom:20rpx;
+  border-radius: 6rpx;
+  padding:10rpx;
+}
+.container{
+
+}
+.my-card-icon-wrap{
+    border-radius: 6rpx;
+}
+.my-card-icon{
+  color:#ccc;
+  font-size:148rpx !important;
+}
+.my-card-name{
+  line-height:50rpx;
+  padding:6rpx;
+ font-size:36rpx;
+ margin-bottom:10rpx;
+}
+.my-create-time{
+  margin-top:10rpx;
+   font-size:24rpx;
+ color:#aaa;
+}
+.my-item-content{
+  font-size:26rpx;
+  color:#aaa;
+}
+.my-rest-frequency{
+  color:#ff495e ;
+}
+.my-balance-price{
+   color:#ff495e ;
+}
+
+.no-more {
+  text-align: center;
+  color: #737373;
+  margin: 10px 0;
+}
