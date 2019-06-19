@@ -1,10 +1,8 @@
 package com.kulongtai.mpstore.controller;
 
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.kulongtai.mpstore.common.R;
 import com.kulongtai.mpstore.common.context.BaseContextHandler;
-import com.kulongtai.mpstore.common.mp.sdk.WxaUserApi;
 import com.kulongtai.mpstore.entity.User;
 import com.kulongtai.mpstore.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

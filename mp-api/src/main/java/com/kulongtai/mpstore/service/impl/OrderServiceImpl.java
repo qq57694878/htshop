@@ -5,18 +5,17 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.kulongtai.mpstore.common.util.NoGenerator;
 import com.kulongtai.mpstore.entity.Card;
 import com.kulongtai.mpstore.entity.Order;
-import com.kulongtai.mpstore.entity.OrderSku;
+import com.kulongtai.mpstore.entity.Sku;
 import com.kulongtai.mpstore.mapper.OrderMapper;
 import com.kulongtai.mpstore.service.ICardService;
 import com.kulongtai.mpstore.service.IOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.kulongtai.mpstore.service.IOrderSkuService;
-import com.kulongtai.mpstore.vo.OrderInfo;
-import org.springframework.beans.BeanUtils;
+import com.kulongtai.mpstore.service.ISkuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +32,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Autowired
     private ICardService iCardService;
     @Autowired
-    private IOrderSkuService iOrderSkuService;
+    private ISkuService iSkuService;
+
     @Transactional
     @Override
     public void processPayedOrder(Integer orderId) {
@@ -42,34 +42,27 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setPayStatus("1");
         order.setUpdateTime(new Date());
         order.setPayTime(new Date());
-        order.setOrderStatus("8");
         this.updateById(order);
+        Sku sku = iSkuService.getById(orderId);
+
         //2.发放卡片
-        QueryWrapper<OrderSku> queryWrapper = Wrappers.query();
-        queryWrapper.eq("order_id",orderId);
-        List<OrderSku> skuList =  iOrderSkuService.list(queryWrapper);
-        skuList.forEach(sku->{
-            Card card = new Card();
-            card.setUserId(order.getUserId());
-            card.setOrderId(order.getOrderId());
-            card.setValidFlag("1");
-            card.setBalancePrice(sku.getFacePrice());
-            card.setBussType(sku.getBussType());
-            card.setCardNo(NoGenerator.cardNo(sku.getBussType()));
-            card.setFacePrice(sku.getFacePrice());
-            card.setCardContent(sku.getSkuContent());
-            card.setCardDesc(sku.getSkuDesc());
-            card.setCardName(sku.getSkuName());
-            card.setOrderSkuId(sku.getId());
-            card.setRestFrequency(sku.getFrequency());
-            card.setTotalFrequency(sku.getFrequency());
-            card.setUpdateTime(new Date());
-            card.setCreateTime(new Date());
-            card.setSkuId(String.valueOf(sku.getSkuId()));
-            iCardService.save(card);
-        });
 
-
-
+        Card card = new Card();
+        card.setUserId(order.getUserId());
+        card.setOrderId(order.getOrderId());
+        card.setValidFlag("1");
+        card.setCardNo(NoGenerator.cardNo());
+        card.setCardContent(sku.getSkuContent());
+        card.setCardName(sku.getSkuName());
+        card.setRestFrequency(sku.getFrequency());
+        card.setTotalFrequency(sku.getFrequency());
+        card.setUpdateTime(new Date());
+        card.setCreateTime(new Date());
+        card.setSkuId(String.valueOf(sku.getSkuId()));
+        //有效期生成
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, sku.getValidMonth());
+        card.setValideTime(c.getTime());
+        iCardService.save(card);
     }
 }

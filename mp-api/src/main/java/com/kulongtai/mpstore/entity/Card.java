@@ -1,18 +1,18 @@
 package com.kulongtai.mpstore.entity;
 
-    import java.math.BigDecimal;
-    import com.baomidou.mybatisplus.annotation.TableName;
-    import com.baomidou.mybatisplus.annotation.IdType;
-    import com.baomidou.mybatisplus.extension.activerecord.Model;
-    import java.util.Date;
-    import com.baomidou.mybatisplus.annotation.TableId;
-    import com.baomidou.mybatisplus.annotation.TableField;
-    import java.io.Serializable;
-    import io.swagger.annotations.ApiModel;
-    import io.swagger.annotations.ApiModelProperty;
-    import lombok.Data;
-    import lombok.EqualsAndHashCode;
-    import lombok.experimental.Accessors;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
 * <p>
@@ -20,7 +20,7 @@ package com.kulongtai.mpstore.entity;
     * </p>
 *
 * @author lijinliang
-* @since 2019-06-13
+* @since 2019-06-19
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
@@ -31,7 +31,7 @@ package com.kulongtai.mpstore.entity;
 
     private static final long serialVersionUID = 1L;
 
-            @ApiModelProperty(value = "卡券id")
+            @ApiModelProperty(value = "我的卡券id")
             @TableId(value = "card_id", type = IdType.AUTO)
     private Integer cardId;
 
@@ -51,49 +51,29 @@ package com.kulongtai.mpstore.entity;
         @TableField("card_name")
     private String cardName;
 
-            @ApiModelProperty(value = "面值")
-        @TableField("face_price")
-    private BigDecimal facePrice;
-
-            @ApiModelProperty(value = "余额")
-        @TableField("balance_price")
-    private BigDecimal balancePrice;
-
-            @ApiModelProperty(value = "卡片详情")
-        @TableField("card_content")
-    private String cardContent;
+            @ApiModelProperty(value = "总次数")
+        @TableField("total_frequency")
+    private Integer totalFrequency;
 
             @ApiModelProperty(value = "剩余次数")
         @TableField("rest_frequency")
     private Integer restFrequency;
 
-            @ApiModelProperty(value = "总次数")
-        @TableField("total_frequency")
-    private Integer totalFrequency;
-
-            @ApiModelProperty(value = "卡片简述")
-        @TableField("card_desc")
-    private String cardDesc;
+            @ApiModelProperty(value = "卡片详情")
+        @TableField("card_content")
+    private String cardContent;
 
             @ApiModelProperty(value = "有效标记（1有效0无效）")
         @TableField("valid_flag")
     private String validFlag;
 
-            @ApiModelProperty(value = "业务分类（1次数卡2E卡）")
-        @TableField("buss_type")
-    private String bussType;
-
-            @ApiModelProperty(value = "订单商品id")
-        @TableField("order_sku_id")
-    private Integer orderSkuId;
-
             @ApiModelProperty(value = "订单id")
         @TableField("order_id")
     private Integer orderId;
 
-            @ApiModelProperty(value = "订单编号")
-        @TableField("order_no")
-    private String orderNo;
+            @ApiModelProperty(value = "有效期至")
+        @TableField("valide_time")
+    private Date valideTime;
 
             @ApiModelProperty(value = "创建时间")
         @TableField("create_time")

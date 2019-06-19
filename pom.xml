@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kulongtai.mpstore</groupId>
-	<artifactId>mpstore</artifactId>
+	<artifactId>htshop</artifactId>
 	<version>0.0.1</version>
 	<name>htshop</name>
 	<description>微信小程序</description>

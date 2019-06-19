@@ -29,7 +29,7 @@ public class WxaUserApi {
      * @param jsCode 登录时获取的 code
      * @return ApiResult
      */
-    public ApiResult getSessionKey(String jsCode) {
+    public ApiResult code2Session(String jsCode) {
         WxaConfig wc = WxaConfigKit.getWxaConfig();
         Map<String, String> params = new HashMap<String, String>();
         params.put("appid", wc.getAppId());

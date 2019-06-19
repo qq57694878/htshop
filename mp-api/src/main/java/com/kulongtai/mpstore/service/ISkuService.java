@@ -1,7 +1,7 @@
 package com.kulongtai.mpstore.service;
 
-import com.kulongtai.mpstore.entity.Sku;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.kulongtai.mpstore.entity.Sku;
 
 /**
  * <p>

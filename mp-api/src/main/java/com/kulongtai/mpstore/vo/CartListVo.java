@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Created by Administrator on 2019/6/18 0018.
  */
 @Data
-public class CartListVo extends Sku{
+public class CartListVo extends Sku {
     @Autowired
     private Integer skuNum;
 }

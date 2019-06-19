@@ -45,12 +45,12 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir")+"/mp-api";
+        String projectPath = System.getProperty("user.dir")+"/mp-test";
         gc.setOutputDir(projectPath  +"/src/main/java");
         gc.setAuthor("lijinliang");
         gc.setOpen(false);
         gc.setSwagger2(true);
-       // gc.setFileOverride(true);//TODO
+        gc.setFileOverride(true);//TODO
         gc.setActiveRecord(true);
         gc.setBaseColumnList(true);
         gc.setBaseResultMap(true);
@@ -60,7 +60,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/mpstore?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://localhost:3306/htshop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("db_mpstore");

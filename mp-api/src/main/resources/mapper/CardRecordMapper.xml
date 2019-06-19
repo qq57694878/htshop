@@ -8,19 +8,15 @@
         <result column="card_id" property="cardId" />
         <result column="card_no" property="cardNo" />
         <result column="user_id" property="userId" />
-        <result column="before_used_price" property="beforeUsedPrice" />
-        <result column="used_price" property="usedPrice" />
-        <result column="after_used_price" property="afterUsedPrice" />
-        <result column="buss_type" property="bussType" />
+        <result column="before_used_frequency" property="beforeUsedFrequency" />
         <result column="used_frequency" property="usedFrequency" />
         <result column="after_used_frequency" property="afterUsedFrequency" />
-        <result column="before_used_frequency" property="beforeUsedFrequency" />
         <result column="create_time" property="createTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, card_id, card_no, user_id, before_used_price, used_price, after_used_price, buss_type, used_frequency, after_used_frequency, before_used_frequency, create_time
+        id, card_id, card_no, user_id, before_used_frequency, used_frequency, after_used_frequency, create_time
     </sql>
 
 </mapper>

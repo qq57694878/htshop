@@ -1,18 +1,19 @@
 package com.kulongtai.mpstore.entity;
 
-    import java.math.BigDecimal;
-    import com.baomidou.mybatisplus.annotation.TableName;
-    import com.baomidou.mybatisplus.annotation.IdType;
-    import com.baomidou.mybatisplus.extension.activerecord.Model;
-    import java.util.Date;
-    import com.baomidou.mybatisplus.annotation.TableId;
-    import com.baomidou.mybatisplus.annotation.TableField;
-    import java.io.Serializable;
-    import io.swagger.annotations.ApiModel;
-    import io.swagger.annotations.ApiModelProperty;
-    import lombok.Data;
-    import lombok.EqualsAndHashCode;
-    import lombok.experimental.Accessors;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
 * <p>
@@ -20,7 +21,7 @@ package com.kulongtai.mpstore.entity;
     * </p>
 *
 * @author lijinliang
-* @since 2019-06-13
+* @since 2019-06-19
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
@@ -35,13 +36,9 @@ package com.kulongtai.mpstore.entity;
             @TableId(value = "order_id", type = IdType.AUTO)
     private Integer orderId;
 
-            @ApiModelProperty(value = "订单编号")
-        @TableField("order_no")
-    private String orderNo;
-
-            @ApiModelProperty(value = "订单总额")
-        @TableField("total_price")
-    private BigDecimal totalPrice;
+            @ApiModelProperty(value = "商品id")
+        @TableField("sku_id")
+    private Integer skuId;
 
             @ApiModelProperty(value = "支付金额")
         @TableField("pay_price")
@@ -54,10 +51,6 @@ package com.kulongtai.mpstore.entity;
             @ApiModelProperty(value = "支付时间")
         @TableField("pay_time")
     private Date payTime;
-
-            @ApiModelProperty(value = "订单状态(0待付款;1已取消;8已完成)")
-        @TableField("order_status")
-    private String orderStatus;
 
             @ApiModelProperty(value = "用户id")
         @TableField("user_id")

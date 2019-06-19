@@ -1,9 +1,9 @@
 package com.kulongtai.mpstore.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kulongtai.mpstore.entity.About;
 import com.kulongtai.mpstore.mapper.AboutMapper;
 import com.kulongtai.mpstore.service.IAboutService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

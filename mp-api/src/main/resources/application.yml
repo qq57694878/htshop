@@ -2,7 +2,7 @@ spring:
   datasource:
           name: mpstore
           # url: jdbc:mysql://182.61.166.15:3306/test?useUnicode=true&characterEncoding=UTF8
-          url: jdbc:mysql://localhost:3306/mpstore?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://localhost:3306/htshop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: db_mpstore
           password: db_mpstore
           driver-class-name: com.mysql.cj.jdbc.Driver

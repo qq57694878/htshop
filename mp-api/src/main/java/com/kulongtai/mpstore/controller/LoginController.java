@@ -10,8 +10,6 @@ import com.kulongtai.mpstore.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-
 /**
  * Created by Administrator on 2019/6/13 0013.
  */

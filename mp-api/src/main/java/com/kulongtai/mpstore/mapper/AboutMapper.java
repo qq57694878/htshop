@@ -1,7 +1,7 @@
 package com.kulongtai.mpstore.mapper;
 
-import com.kulongtai.mpstore.entity.About;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.kulongtai.mpstore.entity.About;
 
 /**
  * <p>
