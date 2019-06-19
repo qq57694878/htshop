@@ -1,23 +1,17 @@
 <view class="container">
   <view class='userbox' style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
-    <view class="userinfo">
-      <view class="userinfo-avatar-wrap">
-        <open-data class="userinfo-avatar" lang="zh_CN" type="userAvatarUrl"></open-data>
+   <view class="user-header" style="background-image: url('/images/user-bg.png');">
+      <view class="user-header-cont">
+        <view class="user-header-avatar">
+          <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
+        </view>
+        <view>
+            <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
+        <view>电话：{{mobile}}</view>
+        <view>车牌号：{{carNo}}</view>
+        </view>
+     
       </view>
-
-      <view style='width:30rpx;'></view>
-      <view class='userinfo-text'>
-        <open-data class="userinfo-nickname" lang="zh_CN" type="userNickName"></open-data>
-        <view style='height:10rpx;'></view>
-        <!-- 部分未通过认证的开发者无权限获得用户绑定电话信息，故暂时隐藏此功能。具体可见微信官方https://developers.weixin.qq.com/miniprogram/dev/api/getPhoneNumber.html -->
-        <!--<wxc-label wx:if="{{userMobile}}" class="phoneNumber" type='fill' type-color="#747ba1">
-            {{userMobile}}
-          </wxc-label>
-          <button wx:else class="pin-phoneNumber" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" size='min'>
-            点击绑定手机号码
-          </button>-->
-      </view>
-
     </view>
     <!--
     <view wx:else class="userinfo">
@@ -28,7 +22,6 @@
       </view>
     </view>
     -->
-    <view class='userInfoMask'></view>
 
   </view>
 
@@ -42,7 +35,7 @@
           <form bindsubmit="onTargetOrder" data-type="unpay"  report-submit="true ">
             <button formType="submit" class="btn-normal ">
               <text class="order-navbar__icon iconfont icondaifukuan"></text>
-              <text class="order-navbar__name ">待付款</text>
+              <text class="order-navbar__name ">我的套餐</text>
               <text class="order-badge " wx:if="{{orderCount.payment> 0}}">{{orderCount.payment}}</text>
             </button>
           </form>
@@ -51,7 +44,7 @@
           <form bindsubmit="onTargetOrder" data-type="payed" report-submit="true">
             <button formType="submit" class="btn-normal">
               <text class="order-navbar__icon iconfont iconwancheng"></text>
-              <text class="order-navbar__name">已完成</text>
+              <text class="order-navbar__name">消费记录</text>
               <text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
             </button>
           </form>
