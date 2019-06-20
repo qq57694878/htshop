@@ -1,9 +1,6 @@
 package com.kulongtai.mpstore.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -56,7 +53,7 @@ import java.util.Date;
     private String avatar;
 
             @ApiModelProperty(value = "openid")
-        @TableField("openid")
+        @TableField(value="openid",fill = FieldFill.UPDATE)
     private String openid;
 
             @ApiModelProperty(value = "session_key")

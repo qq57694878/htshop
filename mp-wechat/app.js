@@ -2,8 +2,10 @@
 import properties from "./utils/properties.js"
 import aa from "./mock/index.js"
 import {_get,_post,_delete,_put} from "./utils/request.js"
-
+import {checkPhone,checkCarNo} from "./utils/check.js"
 App({
+    checkPhone:checkPhone,
+    checkCarNo:checkCarNo,
   onLaunch: function () {
     // 展示本地存储能力
     this.updateProject();
@@ -76,14 +78,22 @@ App({
     wx.showToast({
       title: msg,
       icon: 'success',
+      duration: 1500,
       success() {
-        callback && (setTimeout(() => {
-          callback();
-        }, 1500));
+        callback && callback();
       }
     });
   },
-
+    showInfo(msg, callback) {
+        wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000,
+            success() {
+                callback && callback();
+            }
+        });
+    },
   /**
    * 显示失败提示框
    */

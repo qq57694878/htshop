@@ -3,6 +3,7 @@ package com.kulongtai.mpstore.controller;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.kulongtai.mpstore.common.R;
 import com.kulongtai.mpstore.common.constant.CommonConstants;
+import com.kulongtai.mpstore.common.context.BaseContextHandler;
 import com.kulongtai.mpstore.common.exception.BussinessException;
 import com.kulongtai.mpstore.common.mp.sdk.ApiResult;
 import com.kulongtai.mpstore.common.mp.sdk.WxaUserApi;
@@ -112,6 +113,23 @@ public class LoginController {
         iUserService.save(user);
         //2.返回token
         String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()),null);
+        return new R(token);
+    }
+
+    /**
+     * 登出
+     * @return
+     */
+    @PostMapping("/logout")
+    public R<String> logout(){
+        Integer userId = BaseContextHandler.getUserId();
+        //重新绑定新注册用户
+        User user =new User();
+        user.setUserId(userId);
+        user.setOpenid(null);
+        iUserService.updateById(user);
+        //2.返回 游客身份的token
+        String token = jwtTokenUtil.generateToken( String.valueOf(CommonConstants.VISITOR_USER_ID),null);
         return new R(token);
     }
 }

@@ -1,53 +1,18 @@
 {
   "pages": [
     "pages/tabbar/my",
-            "pages/login/login",
+     "pages/login/login",
     "pages/login/register",
-
-    "pages/tabbar/home",
-    "pages/tabbar/catalog",
-    "pages/tabbar/cart",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/order-list/list",
-    "pages/order/list",
-    "pages/order/detail",
     "pages/cardcode/cardcode",
     "pages/sku/list",
     "pages/sku/detail",
     "pages/location/location",
     "pages/card/list",
     "pages/card-record/list",
-    "pages/about/index",
-    "pages/flow/checkout"
+    "pages/about/index"
 
   ],
-  "tabBar": {
-    "backgroundColor": "#ffffff",
-    "borderStyle": "white",
-    "selectedColor": "#AB956D",
-    "color": "#666F83",
-    "list": [
-      {
-        "pagePath": "pages/tabbar/home",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home_on.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/tabbar/cart",
-        "iconPath": "images/cart.png",
-        "selectedIconPath": "images/cart_on.png",
-        "text": "购物车"
-      },
-      {
-        "pagePath": "pages/tabbar/my",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/my_on.png",
-        "text": "我的"
-      }
-    ]
-  },
+
   "debug": true,
   "window": {
     "navigationBarTitleText": "大连XX汽修店",

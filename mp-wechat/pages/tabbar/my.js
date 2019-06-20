@@ -2,33 +2,34 @@ const app = getApp()
 
 Page({
 
-  /**
-   * 订单导航跳转
-   */
-  onTargetOrder(e) {
-    // 记录formid
-    // App.saveFormId(e.detail.formId);
-    let urls = {
-      all: '/pages/order/list?type=all',
-      unpay: '/pages/order/list?type=unpay',
-      payed: '/pages/order/list?type=payed',
-      cancel: '/pages/order/list?type=cancel'
-    };
-    // 转跳指定的页面
-    wx.navigateTo({
-      url: urls[e.currentTarget.dataset.type]
-    })
-  },
+
   data: {
+    cardList:[],
     aboutUsTitle: '',
     aboutUsContent: '',
     servicePhoneNumber: '',
-    userInfo:{},
+    userInfo:{
+        mobile:13842823735,
+        carNo:"辽BK6F88"
+    },
     iconSize: 45,
     iconColor: '#999999',
-    mobile:13842823735,
-    carNo:"辽BK6f88"
+
   },
+    /**
+     * 订单导航跳转
+     */
+    onTargetOrder(e) {
+        let urls = {
+            card_list: '/pages/card/list',
+            used_card: '/pages/card-record/list',
+            buy: 'pages/sku/list'
+        };
+        // 转跳指定的页面
+        wx.navigateTo({
+            url: urls[e.currentTarget.dataset.type]
+        })
+    },
   onPullDownRefresh: function () {
     var that = this
     wx.showNavigationBarLoading()
@@ -50,8 +51,6 @@ Page({
   },
   onShow() {
     var that = this;
-    that.getUserApiInfo();
-
     that.getServicePhoneNumber();
     that.getUserInfo();
 
@@ -93,35 +92,7 @@ Page({
       complete: function (res) { },
     })
   },
-  getPhoneNumber: function (e) {
-    if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
-      console.log(e.detail.errMsg)
-      wx.showModal({
-        title: '提示',
-        content: '无法获取手机号码',
-        showCancel: false
-      })
-      return;
-    }
-    var that = this;
-    App._post("",{}).then(res=>{
-      if (res.data.code == 200) {
-        wx.showToast({
-          title: '绑定成功',
-          icon: 'success',
-          duration: 2000
-        })
 
-      } else {
-        wx.showModal({
-          title: '提示',
-          content: '绑定失败',
-          showCancel: false
-        })
-      }
-    });
-
-  },
 
 
  
@@ -135,14 +106,20 @@ Page({
         })
       }
     })
-       
   },
- 
-  relogin: function () {
-    wx.navigateTo({
-      url: "/pages/authorize/index"
-    })
-    this.onLoad()
-  },
+    /**
+     *  登出
+     */
+    logout(){
+            App._get('/mpapi/logout',{}).then((res) => {
+                if (this.code == 200) {
+                    wx.setStorageSync('token', this.data);
+                    //刷新页面
+                    this.onShow();
+                } else {
+                    App.showError(this.msg);
+                }
+            });
+    }
 
 })

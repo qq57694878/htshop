@@ -1,118 +1,130 @@
 <view class="container">
-  <view class='userbox' style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
-   <view class="user-header" style="background-image: url('/images/user-bg.png');">
-      <view class="user-header-cont">
-        <view class="user-header-avatar">
-          <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
-        </view>
-        <view>
-            <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
-        <view>电话：{{mobile}}</view>
-        <view>车牌号：{{carNo}}</view>
-        </view>
-     
-      </view>
-    </view>
-    <!--
-    <view wx:else class="userinfo">
-      <wxc-avatar class="userinfo-avatar-no" mold="square" src="https://cdn.it120.cc/apifactory/2018/06/10/527a0d6e3b3f1ffc32748193d743da26.jpg" bindtap="relogin"> </wxc-avatar>
-      <view class='userinfo-text'>
-        <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆 </text>
-        <view style='height:10rpx;'></view>
-      </view>
-    </view>
-    -->
+    <view class='userbox'
+          style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
 
-  </view>
-
-  <view class='h-contents'>
-    <!-- 订单导航栏 -->
-    <view class="order-navbar">
-
-      <view class="order-navbar-footer dis-flex ">
-
-        <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="unpay"  report-submit="true ">
-            <button formType="submit" class="btn-normal ">
-              <text class="order-navbar__icon iconfont icondaifukuan"></text>
-              <text class="order-navbar__name ">我的套餐</text>
-              <text class="order-badge " wx:if="{{orderCount.payment> 0}}">{{orderCount.payment}}</text>
-            </button>
-          </form>
-        </view>
-        <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="payed" report-submit="true">
-            <button formType="submit" class="btn-normal">
-              <text class="order-navbar__icon iconfont iconwancheng"></text>
-              <text class="order-navbar__name">消费记录</text>
-              <text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
-            </button>
-          </form>
-        </view>
-        <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="cancel" report-submit="true">
-            <button formType="submit" class="btn-normal">
-              <text class="order-navbar__icon iconfont iconcancel"></text>
-              <text class="order-navbar__name">已取消</text>
-              <text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
-            </button>
-          </form>
-        </view>
-        <view class="order-navbar-item flex-box" style="border-left:1px solid #ccc">
-          <form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
-            <button formType="submit" class="btn-normal">
-              <text class="order-navbar__icon iconfont iconwodedingdan" style="color:red"></text>
-              <text class="order-navbar__name">我的订单</text>
-            </button>
-          </form>
+        <view wx:if="userInfo" class="user-header" style="background-image: url('/images/user-bg.png');">
+            <view class="user-header-cont">
+                <view class="user-header-avatar">
+                    <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
+                </view>
+                <view>
+                    <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
+                    <view>电话：{{userInfo.mobile}}</view>
+                    <view>车牌号：{{userInfo.carNo}}</view>
+                </view>
+            </view>
         </view>
 
-      </view>
-    </view>
-  </view>
+        <view wx:else class="userinfo">
+          <wxc-avatar class="userinfo-avatar-no" mold="square" src="/images/visitor_head.jpg" bindtap="relogin"> </wxc-avatar>
+          <view class='userinfo-text'>
+            <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆 </text>
+            <view style='height:10rpx;'></view>
+          </view>
+        </view>
 
-  <view class="user-menu">
-    <view class="item">
-      <navigator url="/pages/card/list" hover-class="none" class="a">
-            <my-icon name="iconqiaquan" info="99+" size='{{iconSize}}rpx' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'/>
-        <text class="txt">我的卡券</text>
-      </navigator>
-    </view>
-    <view class="item">
-      <navigator url="/pages/card-record/list" hover-class="none" class="a">
-            <my-icon name="iconcheliangweixiubaoyang" info="99+" size='{{iconSize}}rpx' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'/>
-        <text class="txt">消费记录</text>
-      </navigator>
     </view>
 
-    <view class="item no-border-right">
-      <navigator url="/pages/location/location" hover-class="none" class="a">
-      <my-icon name="iconjulipaixu"  size='{{iconSize}}rpx' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'/>
-        <text class="txt">到店里</text>
-      </navigator>
-    </view>
-   <!--
-    <view class="item">
-      <navigator url="/pages/ucenter/mycoupons/index" hover-class="none" class="a">
-        <wxc-icon type='coupon' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
-        <text class="txt">优惠券</text>
-      </navigator>
-    </view>
-    -->
+    <view class='h-contents'>
+        <!-- 订单导航栏 -->
+        <view class="order-navbar">
 
-    <view class="item item-bottom" bindtap='makePhoneCall'>
-      <navigator url="" hover-class="none" class="a">
-        <wxc-icon type='group' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
-        <text class="txt">联系我们</text>
-      </navigator>
-    </view>
-    <view class="item item-bottom" bindtap="aboutUs">
-      <navigator url="url" hover-class="none" class="a">
-        <wxc-icon type='help' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
-        <text class="txt">关于我们</text>
-      </navigator>
+            <view class="order-navbar-footer dis-flex ">
+
+                <view class="order-navbar-item flex-box">
+                    <form bindsubmit="onTargetOrder" data-type="card_list" report-submit="true ">
+                        <button formType="submit" class="btn-normal ">
+                            <text class="order-navbar__icon iconfont iconqiaquan"></text>
+                            <text class="order-navbar__name ">我的套餐</text>
+                            <text class="order-badge " wx:if="{{cardList.length> 0}}">{{cardList.length}}</text>
+                        </button>
+                    </form>
+                </view>
+                <view class="order-navbar-item flex-box">
+                    <form bindsubmit="onTargetOrder" data-type="used_card" report-submit="true">
+                        <button formType="submit" class="btn-normal">
+                            <text class="order-navbar__icon iconfont iconcheliangweixiubaoyang"></text>
+                            <text class="order-navbar__name">消费记录</text>
+                        </button>
+                    </form>
+                </view>
+                <!--
+                <view class="order-navbar-item flex-box">
+                  <form bindsubmit="onTargetOrder" data-type="cancel" report-submit="true">
+                    <button formType="submit" class="btn-normal">
+                      <text class="order-navbar__icon iconfont iconcancel"></text>
+                      <text class="order-navbar__name">已取消</text>
+                    </button>
+                  </form>
+                </view>
+                -->
+                <view class="order-navbar-item flex-box" style="border-left:1px solid #ccc">
+                    <form bindsubmit="onTargetOrder" data-type="buy" report-submit="true">
+                        <button formType="submit" class="btn-normal">
+                            <text class="order-navbar__icon iconfont iconyuanfucengqianwanggoumai"
+                                  style="color:red"></text>
+                            <text class="order-navbar__name">去购买</text>
+                        </button>
+                    </form>
+                </view>
+
+            </view>
+        </view>
     </view>
 
-  </view>
+    <view class="user-menu">
+        <view class="item">
+            <navigator url="/pages/card/list" hover-class="none" class="a">
+                <my-icon name="iconqiaquan" info="99+" size='{{iconSize}}rpx' color='{{iconColor}}'
+                         style='margin:15rpx 0 10rpx 0;'/>
+                <text class="txt">我的卡券</text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator url="/pages/card-record/list" hover-class="none" class="a">
+                <my-icon name="iconcheliangweixiubaoyang" info="99+" size='{{iconSize}}rpx' color='{{iconColor}}'
+                         style='margin:15rpx 0 10rpx 0;'/>
+                <text class="txt">消费记录</text>
+            </navigator>
+        </view>
+
+        <view class="item no-border-right">
+            <navigator url="/pages/location/location" hover-class="none" class="a">
+                <my-icon name="iconjulipaixu" size='{{iconSize}}rpx' color='{{iconColor}}'
+                         style='margin:15rpx 0 10rpx 0;'/>
+                <text class="txt">到店里</text>
+            </navigator>
+        </view>
+        <!--
+         <view class="item">
+           <navigator url="/pages/ucenter/mycoupons/index" hover-class="none" class="a">
+             <wxc-icon type='coupon' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+             <text class="txt">优惠券</text>
+           </navigator>
+         </view>
+         -->
+
+        <view class="item item-bottom" bindtap='makePhoneCall'>
+            <navigator url="" hover-class="none" class="a">
+                <wxc-icon type='group' size='{{iconSize}}' color='{{iconColor}}'
+                          style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+                <text class="txt">联系我们</text>
+            </navigator>
+        </view>
+        <view class="item item-bottom" bindtap="aboutUs">
+            <navigator url="" hover-class="none" class="a">
+                <wxc-icon type='help' size='{{iconSize}}' color='{{iconColor}}'
+                          style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+                <text class="txt">关于我们</text>
+            </navigator>
+        </view>
+        <view class="item item-bottom" bindtap="logout">
+            <navigator url="" hover-class="none" class="a">
+                <my-icon name="icondengchu" size='{{iconSize}}rpx' color='{{iconColor}}'
+                         style='margin:15rpx 0 10rpx 0;'/>
+                <text class="txt">登出</text>
+            </navigator>
+        </view>
+    </view>
 
 </view>

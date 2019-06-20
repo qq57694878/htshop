@@ -1,16 +1,18 @@
 <view class="box">
-  <view class="login">
-    <van-cell-group>
-      <van-field value="{{ mobile }}" required clearable label="手机号" placeholder="手机号" />
-      <van-field value="{{ password }}" type="password" label="密码" placeholder="请输入密码" required border="{{ false }}" />
-            <van-field value="{{ repassword }}" type="password" label="再次密码" placeholder="请再次输入密码" required border="{{ false }}" />
-      <van-field value="{{ carNo }}"  bind:focus="onCarnoFocus"  required  label="车牌号" placeholder="车牌号" />
-    </van-cell-group>
-    <view class="my-login-wrap">
-      
-      <van-button style="margin-left:20rpx;" plain size="small" type="primary">快速注册</van-button>
+    <view class="login">
+        <van-cell-group>
+            <van-field value="{{ mobile }}" required clearable label="手机号" placeholder="手机号"    bind:input="onMobileInput"/>
+            <van-field value="{{ password }}" type="password" label="密码" placeholder="请输入密码" required
+                       border="{{ false }}"    bind:input="onPasswordInput"/>
+            <van-field value="{{ repassword }}" type="password" label="再次密码" placeholder="请再次输入密码" required
+                       border="{{ false }}"    bind:input="onRepasswordInput"/>
+            <van-field value="{{ carNo }}" bind:focus="onCarnoFocus" required label="车牌号" placeholder="车牌号"/>
+        </van-cell-group>
+        <view class="my-login-wrap">
+            <van-button style="margin-left:20rpx;" plain size="small" type="primary">快速注册</van-button>
+        </view>
     </view>
-  </view>
 </view>
 
-<my-carno is-show="{{isShow}}" bindok="inputOk" binddelete="inputdelete" bindinputchange="inputChange" key-board-type="{{keyBoardType}}" backgroundColor="white" />
+<my-carno is-show="{{isShow}}" bindok="inputOk" binddelete="inputdelete" bindinputchange="inputChange"
+          key-board-type="{{keyBoardType}}" backgroundColor="white"/>

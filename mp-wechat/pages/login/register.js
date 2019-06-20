@@ -95,5 +95,48 @@ Page({
       keyBoardType = 2
     }
     this.setData({ isShow: true, keyBoardType: keyBoardType});
-  }
-})
+  },
+    onMobileInput(val){
+        this.setData({mobile:val});
+    },
+    onPasswordInput(val){
+        this.setData({password:val});
+    },
+    onRepasswordInput(val){
+        this.setData({repassword:val});
+    },
+    /**
+     * 注册
+     */
+    goReg() {
+        if(this.data.password != this.data.repassword){
+            App.showInfo("两次输入的密码不一致");
+            return;
+        }
+       if(!App.checkPhone(this.data.mobile)){
+         App.showInfo("电话号码格式不正确");
+         return;
+       }
+        if(!App.checkCarNo(this.data.carNo)){
+            App.showInfo("车牌号格式不正确");
+            return;
+        }
+        App._post('/mpapi/reg', {mobile: this.data.mobile, password: this.data.password,carNo:this.data.carNo}).then((res) => {
+            if (this.code == 200) {
+                wx.setStorageSync('token', this.data);
+                App.showSuccess("注册成功",function(){
+                    //去首页
+                    wx.navigateTo({
+                        url: '/pages/tabbar/my'
+                    })
+                });
+
+            } else {
+                App.showError(this.msg);
+            }
+        });
+    },
+
+
+
+    })
