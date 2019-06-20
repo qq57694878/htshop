@@ -25,7 +25,9 @@ Page({
     servicePhoneNumber: '',
     userInfo:{},
     iconSize: 45,
-    iconColor: '#999999'
+    iconColor: '#999999',
+    mobile:13842823735,
+    carNo:"辽BK6f88"
   },
   onPullDownRefresh: function () {
     var that = this

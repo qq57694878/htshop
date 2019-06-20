@@ -1,11 +1,14 @@
 {
   "pages": [
+    "pages/tabbar/my",
+            "pages/login/login",
+    "pages/login/register",
+
     "pages/tabbar/home",
     "pages/tabbar/catalog",
     "pages/tabbar/cart",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/tabbar/my",
     "pages/order-list/list",
     "pages/order/list",
     "pages/order/detail",
@@ -17,6 +20,7 @@
     "pages/card-record/list",
     "pages/about/index",
     "pages/flow/checkout"
+
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",
