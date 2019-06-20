@@ -21,5 +21,8 @@
     <sql id="Base_Column_List">
         user_id, mobile, password, car_no, nickname, avatar, openid, session_key, last_login_time, create_time, update_time
     </sql>
+    <update id="clearOpenid" >
+        update mp_user set openid = NULL where openid=#{openid}
+    </update>
 
 </mapper>

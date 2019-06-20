@@ -31,7 +31,7 @@ public class BaseContextHandler {
         return map.get(key);
     }
 
-    public static Integer getUserID(){
+    public static Integer getUserId(){
         Object value = get(CommonConstants.CONTEXT_KEY_USER_ID);
         return (Integer) value;
     }

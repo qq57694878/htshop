@@ -13,4 +13,5 @@ import com.kulongtai.mpstore.entity.User;
  */
 public interface IUserService extends IService<User> {
 
+    void clearOpenid(String openid);
 }

@@ -35,14 +35,10 @@ public class NotifyController {
         Map<String, String> params = PaymentKit.xmlToMap(xmlMsg);
 
         String result_code  = params.get("result_code");
-        // 总金额
-        String totalFee     = params.get("total_fee");
+
         // 商户订单号
         String orderIdStr      = params.get("out_trade_no");
-        // 微信支付订单号
-        String transId      = params.get("transaction_id");
-        // 支付完成时间，格式为yyyyMMddHHmmss
-        String timeEnd      = params.get("time_end");
+
 
         // 注意重复通知的情况，同一订单号可能收到多次通知，请注意一定先判断订单状态
         // 避免已经成功、关闭、退款的订单被再次更新
@@ -54,7 +50,7 @@ public class NotifyController {
                 Integer orderId = Integer.parseInt(orderIdStr);
                 Order order =  iOrderService.getById(orderId);
                 if("0".equals(order.getPayStatus())){
-                    iOrderService.processPayedOrder(orderId);
+                    iOrderService.processPayedOrder(params);
                 }
                 Map<String, String> xml = new HashMap<String, String>();
                 xml.put("return_code", "SUCCESS");

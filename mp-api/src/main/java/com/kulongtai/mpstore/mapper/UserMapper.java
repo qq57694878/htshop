@@ -2,6 +2,7 @@ package com.kulongtai.mpstore.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kulongtai.mpstore.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.kulongtai.mpstore.entity.User;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+    void clearOpenid(@Param("openid") String openid);
 }

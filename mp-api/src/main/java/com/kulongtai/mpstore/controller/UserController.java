@@ -23,13 +23,13 @@ public class UserController {
     private IUserService iUserService;
     @PostMapping("/updateUserInfo")
     public R<Boolean> updateUserInfo(@RequestBody User user){
-        user.setUserId(BaseContextHandler.getUserID());
+        user.setUserId(BaseContextHandler.getUserId());
         iUserService.updateById(user);
         return new R(true);
     }
     @GetMapping("/getUserInfo")
     public R<User> getUserInfo(){
-        Integer userId = BaseContextHandler.getUserID();
+        Integer userId = BaseContextHandler.getUserId();
         User user= iUserService.getById(userId);
         return new R(user);
     }

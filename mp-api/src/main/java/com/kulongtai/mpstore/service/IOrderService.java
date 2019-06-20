@@ -3,6 +3,8 @@ package com.kulongtai.mpstore.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kulongtai.mpstore.entity.Order;
 
+import java.util.Map;
+
 /**
  * <p>
  * 订单表 服务类
@@ -13,5 +15,5 @@ import com.kulongtai.mpstore.entity.Order;
  */
 public interface IOrderService extends IService<Order> {
 
-    void processPayedOrder(Integer orderId);
+    void processPayedOrder(Map<String, String> payResult);
 }

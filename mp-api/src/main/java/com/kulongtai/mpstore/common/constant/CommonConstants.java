@@ -13,4 +13,9 @@ public class CommonConstants {
     public static final String CONTEXT_KEY_USER_TOKEN = "currentUserToken";
     public static final String JWT_KEY_USER_ID = "userId";
     public static final String JWT_KEY_NAME = "name";
+
+    /**
+     * 游客统一用户id
+     */
+    public static final Integer VISITOR_USER_ID=-1;
 }
