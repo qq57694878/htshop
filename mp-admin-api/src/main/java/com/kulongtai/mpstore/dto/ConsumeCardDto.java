@@ -10,10 +10,9 @@ import java.math.BigDecimal;
  * Created by Administrator on 2019/6/10 0010.
  */
 @Data
-public class ConsumeECardDto implements Serializable {
+public class ConsumeCardDto implements Serializable {
     @ApiModelProperty(value = "卡券消费码")
     private Integer cardNo;
-    @ApiModelProperty(value = "本次消费金额")
-    private BigDecimal usedPrice;
-
+    @ApiModelProperty(value = "本次消费次数")
+    private Integer usedFrequency;
 }

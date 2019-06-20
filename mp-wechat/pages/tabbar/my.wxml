@@ -36,7 +36,7 @@
                         <button formType="submit" class="btn-normal ">
                             <text class="order-navbar__icon iconfont iconqiaquan"></text>
                             <text class="order-navbar__name ">我的套餐</text>
-                            <text class="order-badge " wx:if="{{cardList.length> 0}}">{{cardList.length}}</text>
+                            <text class="order-badge " wx:if="{{cardCount> 0}}">{{cardCount}}</text>
                         </button>
                     </form>
                 </view>

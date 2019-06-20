@@ -35,13 +35,13 @@ public class ConfigController {
     @ApiOperation(value="查询所有的配置")
     public R<AllConfigVo> getAllConfig(){
         AllConfigVo result = new AllConfigVo();
-       List<Config> list = iConfigService.list();
-       Map<String,String> m = new HashMap<String,String>();
-       if(list!=null&&list.size()>0){
-           list.forEach(item->{
-               m.put(item.getK(),item.getV());
-           });
-       }
+        List<Config> list = iConfigService.list();
+        Map<String,String> m = new HashMap<String,String>();
+        if(list!=null&&list.size()>0){
+            list.forEach(item->{
+                m.put(item.getK(),item.getV());
+            });
+        }
         result.setAppid(m.get("appid"));
         result.setAppsecret(m.get("appsecret"));
         result.setMchid(m.get("mchid"));

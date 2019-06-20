@@ -66,7 +66,7 @@ import java.util.Date;
 
             @ApiModelProperty(value = "1:洗车2保养")
         @TableField("catagory")
-    private Integer catagory;
+    private String catagory;
 
             @ApiModelProperty(value = "用户购买后多少个月内使用有效")
         @TableField("valid_month")

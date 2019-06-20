@@ -14,7 +14,7 @@ function  post(suburl,data){
       url: properties.hostUrl + suburl,
       data: data?data:"",
       header: {
-        'Authorization': token,
+        'Authorization': "Bearer "+token,
         'content-type': 'application/json' // 默认值
       },
       method: 'POST',
@@ -51,7 +51,7 @@ function getjson(suburl, data) {
       url: properties.hostUrl + suburl,
       data: data ? data : "",
       header: {
-        'token': token
+        'Authorization': "Bearer " + token,
       },
       method: 'GET',
       dataType: 'json',
@@ -87,7 +87,7 @@ function _delete(suburl, data) {
       url: properties.hostUrl + suburl,
       data: data ? data : "",
       header: {
-        'token': token
+        'Authorization': "Bearer " + token,
       },
       method: 'DELETE',
       dataType: 'json',
@@ -123,7 +123,7 @@ function put(suburl, data) {
       url: properties.hostUrl + suburl,
       data: data ? data : "",
       header: {
-        'token': token
+        'Authorization': "Bearer " + token,
       },
       method: 'PUT',
       dataType: 'json',

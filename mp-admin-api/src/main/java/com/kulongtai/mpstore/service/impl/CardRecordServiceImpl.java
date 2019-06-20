@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author lijinliang
- * @since 2019-06-10
+ * @since 2019-06-20
  */
 @Service
 public class CardRecordServiceImpl extends ServiceImpl<CardRecordMapper, CardRecord> implements ICardRecordService {

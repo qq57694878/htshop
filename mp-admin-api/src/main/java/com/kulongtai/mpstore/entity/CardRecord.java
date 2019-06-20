@@ -1,14 +1,12 @@
 package com.kulongtai.mpstore.entity;
 
-    import java.math.BigDecimal;
     import com.baomidou.mybatisplus.annotation.TableName;
     import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.extension.activerecord.Model;
+    import java.util.Date;
     import com.baomidou.mybatisplus.annotation.TableId;
     import com.baomidou.mybatisplus.annotation.TableField;
     import java.io.Serializable;
-    import java.util.Date;
-
     import io.swagger.annotations.ApiModel;
     import io.swagger.annotations.ApiModelProperty;
     import lombok.Data;
@@ -21,7 +19,7 @@ package com.kulongtai.mpstore.entity;
     * </p>
 *
 * @author lijinliang
-* @since 2019-06-10
+* @since 2019-06-20
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
@@ -48,33 +46,17 @@ package com.kulongtai.mpstore.entity;
         @TableField("user_id")
     private Integer userId;
 
-            @ApiModelProperty(value = "消费前余额")
-        @TableField("before_used_price")
-    private BigDecimal beforeUsedPrice;
-
-            @ApiModelProperty(value = "消费金额")
-        @TableField("used_price")
-    private BigDecimal usedPrice;
-
-            @ApiModelProperty(value = "消费后余额")
-        @TableField("after_used_price")
-    private BigDecimal afterUsedPrice;
-
-            @ApiModelProperty(value = "业务分类（1次数卡2E卡）")
-        @TableField("buss_type")
-    private String bussType;
+            @ApiModelProperty(value = "消费前次数")
+        @TableField("before_used_frequency")
+    private Integer beforeUsedFrequency;
 
             @ApiModelProperty(value = "本次消费次数")
         @TableField("used_frequency")
     private Integer usedFrequency;
 
-            @ApiModelProperty(value = "消费后剩余次数")
+            @ApiModelProperty(value = "消费后次数")
         @TableField("after_used_frequency")
     private Integer afterUsedFrequency;
-
-            @ApiModelProperty(value = "消费前次数")
-        @TableField("before_used_frequency")
-    private Integer beforeUsedFrequency;
 
             @ApiModelProperty(value = "创建时间")
         @TableField("create_time")

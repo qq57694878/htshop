@@ -9,8 +9,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author lijinliang
- * @since 2019-06-09
+ * @since 2019-06-20
  */
 public interface IConfigService extends IService<Config> {
-
+    public String getAppid();
+    public String getAppsecret();
+    public String getMchid();
+    public String getPaykey();
+    public String getServerPhoneNumber();
 }

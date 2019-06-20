@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": " ",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "usingComponents": {
+    "wxc-avatar": "/@minui/wxc-avatar/dist/index",
+    "wxc-button": "/@minui/wxc-button/dist/index",
+    "wxc-icon": "/@minui/wxc-icon/dist/index",
+    "wxc-label": "/@minui/wxc-label/dist/index"
+  }
+
+}

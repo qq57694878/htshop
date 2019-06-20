@@ -53,13 +53,14 @@ Page({
     var that = this;
     that.getServicePhoneNumber();
     that.getUserInfo();
+    this.getMyStat();
 
   },
   getUserInfo(){
     var that = this
     //  获取用户信息
     app._get("/mpapi/user/getUserInfo", "").then(res => {
-      if (res.data.code = 200) {
+      if (res.code = 200) {
         that.setData({
           userInfo: res.data
         })
@@ -94,15 +95,25 @@ Page({
   },
 
 
-
+  getMyStat: function () {
+    var that = this
+    //  获取客服电话
+    app._get("/mpapi/stat/mystat", {  }).then(res => {
+      if (res.code = 200) {
+        that.setData({
+          cardCount: res.data.cardCount > 99 ? "99+" : res.data.cardCount
+        })
+      }
+    })
+  },
  
   getServicePhoneNumber: function () {
     var that = this
     //  获取客服电话
-    app._get("/mpapi/config/getServicePhoneNumber","").then(res=>{
-      if(res.data.code=200){
+    app._get("/mpapi/config/getConfig", {"k":"server_phone_number"}).then(res=>{
+      if(res.code=200){
         that.setData({
-          servicePhoneNumber: res.data.servicePhoneNumber
+          servicePhoneNumber: res.data
         })
       }
     })

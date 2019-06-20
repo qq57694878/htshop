@@ -76,8 +76,7 @@ public final class HttpUtils {
         else if (ClassUtils.isPresent("com.squareup.okhttp.OkHttpClient", HttpUtils.class.getClassLoader())) {
             delegateToUse = new OkHttpDelegate();
         }
-        // com.jfinal.kit.HttpKit
-        else if (ClassUtils.isPresent("com.jfinal.kit.HttpKit", HttpUtils.class.getClassLoader())) {
+        else if (ClassUtils.isPresent("com.kulongtai.mpstore.common.mp.util.HttpKit", HttpUtils.class.getClassLoader())) {
             delegateToUse = new HttpKitDelegate();
         }
         delegate = delegateToUse;

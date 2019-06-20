@@ -12,8 +12,8 @@ import java.util.Date;
  */
 @Data
 public class UserListDto extends PageDto {
-    @ApiModelProperty(value = "用户id")
-    private String userId;
+    @ApiModelProperty(value = "车牌号")
+    private String carNo;
     @ApiModelProperty(value = "用户电话")
     private String mobile;
     @ApiModelProperty(value = "开始时间")

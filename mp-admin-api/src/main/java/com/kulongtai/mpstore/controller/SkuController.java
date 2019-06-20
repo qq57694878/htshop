@@ -65,7 +65,6 @@ public class SkuController {
     @ApiOperation(value="插入商品")
     public R<Boolean> insertSku(@RequestBody Sku sku) {
         sku.setDelFlag("0");
-        sku.setSalesNum(sku.getSalesInit());
         sku.setCreateTime(new Date());
         boolean f = iSkuService.save(sku);
         return new R(f);

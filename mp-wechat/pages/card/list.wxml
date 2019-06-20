@@ -1,44 +1,44 @@
 <wxs src="../../comm.wxs" module="tools" />
 <view class='container'>
-  <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{page.records.length > 0}}">
+  <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{cardList.length > 0}}">
 
     <view class="my-list ">
-      <view class="my-list-item b-f" wx:for="{{page.records}}" wx:key="cardId">
-        <van-row>
-          <navigator class="my-list-item b-f" hover-class="none" url="../card/detail?cardId={{item.cardId}}">
-            <van-col span="6">
-              <view class="my-card-icon-wrap">
-                <my-icon custom-class="my-card-icon" wx:if="{{item.bussType=='1'}}" name="iconcheliangweixiubaoyang"></my-icon>
-                <my-icon custom-class="my-card-icon" wx:if="{{item.bussType=='2'}}" name="iconxianjinquan"></my-icon>
-              </view>
-            </van-col>
-            <van-col span="16">
-              <view class="f-30 twolist-hidden my-card-name">{{item.cardName}}</view>
-              <view class="my-item-content">
-                <view wx:if="{{item.bussType=='1'}}">已用
-                  <text>{{item.totalFrequency-item.restFrequency}}次</text> 剩余
-                  <text class="my-rest-frequency">{{item.restFrequency}}次 </text>
-                </view>
-                <view wx:if="{{item.bussType=='2'}}">已用
-                  <text>￥{{tools.formatMoney(item.facePrice-item.balancePrice)}}</text> 剩余
-                  <text class="my-balance-price">￥{{tools.formatMoney(item.balancePrice)}}</text>
-                </view>
-              </view>
-            </van-col>
-          </navigator>
-          <navigator  hover-class="none" url="../cardcode/cardcode?barCode={{item.cardNo}}">
-            <van-col span="2">
-              <view class="my-erweima-wrap">
-                <my-icon class="my-erweima" name="iconerweima"></my-icon>
-              </view>
-            </van-col>
-          </navigator>
-        </van-row>
+      <view class="my-list-item " wx:for="{{cardList}}" wx:key="cardId">
+        <image class="my-card-bg" src="/images/card-y.jpg" mode='aspectFit'></image>
+        <view class="my-card-icon-wp">
+          <my-icon custom-class="my-card-icon" name="iconxiche"></my-icon>
+          <my-icon custom-class="my-card-icon" wx:if="{{item.catagory=='2'}}" name="iconbaozhang"></my-icon>
+        </view>
+
+        <view class="my-card-name">
+          {{item.cardName}}
+        </view>
+        <view class="my-total">
+          总次数: {{item.totalFrequency}}
+        </view>
+        <view class="my-right-icon-wp">
+          <my-icon custom-class="my-right-icon" name="iconwodedingdan"></my-icon>
+        </view>
+       
+        <view class="my-valid-time">
+          {{tools.formatDateYMD(item.valideTime)}}
+          <text>到期</text>
+        </view>
+        <view class="my-rest">
+          <text class="my-rest-1">剩余 </text>
+          <text class="my-rest-2">{{item.restFrequency}}</text>
+          <text class="my-rest-3"> 次 </text>
+        </view>
+             <view class="my-icon-ewm-wp">
+            <my-icon custom-class="my-icon-ewm" name="iconerweima"></my-icon>
+          </view>
+      
       </view>
     </view>
+
     <view hidden="{{!no_more}}" class="no-more f-30">亲, 没有更多了</view>
   </scroll-view>
-  <view wx:if="{{list.records.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
+  <view wx:if="{{cardList.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
     <view class="img">
       <image mode="aspectFit" src="../../images/no_content.png"></image>
     </view>

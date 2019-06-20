@@ -14,17 +14,17 @@ package com.kulongtai.mpstore.entity;
 
 /**
 * <p>
-    * 关于我们表
+    * 关于我们
     * </p>
 *
 * @author lijinliang
-* @since 2019-06-11
+* @since 2019-06-20
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
     @TableName("mp_about")
-    @ApiModel(value="About对象", description="关于我们表")
+    @ApiModel(value="About对象", description="关于我们")
     public class About extends Model<About> {
 
     private static final long serialVersionUID = 1L;

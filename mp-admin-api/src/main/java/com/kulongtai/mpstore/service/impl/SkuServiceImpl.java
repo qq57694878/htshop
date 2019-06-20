@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 商品信息表 服务实现类
+ * 卡券信息表 服务实现类
  * </p>
  *
  * @author lijinliang
- * @since 2019-06-02
+ * @since 2019-06-20
  */
 @Service
 public class SkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements ISkuService {

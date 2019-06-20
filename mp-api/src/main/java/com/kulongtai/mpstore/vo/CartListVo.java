@@ -9,6 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Data
 public class CartListVo extends Sku {
-    @Autowired
+
     private Integer skuNum;
 }

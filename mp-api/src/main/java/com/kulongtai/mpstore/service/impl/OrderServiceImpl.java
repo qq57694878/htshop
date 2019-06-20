@@ -68,6 +68,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         card.setCardName(sku.getSkuName());
         card.setRestFrequency(sku.getFrequency());
         card.setTotalFrequency(sku.getFrequency());
+        card.setCatagory(sku.getCatagory());
         card.setUpdateTime(new Date());
         card.setCreateTime(new Date());
         card.setSkuId(String.valueOf(sku.getSkuId()));

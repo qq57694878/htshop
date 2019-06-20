@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -213,7 +212,7 @@ public class FileController {
 
     public String createFileName(String ext){
         String part1 = DateFormatUtils.format(new Date(),"yyyyMMddHHmmss");
-        String part2 =RandomStringUtils.randomAlphanumeric(3);
+        String part2 = RandomStringUtils.randomAlphanumeric(3);
         return part1+part2+"."+ext;
     }
 

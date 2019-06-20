@@ -20,7 +20,7 @@ package com.kulongtai.mpstore.entity;
     * </p>
 *
 * @author lijinliang
-* @since 2019-06-19
+* @since 2019-06-20
 */
     @Data
         @EqualsAndHashCode(callSuper = false)

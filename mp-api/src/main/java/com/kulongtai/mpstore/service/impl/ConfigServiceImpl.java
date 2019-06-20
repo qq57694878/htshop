@@ -20,26 +20,51 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, Config> impleme
 
     @Override
     public String getAppid() {
-        return this.getOne(Wrappers.<Config>query().eq("k","appid").last(" limit 1 ")).getV();
+        String v = "";
+        Config config = this.getOne(Wrappers.<Config>query().eq("k", "appid").last(" limit 1 "));
+        if (config != null) {
+            v = config.getV();
+        }
+        return v;
     }
 
     @Override
     public String getAppsecret() {
-        return this.getOne(Wrappers.<Config>query().eq("k","appsecret").last(" limit 1 ")).getV();
+        String v = "";
+        Config config = this.getOne(Wrappers.<Config>query().eq("k", "appsecret").last(" limit 1 "));
+        if (config != null) {
+            v = config.getV();
+        }
+        return v;
     }
 
     @Override
     public String getMchid() {
-        return this.getOne(Wrappers.<Config>query().eq("k","mchid").last(" limit 1 ")).getV();
+        String v = "";
+        Config config = this.getOne(Wrappers.<Config>query().eq("k", "mchid").last(" limit 1 "));
+        if (config != null) {
+            v = config.getV();
+        }
+        return v;
     }
 
     @Override
     public String getPaykey() {
-        return this.getOne(Wrappers.<Config>query().eq("k","paykey").last(" limit 1 ")).getV();
+        String v = "";
+        Config config = this.getOne(Wrappers.<Config>query().eq("k", "paykey").last(" limit 1 "));
+        if (config != null) {
+            v = config.getV();
+        }
+        return v;
     }
 
     @Override
     public String getServerPhoneNumber() {
-        return this.getOne(Wrappers.<Config>query().eq("k","server_phone_number").last(" limit 1 ")).getV();
+        String v = "";
+        Config config = this.getOne(Wrappers.<Config>query().eq("k", "server_phone_number").last(" limit 1 "));
+        if (config != null) {
+            v = config.getV();
+        }
+        return v;
     }
 }

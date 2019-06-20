@@ -13,11 +13,13 @@ import com.kulongtai.mpstore.dto.LoginDto;
 import com.kulongtai.mpstore.dto.RegDto;
 import com.kulongtai.mpstore.entity.User;
 import com.kulongtai.mpstore.service.IUserService;
+import com.xiaoleilu.hutool.map.MapBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Administrator on 2019/6/13 0013.
@@ -40,7 +42,7 @@ public class LoginController {
      * @return
      */
     @GetMapping("/login")
-    public R<String> login(@RequestParam String code){
+    public R<String> login(@RequestParam("code") String code){
         ApiResult apiResult =WxaUserApi.code2Session(code);
         String openid = apiResult.get("openid");
         String sessionKey =  apiResult.get("session_key");
@@ -54,7 +56,7 @@ public class LoginController {
             userId = user.getUserId();
         }
         //2.返回token
-        String token = jwtTokenUtil.generateToken(String.valueOf(userId),null);
+        String token = jwtTokenUtil.generateToken(String.valueOf(userId),new HashMap());
         return new R(token);
     }
     /**
@@ -80,7 +82,7 @@ public class LoginController {
         user.setSessionKey(sessionKey);
         iUserService.updateById(user);
         //2.返回token
-        String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()),null);
+        String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()), new HashMap<>());
         return new R(token);
     }
 
@@ -112,7 +114,7 @@ public class LoginController {
         user.setLastLoginTime(new Date());
         iUserService.save(user);
         //2.返回token
-        String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()),null);
+        String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()),new HashMap<>());
         return new R(token);
     }
 
@@ -129,7 +131,7 @@ public class LoginController {
         user.setOpenid(null);
         iUserService.updateById(user);
         //2.返回 游客身份的token
-        String token = jwtTokenUtil.generateToken( String.valueOf(CommonConstants.VISITOR_USER_ID),null);
+        String token = jwtTokenUtil.generateToken( String.valueOf(CommonConstants.VISITOR_USER_ID),new HashMap<>());
         return new R(token);
     }
 }

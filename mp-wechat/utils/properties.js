@@ -1,6 +1,6 @@
 module.exports = {
   //本地
-  hostUrl: "https://api.it120.cc/tggtest",
+  hostUrl: "http://localhost:8888",
 
   //测试
   //hostUrl: "https://aigs.dljulong.cn/aigs-wechat",

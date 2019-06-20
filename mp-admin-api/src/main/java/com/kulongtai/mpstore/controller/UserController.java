@@ -36,7 +36,7 @@ public class UserController {
     @ApiOperation(value="查询用户列表", notes="需传入分页参数")
     public R<IPage> getUserList(UserListDto userListDto) {
         QueryWrapper<User> queryWrapper = Wrappers.<User>query();
-        queryWrapper.like(StringUtils.isNotBlank(userListDto.getUserId()),"user_id",userListDto.getUserId())
+        queryWrapper.like(StringUtils.isNotBlank(userListDto.getCarNo()),"car_no",userListDto.getCarNo())
                 .eq(StringUtils.isNotBlank(userListDto.getMobile()),"mobile",userListDto.getMobile())
                 .gt(userListDto.getStartTime()!=null,"create_time",userListDto.getStartTime())
                 .lt(userListDto.getEndTime()!=null,"create_time",userListDto.getEndTime())

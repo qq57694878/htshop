@@ -68,8 +68,11 @@ import java.util.Date;
     private String validFlag;
 
             @ApiModelProperty(value = "订单id")
-        @TableField("order_id")
+    @TableField("order_id")
     private Integer orderId;
+    @ApiModelProperty(value = "1:洗车2保养")
+    @TableField("catagory")
+    private String catagory;
 
             @ApiModelProperty(value = "有效期至")
         @TableField("valide_time")

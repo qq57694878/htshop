@@ -5,57 +5,18 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.kulongtai.mpstore.entity.Order">
         <id column="order_id" property="orderId" />
-        <result column="order_no" property="orderNo" />
-        <result column="total_price" property="totalPrice" />
+        <result column="sku_id" property="skuId" />
         <result column="pay_price" property="payPrice" />
         <result column="pay_status" property="payStatus" />
         <result column="pay_time" property="payTime" />
-        <result column="order_status" property="orderStatus" />
         <result column="user_id" property="userId" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
-    <resultMap id="OrderInfoMap" type="com.kulongtai.mpstore.vo.OrderInfo">
-        <id column="order_id" property="orderId" />
-        <result column="order_no" property="orderNo" />
-        <result column="total_price" property="totalPrice" />
-        <result column="pay_price" property="payPrice" />
-        <result column="pay_status" property="payStatus" />
-        <result column="pay_time" property="payTime" />
-        <result column="order_status" property="orderStatus" />
-        <result column="user_id" property="userId" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="nickname" property="nickname" />
-        <result column="mobile" property="mobile" />
-    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        order_id, order_no, total_price, pay_price, pay_status, pay_time, order_status, user_id, create_time, update_time
+        order_id, sku_id, pay_price, pay_status, pay_time, user_id, create_time, update_time
     </sql>
 
-    <select id="getOrderListByPage" resultMap="OrderInfoMap" parameterType="com.kulongtai.mpstore.dto.OrderListDto">
-        select a.order_id, a.order_no, a.total_price, a.pay_price, a.pay_status, a.pay_time, a.order_status, a.user_id, a.create_time, a.update_time
-        ,b.nickname,b.mobile
-        from mp_order a,mp_user b
-        where a.user_id=b.user_id
-        <if test="p.orderNo != null and p.orderNo !=''">
-            AND a.order_no = #{p.orderNo}
-        </if>
-        <if test="p.orderStatus != null and p.orderStatus !=''">
-            AND a.order_status = #{p.orderStatus}
-        </if>
-        <if test="p.userId != null and p.userId !=''">
-            AND a.user_id = #{p.userId}
-        </if>
-        <if test="p.mobile != null and p.mobile !=''">
-            AND b.mobile = #{p.mobile}
-        </if>
-        <if test="p.startTime != null">
-            AND a.create_time &gt;= #{p.startTime,jdbcType=TIMESTAMP}
-        </if>
-        <if test="p.endTime != null">
-            AND a.create_time &lt;= #{p.endTime,jdbcType=TIMESTAMP}
-        </if>
-</select>
 </mapper>

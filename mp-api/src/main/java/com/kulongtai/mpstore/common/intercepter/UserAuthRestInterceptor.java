@@ -58,7 +58,7 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
                 if (claims.getExpiration().before(new Date())) {
                     throw new UserTokenException("token 已过期");
                 } else {
-                    if (!StringUtils.isNotEmpty(claims.getSubject())) {
+                    if (StringUtils.isNotEmpty(claims.getSubject())) {
                         BaseContextHandler.setUserID(Integer.parseInt(claims.getSubject()) );
                     } else {
                         throw new UserTokenException("token 无效");
