@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      showDialog:false,
     cardList: [{
         cardName: "一次保养卡",
         bussType: "1",
@@ -26,6 +26,20 @@ Page({
         catagory: '1'
       },
     ],
+      cardRecordList:[
+          {
+              afterUsedFrequency:19,
+              usedFrequency:1,
+              cardNo:"789456123012",
+              createTime: new Date().getTime(),
+          },
+          {
+              afterUsedFrequency:18,
+              usedFrequency:1,
+              cardNo:"789456123012",
+              createTime: new Date().getTime(),
+          }
+      ],
 
     no_more: true
   },
@@ -52,8 +66,8 @@ Page({
   },
   getMyCardList() {
     var that = this
-    //  获取用户信息
-    app._get("/mpapi/card/getMyCardList", {}).then(res => {
+    //  获取用户信息 查询有效的
+    app._get("/mpapi/card/getMyCardList", {validFlag:"1"}).then(res => {
       if (res.code = 200) {
         console.log(res.data);
         that.setData({
@@ -96,5 +110,26 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+    /**
+     * 显示消费记录
+     */
+    showUsedRecord: function(e){
+        let cardId = e.currentTarget.dataset.id;
+        wx.showLoading({
+            title: '加载中',
+        })
+        app._get("/mpapi/card-record/getCardRecordList",{cardId:cardId}).then(res=>{
+            wx.hideLoading();
+          var list = res.data;
+          if(list==null){
+            list=[];
+          }
+            this.setData({showDialog:true,cardRecordList:list});
+      });
+
+    },
+    closeUsedRecord: function(){
+        this.setData({showDialog:false});
+    }
 })

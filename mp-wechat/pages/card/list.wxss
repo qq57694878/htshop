@@ -83,46 +83,46 @@
 .my-icon-ewm-wp {
   position: absolute;
   right: 20rpx;
-  top: 190rpx;
+  top: 210rpx;
+  color: #000;
 }
 
 .my-icon-ewm {
-  font-size: 50rpx!important;
+  font-size: 60rpx!important;
 
 }
-
-/*
-.my-card-icon-wrap{
-    border-radius: 6rpx;
+.my-btn-bar{
+  padding:40rpx;
+  text-align:center;
 }
-.my-card-icon{
-  color:#FF7D41;
-  font-size:148rpx !important;
+.my-dlg-wrap {
+  font-size:24rpx;
+  width: 100%;
+  background: #f2f2f2;
 }
-.my-card-name{
-  line-height:50rpx;
-  padding:6rpx;
- font-size:36rpx;
- margin-bottom:10rpx;
+.my-dlg-item{
+  padding:20rpx;
+  margin-bottom:30rpx;
+  background: #fff;
 }
-.my-erweima-wrap{
-
+.my-dlg-item .my-record-kj{
+  color: #ff495e;
 }
-.my-erweima{
-  font-size:50rpx;
+.my-title{
+  padding:20rpx;
+  font-size:30rpx;
+  line-height:60rpx;
+  font-weight: bold;
 }
-.my-item-content{
-  font-size:26rpx;
-  color:#aaa;
+.my-go-used{
+  line-height:60rpx;
+  font-size:30rpx;
+  padding:20rpx;
+  border-radius: 60rpx;
+  background: #fff;
+  border:1rpx solid #ccc;
+  font-size:24rpx;
 }
-.my-rest-frequency{
-  color:#ff495e ;
-}
-.my-balance-price{
-   color:#ff495e ;
-}
-*/
-
 .no-more {
   text-align: center;
   color: #737373;

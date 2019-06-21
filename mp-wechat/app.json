@@ -1,23 +1,21 @@
 {
   "pages": [
-        "pages/tabbar/my",
-        "pages/card/list",
     "pages/start/start",
-
+    "pages/tabbar/my",
+    "pages/card/list",
     "pages/login/login",
     "pages/login/register",
     "pages/cardcode/cardcode",
     "pages/sku/list",
     "pages/sku/detail",
     "pages/location/location",
-
     "pages/card-record/list",
-    "pages/about/index"
-
+    "pages/about/index",
+    "pages/card/used"
   ],
   "debug": true,
   "window": {
-    "navigationBarTitleText": "大连XX汽修店",
+    "navigationBarTitleText": "大连韩泰轮胎店",
     "enablePullDownRefresh": true,
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
