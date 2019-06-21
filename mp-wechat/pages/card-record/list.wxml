@@ -5,24 +5,18 @@
     <view class="my-list ">
       <view class="my-list-item b-f" wx:for="{{page.records}}" wx:key="cardId">
         <van-row>
-          <navigator class="my-list-item b-f" hover-class="none" url="../card/detail?cardId={{item.cardId}}">
+          <navigator class="my-list-item b-f" hover-class="none" >
             <van-col span="6">
               <view class="my-card-icon-wrap">
-                <my-icon custom-class="my-card-icon" wx:if="{{item.bussType=='1'}}" name="iconcheliangweixiubaoyang"></my-icon>
-                <my-icon custom-class="my-card-icon" wx:if="{{item.bussType=='2'}}" name="iconxianjinquan"></my-icon>
+                <my-icon custom-class="my-card-icon" wx:if="{{item.catagory=='1'}}" name="iconxiche"></my-icon>
+                <my-icon custom-class="my-card-icon" wx:if="{{item.catagory=='2'}}" name="iconbaozhang"></my-icon>
               </view>
             </van-col>
             <van-col span="17">
               <view class="f-30 twolist-hidden my-card-name">{{item.cardName}}</view>
                 <view class="my-item-content">
-                <view wx:if="{{item.bussType=='1'}}">
                  <text class="my-rest-frequency">-{{item.usedFrequency}}次 </text>
                   <text>余:{{item.afterUsedFrequency }}次</text>
-                </view>
-                <view wx:if="{{item.bussType=='2'}}">
-                 <text class="my-balance-price">￥-{{tools.formatMoney(item.usedPrice)}} </text>
-                  <text>余:￥{{tools.formatMoney(item.afterUsedPrice) }}</text>
-                </view>
               </view>
               <view class="my-create-time">{{tools.formatDateYMDHMS(item.createTime)}}</view>
             </van-col>
