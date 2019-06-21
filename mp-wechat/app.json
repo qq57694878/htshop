@@ -11,7 +11,9 @@
     "pages/location/location",
     "pages/card-record/list",
     "pages/about/index",
-    "pages/card/used"
+    "pages/card/used",
+    "pages/buy/list",
+    "pages/buy/detail"
   ],
   "debug": true,
   "window": {

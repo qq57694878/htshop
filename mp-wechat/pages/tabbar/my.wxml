@@ -73,6 +73,7 @@
     </view>
 
     <view class="user-menu">
+    <!--
         <view class="item">
             <navigator url="/pages/card/list" hover-class="none" class="a">
                 <my-icon name="iconqiaquan" info="99+" size='{{iconSize}}rpx' color='{{iconColor}}'
@@ -87,6 +88,7 @@
                 <text class="txt">消费记录</text>
             </navigator>
         </view>
+        -->
 
         <view class="item no-border-right">
             <navigator url="/pages/location/location" hover-class="none" class="a">

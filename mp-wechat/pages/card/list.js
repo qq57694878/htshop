@@ -7,7 +7,8 @@ Page({
    */
   data: {
       showDialog:false,
-    cardList: [{
+    cardList: [
+      /*  {
         cardName: "一次保养卡",
         bussType: "1",
         totalFrequency: 100,
@@ -24,7 +25,7 @@ Page({
         cardNo: 123456789012,
         validTime: new Date().getTime(),
         catagory: '1'
-      },
+      },*/
     ],
       cardRecordList:[
           {
@@ -67,9 +68,12 @@ Page({
   getMyCardList() {
     var that = this
     //  获取用户信息 查询有效的
+      wx.showLoading({
+          title: '加载中',
+      });
     app._get("/mpapi/card/getMyCardList", {validFlag:"1"}).then(res => {
+        wx.hideLoading();
       if (res.code = 200) {
-        console.log(res.data);
         that.setData({
           cardList: res.data
         })
@@ -126,7 +130,9 @@ Page({
             list=[];
           }
             this.setData({showDialog:true,cardRecordList:list});
-      });
+      }).catch(res=>{
+            wx.hideLoading();
+        });
 
     },
     closeUsedRecord: function(){

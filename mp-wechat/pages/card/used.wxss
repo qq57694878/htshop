@@ -1,0 +1,123 @@
+.my-list {
+  padding: 20rpx;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.my-list-item {
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  width: 100%;
+  height: 360rpx;
+  position: relative;
+}
+
+.my-card-bg {
+  background-color: #fff;
+  width: 100%;
+  height: 360rpx;
+  border-radius: 6px;
+}
+
+.my-card-icon-wp {
+  position: absolute;
+  left: 20rpx;
+  top: 40rpx;
+}
+
+.my-card-icon {
+  font-size: 50rpx !important;
+}
+
+.my-right-icon {
+  font-size: 36rpx !important;
+}
+
+.my-card-name {
+  position: absolute;
+  left: 80rpx;
+  top: 20rpx;
+}
+
+.my-total {
+  position: absolute;
+  left: 80rpx;
+  top: 66rpx;
+  font-size: 28rpx;
+}
+
+.my-rest {
+  position: absolute;
+  left: 240rpx;
+  top: 190rpx;
+  color: #ccc;
+}
+
+.my-rest-1 {
+}
+
+.my-rest-2 {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.my-rest-3 {
+}
+
+.my-valid-time {
+  position: absolute;
+  right: 10rpx;
+  top: 66rpx;
+  font-size: 28rpx;
+}
+
+.my-right-icon-wp {
+  position: absolute;
+  right: 20rpx;
+  top: 16rpx;
+}
+
+
+.my-icon-ewm-wp {
+  position: absolute;
+  right: 20rpx;
+  top: 210rpx;
+  color: #ccc;
+}
+
+.my-icon-ewm {
+  font-size: 60rpx!important;
+
+}
+.my-btn-bar{
+  padding:40rpx;
+  text-align:center;
+}
+.my-dlg-wrap {
+  font-size:24rpx;
+  width: 100%;
+  background: #f2f2f2;
+}
+.my-dlg-item{
+  padding:20rpx;
+  margin-bottom:30rpx;
+  background: #fff;
+}
+.my-dlg-item .my-record-kj{
+  color: #ff495e;
+}
+.my-title{
+  padding:20rpx;
+  font-size:30rpx;
+  line-height:60rpx;
+  font-weight: bold;
+}
+
+
+.no-more {
+  text-align: center;
+  color: #737373;
+  margin: 10px 0;
+}

@@ -5,7 +5,7 @@
 
         <view class="my-list ">
             <view class="my-list-item " wx:for="{{cardList}}" wx:key="cardId">
-                <image class="my-card-bg" src="/images/card-y.jpg" mode='aspectFit'></image>
+                <image class="my-card-bg" src="/images/card-n.jpg" mode='aspectFit'></image>
                 <view class="my-card-icon-wp">
                     <my-icon custom-class="my-card-icon" wx:if="{{item.catagory=='1'}}" name="iconxiche"></my-icon>
                     <my-icon custom-class="my-card-icon" wx:if="{{item.catagory=='2'}}" name="iconbaozhang"></my-icon>
@@ -31,23 +31,14 @@
                     <text class="my-rest-3"> 次</text>
                 </view>
                 <navigator  hover-class="none" url="../cardcode/cardcode?barCode={{item.cardNo}}">
-                <view class="my-icon-ewm-wp">
-                    <my-icon custom-class="my-icon-ewm" name="iconerweima"></my-icon>
-                </view>
+                    <view class="my-icon-ewm-wp">
+                        <my-icon custom-class="my-icon-ewm" name="iconerweima"></my-icon>
+                    </view>
                 </navigator>
             </view>
         </view>
-        <navigator class=" my-go-used"  hover-class="none" url="/pages/card/used">
-                <view class=" dis-flex">
-                    <view class="flex-box t-l">
-                        <text>已用完/已过期的卡</text>
-                    </view>
-                <view class="flex-box t-r">
-                    <my-icon  name="iconyuanfucengqianwanggoumai"></my-icon>
-                </view>
-                </view>
-        </navigator>
 
+        <view hidden="{{!no_more}}" class="no-more f-30">亲, 没有更多了</view>
     </scroll-view>
 
     <van-dialog
@@ -57,22 +48,22 @@
         <view class="my-dlg-wrap">
             <view class="my-title">消费记录:</view>
             <view class="my-dlg-item" wx:for="{{cardRecordList}}" wx:key="id" >
-                    <view class=" dis-flex">
-                        <view class="flex-box t-l">
-                            <text>卡号：{{item.cardNo}}</text>
-                        </view>
-                        <view class="flex-box t-r ">
-                           <text class="my-record-kj">扣-{{item.usedFrequency}}次</text>
-                        </view>
+                <view class=" dis-flex">
+                    <view class="flex-box t-l">
+                        <text>卡号：{{item.cardNo}}</text>
                     </view>
-                    <view class=" dis-flex">
-                        <view class="flex-box t-l">
-                            <text class="my-record-date">{{tools.formatDateYMDHMS(item.createTime)}}</text>
-                        </view>
-                        <view class="flex-box t-r">
-                            <text >余{{item.afterUsedFrequency}}次</text>
-                        </view>
+                    <view class="flex-box t-r ">
+                        <text class="my-record-kj">扣-{{item.usedFrequency}}次</text>
                     </view>
+                </view>
+                <view class=" dis-flex">
+                    <view class="flex-box t-l">
+                        <text class="my-record-date">{{tools.formatDateYMDHMS(item.createTime)}}</text>
+                    </view>
+                    <view class="flex-box t-r">
+                        <text >余{{item.afterUsedFrequency}}次</text>
+                    </view>
+                </view>
             </view>
         </view>
         <view class="my-btn-bar">

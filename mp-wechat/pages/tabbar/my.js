@@ -23,7 +23,7 @@ Page({
         let urls = {
             card_list: '/pages/card/list',
             used_card: '/pages/card-record/list',
-            buy: 'pages/sku/list'
+            buy: '/pages/buy/list'
         };
         // 转跳指定的页面
         wx.navigateTo({

@@ -1,0 +1,51 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<scroll-view bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-y="true" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+    <view class="container" wx:if="{{detail.skuId}}">
+
+        <view class="cont-box b-f">
+            <view class="goods-title ">
+                <text class="title f-32 twolist-hidden"><text>卡名:</text>{{detail.skuName}}</text>
+            </view>
+
+            <view class="goods-sales-box f-28 dis-flex">
+                <text>包含次数：</text> <text class="flex-box num">{{detail.frequency}}</text>
+            </view>
+            <view class="money-box">
+                <text>售价：</text><text class="num">￥{{detail.skuPrice}}</text>
+            </view>
+        </view>
+
+
+        <!-- 商品描述 -->
+        <view class="p-bottom">
+            <view class="top-nav m-top20 b-f b-b">
+                <view class="top-nav-bar">
+                    <view bindtap="toOrder" id="top-nav-bar-true">
+                        <span>详情</span>
+                    </view>
+                </view>
+            </view>
+            <view class="order" hidden="{{hiddenOrder}}">
+                <view wx:if="{{detail.content!=''}}">
+                    <view class="b-f goods-detail-box">
+                        <view class="goods-cont-li">
+                            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+                        </view>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view class="yoshop-notcont">
+                        <text class="iconfont icon-ziyuan"></text>
+                        <text class="cont">亲,此处暂无详情数据</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</scroll-view>
+
+<!-- 返回顶部 -->
+<view bindtap="goTop" class="widget-goTop dad" wx:if="{{floorstatus}}">
+    <view class="iconfont iconfanhuidingbu"></view>
+</view>

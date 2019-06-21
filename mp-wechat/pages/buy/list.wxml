@@ -1,0 +1,50 @@
+<wxs src="../../comm.wxs" module="tools"/>
+<view class='container'>
+    <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true"
+                 style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{skuList.length > 0}}">
+
+        <view class="my-list ">
+            <view class="my-list-item " wx:for="{{skuList}}" wx:key="skuId">
+                <image class="my-sku-bg" src="/images/card-y.jpg" mode='aspectFit'></image>
+                <view class="my-sku-icon-wp">
+                    <my-icon custom-class="my-sku-icon" wx:if="{{item.catagory=='1'}}" name="iconxiche"></my-icon>
+                    <my-icon custom-class="my-sku-icon" wx:if="{{item.catagory=='2'}}" name="iconbaozhang"></my-icon>
+                </view>
+
+                <view class="my-sku-name">
+                    {{item.skuName}}
+                </view>
+
+                <view class="my-right-icon-wp" bindtap="goSkuDetail" data-id="{{item.skuId}}">
+                    详情 <my-icon custom-class="my-right-icon" name="iconjiantouyou"></my-icon>
+                </view>
+
+                <view class="my-valid-time">
+                    <text>有效期至</text>
+                    {{tools.formatDateYMD(item.validTime)}}
+                </view>
+                <view class="my-total">
+                    总次数  {{item.frequency}}
+                </view>
+                <view class="my-rest">
+                    <text>售价 </text><text class="my-rest-2">￥{{item.skuPrice}}</text>
+                </view>
+                <view class="my-btn-buy">
+                    <van-button bind:click="buyNow" plain hairline size="small" type="danger" data-id="{{item.skuId}}">购买</van-button>
+                </view>
+
+            </view>
+        </view>
+
+
+    </scroll-view>
+
+
+
+    <view wx:if="{{cardList.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
+        <view class="img">
+            <image mode="aspectFit" src="../../images/no_content.png"></image>
+        </view>
+        <text class="cont">亲, 没有相关内容</text>
+    </view>
+</view>

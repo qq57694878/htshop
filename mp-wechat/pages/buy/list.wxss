@@ -1,0 +1,97 @@
+.my-list {
+  padding: 20rpx;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.my-list-item {
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  width: 100%;
+  height: 360rpx;
+  position: relative;
+}
+
+.my-sku-bg {
+  background-color: #fff;
+  width: 100%;
+  height: 360rpx;
+  border-radius: 6px;
+}
+
+.my-sku-icon-wp {
+  position: absolute;
+  left: 20rpx;
+  top: 40rpx;
+}
+
+.my-sku-icon {
+  font-size: 50rpx !important;
+}
+
+.my-right-icon {
+  font-size: 36rpx !important;
+}
+
+.my-sku-name {
+  position: absolute;
+  left: 80rpx;
+  top: 40rpx;
+  font-size:36rpx;
+}
+
+.my-total {
+  position: absolute;
+  left: 30rpx;
+  top: 140rpx;
+  font-size: 32rpx;
+  color: #ff976a;
+}
+
+.my-rest {
+  position: absolute;
+  left: 32rpx;
+  top: 220rpx;
+  color: #ff495e;
+}
+
+.my-rest-1 {
+}
+
+.my-rest-2 {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.my-rest-3 {
+}
+
+.my-valid-time {
+  position: absolute;
+  right: 10rpx;
+  top: 72rpx;
+  font-size: 28rpx;
+}
+
+.my-right-icon-wp {
+  position: absolute;
+  right: 20rpx;
+  top: 16rpx;
+}
+.my-right-icon{
+  font-siez:24rpx;
+}
+.my-btn-buy{
+  position: absolute;
+  right: 20rpx;
+  top: 240rpx;
+}
+
+
+.no-more {
+  text-align: center;
+  color: #737373;
+  margin: 10px 0;
+}

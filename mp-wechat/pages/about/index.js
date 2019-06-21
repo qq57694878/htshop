@@ -23,9 +23,10 @@ Page({
     let _this = this;
     App._get('/mpapi/about/getAbout', {
     }).then(function (result) {
+      console.log(result);
       // 富文本转码
-      if (data.detail.content.length > 0) {
-        wxParse.wxParse('content', 'html', data.content, _this, 0);
+      if (result.data.content.length > 0) {
+        wxParse.wxParse('content', 'html', result.data.content, _this, 0);
       }
     });
   },
