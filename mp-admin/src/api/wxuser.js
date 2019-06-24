@@ -4,3 +4,9 @@ export const getUserList = (page) => request({
     method: 'get',
     params: page
 })
+
+export const resetPassword = (userId) => request({
+    url: '/api/wxuser/resetPassword',
+    method: 'post',
+    params: {userId:userId}
+})

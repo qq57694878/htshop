@@ -72,7 +72,7 @@ Page({
             title: '加载中',
         })
         //  获取用户信息 查询无效的
-        app._get("/mpapi/card-record/getMyCardRecordList", {current:this.data.current,size:this.data.size,validFlag:"0"}).then(res => {
+        app._get("/mpapi/card/getMyCardList", {current:this.data.current,size:this.data.size,validFlag:"0"}).then(res => {
             wx.hideLoading();
             if (res.code = 200) {
                 console.log(res.data);

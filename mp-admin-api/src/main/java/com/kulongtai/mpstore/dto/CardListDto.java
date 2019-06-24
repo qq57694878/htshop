@@ -16,8 +16,8 @@ public class CardListDto extends PageDto{
     private String userId;
     @ApiModelProperty(value = "卡券消费码")
     private String cardNo;
-    @ApiModelProperty(value = "订单编号")
-    private String orderNo;
+    @ApiModelProperty(value = "车牌号")
+    private String carNo;
     @ApiModelProperty(value = "有效标记")
     private String validFlag;
     @ApiModelProperty(value = "开始时间")
@@ -28,4 +28,8 @@ public class CardListDto extends PageDto{
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date endTime;
+    @ApiModelProperty(value = "电话")
+    private String mobile;
+    @ApiModelProperty(value = "卡名")
+    private String cardName;
 }

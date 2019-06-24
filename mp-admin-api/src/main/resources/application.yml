@@ -25,6 +25,7 @@ mpstore:
   service-url: http://localhost:${server.port}${server.servlet.context-path}
   file:
      upload-path: D:/upload
+  defaultPassword: 123456
 jwt:
   header: Authorization
   secret: mpstore

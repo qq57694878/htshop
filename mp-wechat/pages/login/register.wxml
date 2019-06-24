@@ -9,7 +9,7 @@
             <van-field value="{{ carNo }}" bind:focus="onCarnoFocus" required label="车牌号" placeholder="车牌号"/>
         </van-cell-group>
         <view class="my-login-wrap">
-            <van-button style="margin-left:20rpx;" plain size="small" type="primary">快速注册</van-button>
+            <van-button style="margin-left:20rpx;" plain size="small" type="primary" bind:click="reg">快速注册</van-button>
         </view>
     </view>
 </view>

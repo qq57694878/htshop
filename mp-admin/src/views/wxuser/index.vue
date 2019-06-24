@@ -26,12 +26,17 @@
                                 </div>
                                 <div class="am-form-group am-fl">
                                     <div class="am-input-group ">
-                                        <el-input v-model="query.userId" placeholder="请输入用户id"></el-input>
+                                        <el-input v-model="query.userId" placeholder="用户id"></el-input>
                                     </div>
                                 </div>
                                 <div class="am-form-group am-fl">
                                     <div class="am-input-group ">
-                                        <el-input v-model="query.mobile" placeholder="请输入用户电话"></el-input>
+                                        <el-input v-model="query.carnNo" placeholder="车牌号"></el-input>
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-fl">
+                                    <div class="am-input-group ">
+                                        <el-input v-model="query.mobile" placeholder="用户电话"></el-input>
                                         <div class="am-input-group-btn">
                                             <button class="am-btn am-btn-default am-icon-search" type="button" @click="doQuery"></button>
                                         </div>
@@ -49,32 +54,28 @@
                                 <thead>
                                 <tr>
                                     <th>用户ID</th>
-                                    <th>微信头像</th>
                                     <th>电话</th>
-                                    <th>微信昵称</th>
-                                    <th>性别</th>
-                                    <th>国家</th>
-                                    <th>省份</th>
-                                    <th>城市</th>
+                                    <th>车牌号</th>
                                     <th>注册时间</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <tr  v-for="userInfo in userList" :key="userInfo.userId">
                                     <td class="am-text-middle">{{ userInfo['userId'] }}</td>
-                                    <td class="am-text-middle">
-                                        <a :href="userInfo['avatar']" title="点击查看大图" target="_blank">
-                                            <img :src="userInfo['avatar']" width="72" height="72" alt="">
-                                        </a>
-                                    </td>
                                     <td class="am-text-middle">{{ userInfo['mobile'] }}</td>
-                                    <td class="am-text-middle">{{ userInfo['nickname'] }}</td>
-                                    <td class="am-text-middle">{{ userInfo['gender'] |code2value('gender') }}</td>
-                                    <td class="am-text-middle">{{ userInfo['country'] ?userInfo['country']: '--' }}</td>
-                                    <td class="am-text-middle">{{ userInfo['province'] ?userInfo['province']: '--' }}</td>
-                                    <td class="am-text-middle">{{ userInfo['city'] ?userInfo['city'] : '--' }}</td>
+                                    <td class="am-text-middle">{{ userInfo['carNo'] }}</td>
                                     <td class="am-text-middle">{{ userInfo['createTime']|moment('YYYY-MM-DD HH:mm:ss') }}</td>
+                                    <td class="am-text-middle">
+                                        <div class="tpl-table-black-operation">
+
+                                            <a href="javascript:;" @click="handleResetPassword($item['userId'])" class="item-delete tpl-table-black-operation-del">
+                                                <i class="am-icon-unlock-alt"></i> 重置密码
+                                            </a>
+
+                                        </div>
+                                    </td>
                                 </tr>
 
                                 <tr v-if="userList.length==0">
@@ -107,7 +108,7 @@
 
 </style>
 <script>
-    import {getUserList} from '@/api/wxuser'
+    import {getUserList,resetPassword} from '@/api/wxuser'
     import {type2options,code2value} from '@/util/codeTable'
     export default {
         data() {
@@ -147,6 +148,7 @@
                     endTime:null,
                     userId:"",
                     mobile:"",
+                    carnNo:""
                 },
                 loading: false,
                 total: 0,
@@ -206,6 +208,30 @@
                             this.loading = false;
                         }, 1000);
                     });
+            },
+            /**
+             * 重置秘密吗
+             */
+            handleResetPassword(userId){
+                this.loading = true;
+                this.$confirm(`是否确认删除?`, '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                }).then(() => {
+                    resetPassword(userId)
+                        .then(res => {
+                            this.loading = false;
+                            this.$notify({
+                                title:'成功',
+                                duration:2000,
+                                message: '重置密码成功',
+                                type: 'success',
+                            });
+                        });
+
+                }).catch(() => { });
+
             }
         }
     }

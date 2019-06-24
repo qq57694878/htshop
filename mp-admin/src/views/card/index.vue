@@ -4,7 +4,7 @@
             <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                 <div class="widget am-cf">
                     <div class="widget-head am-cf">
-                        <div class="widget-title am-cf">卡券管理</div>
+                        <div class="widget-title am-cf">卡券消费管理</div>
                     </div>
                     <div class="page_toolbar am-margin-bottom-xs am-cf">
                         <div class="am-u-sm-12 am-u-md-12">
@@ -29,6 +29,16 @@
                                     </div>
                                 </div>
                                 <div class="am-form-group am-fl">
+                                    <div class="am-input-group ">
+                                        <el-input v-model="query.mobile" placeholder="请输入用户电话"></el-input>
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-fl">
+                                    <div class="am-input-group ">
+                                        <el-input v-model="query.carNo" placeholder="请输入车牌号"></el-input>
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-fl">
                                     <el-select v-model="query.validFlag" clearable placeholder="请选择有效标记">
                                         <el-option
                                                 v-for="item in validFlagOptions"
@@ -40,8 +50,18 @@
                                 </div>
                                 <div class="am-form-group am-fl">
                                     <div class="am-input-group ">
-                                        <el-input v-model="query.orderNo" placeholder="请输入订单号"></el-input>
+                                        <el-input v-model="query.cardName" placeholder="卡名"></el-input>
                                     </div>
+                                </div>
+                                <div class="am-form-group am-fl">
+                                    <el-select v-model="query.catagory" clearable placeholder="卡片类型">
+                                        <el-option
+                                                v-for="item in catagoryOptions"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                        </el-option>
+                                    </el-select>
                                 </div>
                                 <div class="am-form-group am-fl">
                                     <div class="am-input-group ">
@@ -64,12 +84,13 @@
                                 <tr>
                                     <th>卡号</th>
                                     <th>卡名</th>
-                                    <th>卡类型</th>
-                                    <th>面值/总次数</th>
-                                    <th>余额/剩余次数</th>
+                                    <th>卡片类型</th>
+                                    <th>总次数</th>
+                                    <th>剩余次数</th>
                                     <th>有效标记</th>
                                     <th>所属用户id</th>
-                                    <th>所属订单编号</th>
+                                    <th>用户电话</th>
+                                    <th>用户车牌号</th>
                                     <th>创建时间</th>
                                     <th>操作</th>
                                 </tr>
@@ -79,12 +100,13 @@
                                 <tr  v-for="cardInfo in cardList" :key="cardInfo.cardNo">
                                     <td class="am-text-middle">{{ cardInfo['cardNo'] }}</td>
                                     <td class="am-text-middle">{{ cardInfo['cardName'] }}</td>
-                                    <td class="am-text-middle">{{ cardInfo['bussType']|code2value('buss_type') }}</td>
-                                    <td class="am-text-middle">{{ cardInfo['bussType']=='1'?'总次数:'+cardInfo['totalFrequency']:'面值:'+cardInfo['facePrice'] }}</td>
-                                    <td class="am-text-middle">{{ cardInfo['bussType']=='1'?'剩余次数:'+cardInfo['restFrequency']:'余额:'+cardInfo['balancePrice']  }}</td>
+                                    <td class="am-text-middle">{{ cardInfo['catagory']|code2value('catagory') }}</td>
+                                    <td class="am-text-middle">{{ cardInfo['totalFrequency'] }}</td>
+                                    <td class="am-text-middle">{{ cardInfo['restFrequency'] }}</td>
                                     <td class="am-text-middle">{{ cardInfo['validFlag'] |code2value('valid_flag') }}</td>
                                     <td class="am-text-middle">{{ cardInfo['userId'] }}</td>
-                                    <td class="am-text-middle">{{ cardInfo['orderNo']  }}</td>
+                                    <td class="am-text-middle">{{ cardInfo['mobile']  }}</td>
+                                    <td class="am-text-middle">{{ cardInfo['carNo']  }}</td>
                                     <td class="am-text-middle">{{ cardInfo['createTime']|moment('YYYY-MM-DD HH:mm:ss') }}</td>
                                     <td class="am-text-middle">
                                         <div class="tpl-table-black-operation">
@@ -160,40 +182,7 @@
                 <el-button type="primary" @click="handleConsumeFrequencyCard">确 定</el-button>
             </span>
         </el-dialog>
-        <el-dialog title="E卡消费"
-                   :visible.sync="show2Dialog"
-                   width="50%"
-                   append-to-body>
-            <el-form :model="eForm" class="tpl-form-line-form"
-                     ref="eForm" :rules="rulesEForm"
-                     label-width="120px">
-                <div class="am-g ">
-                    <div class="am-u-sm-3">
-                        <el-form-item label="卡号：" prop="cardNo">
-                            {{eForm.cardNo}}
-                        </el-form-item>
-                    </div>
-                    <div class="am-u-sm-3">
-                    <el-form-item label="本卡余额：" prop="balancePrice">
-                        <b style="color:#FF7D41">{{eForm.balancePrice}}</b>
-                    </el-form-item>
-                   </div>
 
-                    <div class="am-u-sm-6">
-                        <el-form-item label="卡名：" prop="cardName">
-                            {{eForm.cardName}}
-                        </el-form-item>
-                    </div>
-                </div>
-
-                <el-form-item label="本次消费金额" prop="usedPrice">
-                    <el-input v-model="eForm.usedPrice" placeholder="请输入本次消费金额" class="tpl-form-input"></el-input>
-                </el-form-item>
-            </el-form>
-            <span slot="footer" class="dialog-footer">
-                <el-button type="primary" @click="handleConsumeECard">确 定</el-button>
-            </span>
-        </el-dialog>
     </div>
 </template>
 <style>
@@ -240,9 +229,11 @@
                     startTime:null,
                     endTime:null,
                     userId:"",
+                    carNo:"",
                     cardNo:"",
-                    orderNo:"",
-                    validFlag:""
+                    mobile:"",
+                    validFlag:"",
+                    cardName:""
                 },
                 show1Dialog:false,
                 show2Dialog:false,
@@ -252,14 +243,9 @@
                     restFrequency:"",
                     usedFrequency:1,
                 },
-                eForm:{
-                    cardNo:"",
-                    cardName:"",
-                    blancePrice:"",
-                    usedPrice:"",
-                },
-                validFlagOptions:type2options('valid_flag'),
 
+                validFlagOptions:type2options('valid_flag'),
+                catagoryOptions:type2options('catagory'),
                 loading: false,
                 total: 0,
                 cardList: [],
@@ -273,21 +259,7 @@
                             }
                         }, trigger: 'blur' }
                     ]
-                },
-                rulesEForm:{
-                    usedPrice:[{ required: true, message: '本次消费次数不能为空'},
-                        { validator:function(rule,value,callback){
-                            if(!/^[0-9]+(.[0-9]{1,2})?$/.test(value+"")){
-                                callback(new Error('本次消费金额格式不正确'));
-                            }
-                           else{
-                                callback();
-                            }
-                        }, trigger: 'blur' }
-                    ]
                 }
-
-
             }
         },
         created() {
@@ -298,8 +270,7 @@
         },
         methods: {
             showDialog(cardInfo){
-                console.log(cardInfo);
-                if(cardInfo.bussType=='1'){
+
                     this.frequencyForm={
                         cardNo:cardInfo.cardNo,
                         cardName:cardInfo.cardName,
@@ -307,16 +278,7 @@
                         usedFrequency:1,
                     };
                     this.show1Dialog=true;
-                }
-                else if(cardInfo.bussType=='2'){
-                    this.eForm={
-                        cardNo:cardInfo.cardNo,
-                        cardName:cardInfo.cardName,
-                        balancePrice:cardInfo.balancePrice,
-                        usedPrice:"",
-                    };
-                    this.show2Dialog=true;
-                }
+
             },
             handleConsumeFrequencyCard(){
                 this.$refs['frequencyForm'].validate((valid) => {
@@ -349,37 +311,7 @@
                     }
                 })
             },
-            handleConsumeECard(){
-                this.$refs['eForm'].validate((valid) => {
-                    if (valid) {
 
-                        if(this.eForm.usedPrice>parseInt(this.eForm.balancePrice)){
-                            this.$message.success('本次消费金额大于本卡余额');
-                            return;
-                        }
-                consumeECard({cardNo:this.eForm.cardNo,usedPrice:this.eForm.usedPrice})
-                    .then(res => {
-                        if(res.data.data){
-                            this.$notify({
-                                title:'成功',
-                                duration:3000,
-                                message: '消费成功',
-                                type: 'success',
-                            });
-                            this.handleList();
-                        }else{
-                            this.$notify({
-                                showClose: true,
-                                message: '消费失败',
-                                type: 'error',
-                            });
-                        }
-                        this.show2Dialog=false;
-                        this.loading = false;
-                    });
-                    }
-                })
-            },
             doQuery(){
                 this.handleList();
             },

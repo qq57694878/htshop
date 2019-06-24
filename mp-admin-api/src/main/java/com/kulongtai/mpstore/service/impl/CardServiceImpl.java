@@ -1,11 +1,14 @@
 package com.kulongtai.mpstore.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kulongtai.mpstore.common.exception.BusinessException;
 import com.kulongtai.mpstore.common.mp.sdk.WxaConfig;
 import com.kulongtai.mpstore.common.mp.sdk.WxaConfigKit;
 import com.kulongtai.mpstore.common.mp.sdk.WxaMessageApi;
+import com.kulongtai.mpstore.dto.CardListDto;
 import com.kulongtai.mpstore.dto.ConsumeCardDto;
 import com.kulongtai.mpstore.entity.Card;
 import com.kulongtai.mpstore.entity.CardRecord;
@@ -16,6 +19,7 @@ import com.kulongtai.mpstore.mapper.CardRecordMapper;
 import com.kulongtai.mpstore.mapper.UserMapper;
 import com.kulongtai.mpstore.service.ICardService;
 import com.kulongtai.mpstore.service.IConfigService;
+import com.kulongtai.mpstore.vo.CardListVo;
 import groovy.util.logging.Slf4j;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +46,8 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements IC
     private UserMapper userMapper;
     @Autowired
     private CardRecordMapper cardRecordMapper;
+    @Autowired
+    private CardMapper cardMapper;
     @Transactional
     @Override
     public boolean consumeCard(ConsumeCardDto consumeFrequencyCardDto){
@@ -92,6 +98,11 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements IC
         }catch (Exception e){log.error("卡号："+cardNo+"，客服消息发送失败");};
 
         return true;
+    }
+
+    @Override
+    public IPage<CardListVo> pageCardList(Page<Object> objectPage, CardListDto cardListDto) {
+        return cardMapper.pageCardList(objectPage,cardListDto);
     }
 
 }

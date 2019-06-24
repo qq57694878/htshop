@@ -4,7 +4,7 @@
     "pages/start/start",
     "pages/tabbar/my",
     "pages/card/list",
-
+    "pages/login/modifyPassword",
     "pages/login/register",
     "pages/cardcode/cardcode",
     "pages/sku/list",
@@ -15,6 +15,7 @@
     "pages/card/used",
     "pages/buy/list",
     "pages/buy/detail"
+
   ],
   "debug": true,
   "window": {

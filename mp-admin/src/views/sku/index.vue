@@ -55,12 +55,13 @@
                                 <thead>
                                 <tr>
                                     <th>商品ID</th>
-                                    <th>商品图片</th>
                                     <th>商品名称</th>
-                                    <th>实际销量</th>
+                                    <th>商品价格</th>
+                                    <th>消费次数</th>
+                                    <th>商品分类</th>
                                     <th>商品排序</th>
                                     <th>商品状态</th>
-                                    <th>添加时间</th>
+                                    <th>创建时间</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -68,16 +69,11 @@
                                 <tr v-for="$item in skuList" :key="$item.skuId">
                                     <td class="am-text-middle">{{$item['skuId']}}</td>
                                     <td class="am-text-middle">
-                                        <a :href="$item['main_url']"
-                                           title="点击查看大图" target="_blank">
-                                            <img :src="$item['mainUrl']"
-                                                 width="50" height="50" alt="商品图片">
-                                        </a>
-                                    </td>
-                                    <td class="am-text-middle">
                                         <p class="item-title">{{ $item['skuName'] }}</p>
                                     </td>
-                                    <td class="am-text-middle">{{ $item['salesNum'] }}</td>
+                                    <td class="am-text-middle">{{ $item['skuPrice'] }}</td>
+                                    <td class="am-text-middle">{{ $item['frequency'] }}</td>
+                                    <td class="am-text-middle">{{ $item['catagory'] |code2value('catagory')}}</td>
                                     <td class="am-text-middle">{{ $item['sort'] }}</td>
                                     <td class="am-text-middle">
                                             <span :class="$item['skuStatus'] == 1 ? 'x-color-green'

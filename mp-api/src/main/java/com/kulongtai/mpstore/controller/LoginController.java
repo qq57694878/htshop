@@ -10,6 +10,7 @@ import com.kulongtai.mpstore.common.mp.sdk.WxaUserApi;
 import com.kulongtai.mpstore.common.util.JwtTokenUtil;
 import com.kulongtai.mpstore.common.util.bcrypt.BCryptPasswordEncoder;
 import com.kulongtai.mpstore.dto.LoginDto;
+import com.kulongtai.mpstore.dto.ModifyPasswordDto;
 import com.kulongtai.mpstore.dto.RegDto;
 import com.kulongtai.mpstore.entity.User;
 import com.kulongtai.mpstore.service.IUserService;
@@ -117,6 +118,29 @@ public class LoginController {
         String token = jwtTokenUtil.generateToken(String.valueOf(user.getUserId()),new HashMap<>());
         return new R(token);
     }
+    /**
+     * 修改密码
+     * @param modifyPasswordDto
+     * @return
+     */
+    @Transactional
+    @PostMapping("/modifyPasswrod")
+    public R<Boolean> modifyPasswrod(@RequestBody ModifyPasswordDto modifyPasswordDto){
+        Integer userId = BaseContextHandler.getUserId();
+        User u =  iUserService.getOne(Wrappers.<User>query().eq("user_id",userId).last(" limit 1 "));
+        if(!passwordEncoder.matches(modifyPasswordDto.getPassword(),u.getPassword())){
+            throw new BussinessException("修改失败，原密码不正确");
+        }
+
+        //重新绑定新注册用户
+        User user = new User();
+        user.setUserId(u.getUserId());
+        user.setOpenid(u.getOpenid());
+        user.setPassword(passwordEncoder.encode(modifyPasswordDto.getNewPassword()));
+        iUserService.updateById(user);
+        return new R(true);
+    }
+
 
     /**
      * 登出

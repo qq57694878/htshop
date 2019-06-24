@@ -8,10 +8,11 @@ Page({
     aboutUsTitle: '',
     aboutUsContent: '',
     servicePhoneNumber: '',
-    userInfo:{
+    /*userInfo:{
         mobile:13842823735,
         carNo:"辽BK6F88"
-    },
+    },*/
+    userInfo:{},
     iconSize: 45,
     iconColor: '#999999',
 
@@ -60,11 +61,15 @@ Page({
     var that = this
     //  获取用户信息
     app._get("/mpapi/user/getUserInfo", "").then(res => {
+      var userInfo={};
       if (res.code = 200) {
-        that.setData({
-          userInfo: res.data
-        })
+        if(res.data&&res.data.userId){
+            userInfo=res.data;
+        }
       }
+        that.setData({
+            userInfo: userInfo
+        })
     })
   },
   aboutUs: function () {
@@ -122,15 +127,23 @@ Page({
      *  登出
      */
     logout(){
-            App._get('/mpapi/logout',{}).then((res) => {
-                if (this.code == 200) {
-                    wx.setStorageSync('token', this.data);
+            App._get('/mpapi/logout',{}).then((response) => {
+                if (response.code == 200) {
+                    wx.setStorageSync('token', response.data);
                     //刷新页面
                     this.onShow();
                 } else {
-                    App.showError(this.msg);
+                    App.showError(response.msg);
                 }
             });
-    }
+    },
+    /**
+     * 修改密码
+     */
+    modifyPassword(){
+        wx.navigateTo({
+            url: '/pages/login/modifyPassword'
+        });
+    },
 
 })

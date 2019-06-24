@@ -39,6 +39,8 @@ public class SkuController {
         QueryWrapper<Sku> queryWrapper = Wrappers.<Sku>query();
         queryWrapper.like(StringUtils.isNotBlank(skuListDto.getSkuName()),"sku_name",skuListDto.getSkuName()).eq(StringUtils.isNotBlank(skuListDto.getSkuStatus()),"sku_status",skuListDto.getSkuStatus());
         queryWrapper.eq("del_flag","0");
+        //1上架 2下架
+        queryWrapper.eq("sku_status","1");
         queryWrapper.orderByAsc("sort");
         IPage<Sku> skuList = iSkuService.page(new Page<>(skuListDto.getCurrent(),skuListDto.getSize()),queryWrapper);
         return new R(skuList);

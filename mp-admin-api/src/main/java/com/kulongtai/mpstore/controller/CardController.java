@@ -10,6 +10,7 @@ import com.kulongtai.mpstore.dto.CardListDto;
 import com.kulongtai.mpstore.dto.ConsumeCardDto;
 import com.kulongtai.mpstore.entity.Card;
 import com.kulongtai.mpstore.service.ICardService;
+import com.kulongtai.mpstore.vo.CardListVo;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class CardController {
     @GetMapping("/getCardList")
     @ApiOperation(value="查询卡券列表", notes="需传入分页参数")
     public R<IPage> getCardList(CardListDto cardListDto) {
-        QueryWrapper<Card> queryWrapper = Wrappers.<Card>query();
+     /*   QueryWrapper<Card> queryWrapper = Wrappers.<Card>query();
         queryWrapper.like(StringUtils.isNotBlank(cardListDto.getUserId()),"user_id",cardListDto.getUserId())
                 .eq(StringUtils.isNotBlank(cardListDto.getOrderNo()),"order_no",cardListDto.getOrderNo())
                 .eq(StringUtils.isNotBlank(cardListDto.getCardNo()),"card_no",cardListDto.getCardNo())
@@ -39,7 +40,8 @@ public class CardController {
                 .gt(cardListDto.getStartTime()!=null,"create_time",cardListDto.getStartTime())
                 .lt(cardListDto.getEndTime()!=null,"create_time",cardListDto.getEndTime())
                 .orderByDesc("create_time");
-        IPage<Card> cardList = iCardService.page(new Page<>(cardListDto.getCurrent(),cardListDto.getSize()),queryWrapper);
+        IPage<Card> cardList = iCardService.page(new Page<>(cardListDto.getCurrent(),cardListDto.getSize()),queryWrapper);*/
+        IPage<CardListVo> cardList = iCardService.pageCardList(new Page<>(cardListDto.getCurrent(),cardListDto.getSize()),cardListDto);
         return new R(cardList);
     }
     @PostMapping("/consumeCard")

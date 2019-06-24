@@ -3,7 +3,7 @@
   <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{page.records.length > 0}}">
 
     <view class="my-list ">
-      <view class="my-list-item b-f" wx:for="{{page.records}}" wx:key="cardId">
+      <view class="my-list-item b-f" wx:for="{{cardRecordList}}" wx:key="id">
         <van-row>
           <navigator class="my-list-item b-f" hover-class="none" >
             <van-col span="6">
@@ -26,7 +26,7 @@
     </view>
     <view hidden="{{!no_more}}" class="no-more f-30">亲, 没有更多了</view>
   </scroll-view>
-  <view wx:if="{{list.records.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
+  <view wx:if="{{cardRecordList.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
     <view class="img">
       <image mode="aspectFit" src="../../images/no_content.png"></image>
     </view>

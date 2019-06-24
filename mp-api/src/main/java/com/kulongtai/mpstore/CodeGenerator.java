@@ -133,7 +133,7 @@ public class CodeGenerator {
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         //strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix("mp_");
+       // strategy.setTablePrefix("");
         strategy.setEntitySerialVersionUID(true);
         strategy.setEntityTableFieldAnnotationEnable(true);
 

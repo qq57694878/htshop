@@ -12,57 +12,23 @@
                             <el-form-item label="商品名称" prop="skuName">
                                 <el-input v-model="skuForm.skuName" class="tpl-form-input"></el-input>
                             </el-form-item>
-                            <el-form-item label="商品简述" prop="skuDesc">
-                                <el-input v-model="skuForm.skuDesc" class="tpl-form-input"></el-input>
-                            </el-form-item>
-                            <el-form-item label="商品图片" prop="mainUrl">
-                                <div class="am-form-file">
-                                    <el-upload class="my-upload"
-                                            :action="website.uploadImageUrl"
-                                            list-type="picture"
-                                            :show-file-list="false"
-                                            :on-success="uploadMainUrlSuccess"
-                                             >
-                                        <button type="button"
-                                                class="upload-file am-btn am-btn-secondary am-radius">
-                                            <i class="am-icon-cloud-upload"></i> 选择图片
-                                        </button>
-                                    </el-upload>
-                                    <div class="uploader-list am-cf">
-                                        <div class="file-item" v-if="skuForm.mainUrl">
-                                            <a :href="skuForm.mainUrl" title="点击查看大图" target="_blank">
-                                                <img :src="skuForm.mainUrl">
-                                            </a>
-                                            <i class="iconfont icon-guanbi file-item-delete" @click="skuForm.mainUrl=''"></i>
-                                        </div>
-                                    </div>
-                                    <div class="help-block am-margin-top-sm">
-                                        <small>尺寸750x750像素以上，大小2M以下 </small>
-                                    </div>
-                                </div>
-                            </el-form-item>
                             <el-form-item label="商品价格" prop="skuPrice">
                                 <el-input type="number" v-model.number="skuForm.skuPrice" class="tpl-form-input"></el-input>
                             </el-form-item>
-                            <el-form-item label="划线价格" prop="linePrice">
-                                <el-input type="number" v-model.number="skuForm.linePrice" class="tpl-form-input"></el-input>
+                            <el-form-item label="消费次数" prop="frequency">
+                                <el-input type="number" v-model.number="skuForm.frequency" class="tpl-form-input"></el-input>
                             </el-form-item>
-                            <el-form-item label="商品业务类型" prop="bussType">
-                                <el-select v-model="skuForm.bussType" @change="changeBussType">
+                            <el-form-item label="商品分类" prop="catagory">
+                                <el-select v-model="skuForm.catagory" >
                                     <el-option
-                                            v-for="item in bussTypeOptions"
+                                            v-for="item in catagoryOptions"
                                             :key="item.value"
                                             :label="item.label"
                                             :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
-                            <el-form-item v-if="skuForm.bussType==1" label="次数" prop="frequency">
-                                <el-input type="number" v-model.number="skuForm.frequency" class="tpl-form-input"></el-input>
-                            </el-form-item>
-                            <el-form-item v-if="skuForm.bussType==2" label="商品面值(e卡)" prop="facePrice">
-                                <el-input type="number" v-model.number="skuForm.facePrice" class="tpl-form-input"></el-input>
-                            </el-form-item>
+
                             <div class="widget-head am-cf">
                                 <div class="widget-title am-fl">商品详情</div>
                             </div>
@@ -87,8 +53,8 @@
                                     </el-option>
                                 </el-select>
                             </el-form-item>
-                            <el-form-item label="初始销量" prop="salesInit">
-                                <el-input type="number" v-model.number="skuForm.salesInit" class="tpl-form-input"></el-input>
+                            <el-form-item label="有效期（月数）" prop="vaildMonth">
+                                <el-input type="number" v-model.number="skuForm.vaildMonth" class="tpl-form-input"></el-input>
                             </el-form-item>
                             <el-form-item label="排序" prop="sort">
                                 <el-input type="number" v-model.number="skuForm.sort" class="tpl-form-input"></el-input>
@@ -131,63 +97,46 @@
         },
         data() {
             return {
-                bussTypeOptions:type2options("buss_type"),
+                catogoryOptions:type2options('catagory'),
                 skuStatusOptions: type2options("sku_status"),
                 skuForm: {
                     frequency:1,
-                    bussType:"1",
+                    catagory:"1",
                     skuName:"",
-                    mainUrl:'',
                     skuContent:"",
-                    skuDesc:"",
                     skuPrice:"",
-                    facePrice:"",
-                    linePrice:"",
-                    salesInit:0,
                     sort:100,
-                    skuStatus:"1"
+                    skuStatus:"1",
+                    validMonth:36
                 },
                 rules: {
-                    bussType: [
-                        {required: true, message: '商品业务类型', trigger: 'blur'},
+                    catalog: [
+                        {required: true, message: '请输入商品分类', trigger: 'blur'},
                     ],
                     frequency: [
                         {required: true, message: '请输入次数', trigger: 'blur'},
                         { type: 'number', message: '次数必须为数字值'}
                     ],
-                    skuName: [
+                    vaildMonth:[
+                        {required: true, message: '请输入有效期（月数）', trigger: 'blur'},
+                        { type: 'number', message: '有效期必须为数字值'}
+                    ],
+                    skuName:[
                         {required: true, message: '请输入商品名称', trigger: 'blur'},
                         {min: 1, max: 20, message: '长度在 1 到 30 个字符', trigger: 'blur'}
                     ],
-                    mainUrl: [
-                        {required: true, message: '请选择商品图片', trigger: 'change'}
-                    ],
-                    skuContent: [
+                    skuContent:[
                         {required: true, message: '请录入商品详情', trigger: 'blur'}
                     ],
-                    skuDesc: [
-
-                    ],
-                    skuPrice: [
+                    skuPrice:[
                         {required: true, message: '请录入商品价格', trigger: 'blur'}
                     ],
-                    facePrice: [
-                        {required: true, message: '请录入商品面值(e卡)', trigger: 'blur'}
-                    ],
-                    linePrice: [
-                        {required: true, message: '请录入画线价格', trigger: 'blur'}
-                    ],
+
                 }
             };
         },
         methods: {
-            changeBussType:function(val){
-                if(val=='1'){
-                    this.skuForm.facePrice="";
-                }else if(val =='2'){
-                    this.skuForm.frequency="";
-                }
-            },
+
             handleGetSku:function(skuId){
                 getSku(skuId).then(res=>{
                     var skuInfo = res.data.data;

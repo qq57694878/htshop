@@ -68,17 +68,23 @@ Page({
      * 登录
      */
     loginByPassword() {
-        App._post('/mpapi/loginByPassword', {mobile: this.data.mobile, password: this.data.password}).then((res) => {
-            if (this.code == 200) {
-                wx.setStorageSync('token', this.data);
-                //去首页
-                wx.navigateTo({
-                    url: '/pages/tabbar/my'
-                })
-            } else {
-                App.showError(this.msg);
+        // 登录
+        wx.login({
+            success: res => {
+                App._post('/mpapi/loginByPassword', {code:res.code,mobile: this.data.mobile, password: this.data.password}).then((response) => {
+                    if (response.code == 200) {
+                        wx.setStorageSync('token', response.data);
+                        //去首页
+                        wx.navigateTo({
+                            url: '/pages/tabbar/my'
+                        })
+                    } else {
+                        App.showError(response.msg);
+                    }
+                });
             }
-        });
+        })
+
     },
 
     goReg() {

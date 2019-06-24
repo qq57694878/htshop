@@ -5,10 +5,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        page: {
+       /* page: {
             records: [
                 {
-                    cardName: "一次保养卡",
+                    cardName: "洗车卡",
                     catagory: "1",
                     usedFrequency: 100,
                     afterUsedFrequency: 50,
@@ -16,7 +16,7 @@ Page({
                     createTime: new Date().getTime()
                 },
                 {
-                    cardName: "E卡200",
+                    cardName: "一次保养卡",
                     catagory: "2",
                     usedFrequency: 100,
                     afterUsedFrequency: 50,
@@ -29,7 +29,11 @@ Page({
             total: 100,
             current: 1,
             size: 10
-        },
+        },*/
+        cardRecordList:[],
+        current:1,
+        size:10,
+        pages:1,
         no_more: true
     },
 
@@ -47,11 +51,28 @@ Page({
 
     },
 
+
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+    onShow: function() {
+        this.getMyCardRecordList();
+    },
+    getMyCardRecordList() {
+        var that = this
+        //  获取用户信息 查询有效的
+        wx.showLoading({
+            title: '加载中',
+        });
+        app._get("/mpapi/card-record/getMyCardRecordList", {current:this.data.current,size:this.data.size,validFlag:"1"}).then(res => {
+            wx.hideLoading();
+            if (res.code = 200) {
+                that.setData({
+                    pages:res.data.pages,
+                    cardRecordList: res.data.records
+                })
+            }
+        })
     },
 
     /**
@@ -87,5 +108,17 @@ Page({
      */
     onShareAppMessage: function () {
 
-    }
+    },
+    /**
+     * 下拉到底加载数据
+     */
+    bindDownLoad: function () {
+        // 已经是最后一页
+        if (this.data.page >= this.data.pages) {
+            this.setData({ no_more: true });
+            return false;
+        }
+        this.data.current++;
+        this.getMyCardRecordList( );
+    },
 })
