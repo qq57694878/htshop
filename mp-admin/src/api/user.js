@@ -1,6 +1,6 @@
 import request from '@/router/axios';
 export const loginByUsername = (username, password, code, redomStr) => request({
-    url: '/user/login',
+    url: '/api/login',
     method: 'post',
     data: {
         username,
@@ -16,7 +16,7 @@ export const getUserInfo = () => request({
 });
 
 export const RefeshToken = () => request({
-    url: '/user/refesh',
+    url: '/api/refeshToken',
     method: 'post'
 })
 
