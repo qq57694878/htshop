@@ -37,6 +37,7 @@
                 </navigator>
             </view>
         </view>
+        <view hidden="{{!no_more}}" class="no-more f-30">亲, 没有更多了</view>
         <navigator class=" my-go-used"  hover-class="none" url="/pages/card/used">
                 <view class=" dis-flex">
                     <view class="flex-box t-l">

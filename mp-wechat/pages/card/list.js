@@ -42,7 +42,10 @@ Page({
           }
       ],
 
-    no_more: true
+      current:1,
+      size:10,
+      pages:1,
+      no_more: true
   },
 
   /**
@@ -71,11 +74,12 @@ Page({
       wx.showLoading({
           title: '加载中',
       });
-    app._get("/mpapi/card/getMyCardList", {validFlag:"1"}).then(res => {
+    app._get("/mpapi/card/getMyCardList", {current:this.data.current,size:this.data.size,validFlag:"1"}).then(res => {
         wx.hideLoading();
       if (res.code = 200) {
         that.setData({
-          cardList: res.data
+            pages:res.data.pages,
+          cardList: res.data.records
         })
       }
     })
@@ -137,5 +141,17 @@ Page({
     },
     closeUsedRecord: function(){
         this.setData({showDialog:false});
-    }
+    },
+    /**
+     * 下拉到底加载数据
+     */
+    bindDownLoad: function () {
+        // 已经是最后一页
+        if (this.data.page >= this.data.pages) {
+            this.setData({ no_more: true });
+            return false;
+        }
+        this.data.current++;
+        this.getMyCardList( );
+    },
 })

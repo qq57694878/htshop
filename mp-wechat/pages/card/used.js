@@ -40,8 +40,10 @@ Page({
                 createTime: new Date().getTime(),
             }
         ],
-
-        no_more: true
+        current:1,
+        size:10,
+        pages:1,
+        no_more: false
     },
 
     /**
@@ -64,17 +66,18 @@ Page({
     onShow: function() {
         this.getMyCardList();
     },
-    getMyCardList() {
+    getMyCardRecordList() {
         var that = this
         wx.showLoading({
             title: '加载中',
         })
         //  获取用户信息 查询无效的
-        app._get("/mpapi/card/getMyCardList", {validFlag:"0"}).then(res => {
+        app._get("/mpapi/card-record/getMyCardRecordList", {current:this.data.current,size:this.data.size,validFlag:"0"}).then(res => {
             wx.hideLoading();
             if (res.code = 200) {
                 console.log(res.data);
                 that.setData({
+                    pages:res.data.pages,
                     cardList: res.data
                 })
             }
@@ -139,5 +142,17 @@ Page({
     },
     closeUsedRecord: function(){
         this.setData({showDialog:false});
-    }
+    },
+    /**
+     * 下拉到底加载数据
+     */
+    bindDownLoad: function () {
+        // 已经是最后一页
+        if (this.data.page >= this.data.pages) {
+            this.setData({ no_more: true });
+            return false;
+        }
+        this.data.current++;
+        this.getMyCardRecordList( );
+    },
 })

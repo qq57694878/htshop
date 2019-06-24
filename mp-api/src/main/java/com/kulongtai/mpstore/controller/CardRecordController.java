@@ -2,9 +2,12 @@ package com.kulongtai.mpstore.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kulongtai.mpstore.common.R;
 import com.kulongtai.mpstore.common.context.BaseContextHandler;
+import com.kulongtai.mpstore.dto.PageDto;
 import com.kulongtai.mpstore.entity.Card;
 import com.kulongtai.mpstore.entity.CardRecord;
 import com.kulongtai.mpstore.service.ICardRecordService;
@@ -41,6 +44,16 @@ public class CardRecordController {
         QueryWrapper<CardRecord> queryWrapper =  Wrappers.<CardRecord>query();
         queryWrapper.eq("card_id",cardId);
         List<CardRecord> cardList = iCardRecordService.list(queryWrapper);
+        return new R(cardList);
+    }
+    @GetMapping("/getMyCardRecordList")
+    @ApiOperation(value="查询我的所有消费记录")
+    public R<IPage> getMyCardRecordList(PageDto pageDto){
+        Integer userId = BaseContextHandler.getUserId();
+        QueryWrapper<CardRecord> queryWrapper =  Wrappers.<CardRecord>query();
+        queryWrapper.eq("user_id",userId);
+        queryWrapper.orderByDesc("create_time");
+        IPage<CardRecord> cardList = iCardRecordService.page(new Page<CardRecord>(pageDto.getCurrent(),pageDto.getSize()),queryWrapper);
         return new R(cardList);
     }
 }

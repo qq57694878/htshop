@@ -11,6 +11,5 @@ import java.io.Serializable;
  */
 @Data
 public class OrderAndPayDto implements Serializable {
-    @Autowired
     private Integer skuId;
 }
