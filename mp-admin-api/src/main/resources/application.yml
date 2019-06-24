@@ -26,6 +26,7 @@ mpstore:
   file:
      upload-path: D:/upload
   defaultPassword: 123456
+  aesKey: htshop
 jwt:
   header: Authorization
   secret: mpstore

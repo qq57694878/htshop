@@ -41,8 +41,8 @@ const user = {
             const user = encryption({
                 data: userInfo,
                 type: 'Aes',
-                key: 'avue',
-                param: ['useranme', 'password']
+                key: 'htshop',
+                param: [ 'password']
             });
             return new Promise((resolve) => {
                 loginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
