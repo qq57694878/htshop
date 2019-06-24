@@ -1,7 +1,7 @@
 {
   "pages": [
-        "pages/login/login",
     "pages/start/start",
+    "pages/login/login",
     "pages/tabbar/my",
     "pages/card/list",
     "pages/login/modifyPassword",
@@ -15,7 +15,6 @@
     "pages/card/used",
     "pages/buy/list",
     "pages/buy/detail"
-
   ],
   "debug": true,
   "window": {

@@ -1,4 +1,5 @@
 // pages/login/register.js
+let App = getApp();
 Page({
 
     /**
@@ -96,14 +97,14 @@ Page({
         }
         this.setData({isShow: true, keyBoardType: keyBoardType});
     },
-    onMobileInput(val) {
-        this.setData({mobile: val});
+    onMobileInput(e) {
+        this.setData({mobile: e.detail});
     },
-    onPasswordInput(val) {
-        this.setData({password: val});
+    onPasswordInput(e) {
+      this.setData({ password: e.detail});
     },
-    onRepasswordInput(val) {
-        this.setData({repassword: val});
+    onRepasswordInput(e) {
+      this.setData({ repassword: e.detail});
     },
     /**
      * 注册

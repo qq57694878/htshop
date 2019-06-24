@@ -71,7 +71,7 @@ public class LoginController {
         String openid = apiResult.get("openid");
         String sessionKey =  apiResult.get("session_key");
         User user =  iUserService.getOne(Wrappers.<User>query().eq("mobile",loginDto.getMobile()).last(" limit 1"));
-        if(user!=null){
+        if(user==null){
             throw new BussinessException("用户不存在，请先注册");
         }
         if(!passwordEncoder.matches(loginDto.getPassword(),user.getPassword())){

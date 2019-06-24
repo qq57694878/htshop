@@ -2,7 +2,7 @@
     <view class='userbox'
           style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
 
-        <view wx:if="userInfo" class="user-header" style="background-image: url('/images/user-bg.png');">
+        <view wx:if="{{isVip}}" class="user-header" style="background-image: url('/images/user-bg.png');">
             <view class="user-header-cont">
                 <view class="user-header-avatar">
                     <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
@@ -110,32 +110,32 @@
          -->
 
         <view class="item item-bottom" bindtap='makePhoneCall'>
-            <navigator url="" hover-class="none" class="a">
+            <view class="a">
                 <wxc-icon type='group' size='{{iconSize}}' color='{{iconColor}}'
                           style='margin:15rpx 0 10rpx 0;'></wxc-icon>
                 <text class="txt">联系我们</text>
-            </navigator>
+            </view>
         </view>
         <view class="item item-bottom" bindtap="aboutUs">
-            <navigator url="" hover-class="none" class="a">
+            <view  class="a">
                 <wxc-icon type='help' size='{{iconSize}}' color='{{iconColor}}'
                           style='margin:15rpx 0 10rpx 0;'></wxc-icon>
                 <text class="txt">关于我们</text>
-            </navigator>
+            </view>
         </view>
-        <view class="item item-bottom" bindtap="modifyPassword" wx:if="userInfo">
-            <navigator url="" hover-class="none" class="a">
+        <view class="item item-bottom" bindtap="modifyPassword" wx:if="{{isVip}}">
+            <view  class="a">
                 <my-icon name="icondengchu" size='{{iconSize}}rpx' color='{{iconColor}}'
                          style='margin:15rpx 0 10rpx 0;'/>
                 <text class="txt">修改密码</text>
-            </navigator>
+            </view>
         </view>
-        <view class="item item-bottom" bindtap="logout" wx:if="userInfo">
-            <navigator url="" hover-class="none" class="a">
+        <view class="item item-bottom" bindtap="logout" wx:if="{{isVip}}">
+            <view class="a">
                 <my-icon name="icondengchu" size='{{iconSize}}rpx' color='{{iconColor}}'
                          style='margin:15rpx 0 10rpx 0;'/>
                 <text class="txt">登出</text>
-            </navigator>
+            </view>
         </view>
     </view>
 

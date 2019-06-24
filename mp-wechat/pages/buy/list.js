@@ -18,7 +18,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+      this.setData({ scrollHeight: wx.getSystemInfoSync().windowHeight });
+      this.getSkuList(true);
     },
 
     /**
@@ -32,9 +33,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getSkuList();
+  
     },
-    getSkuList() {
+  getSkuList(isreload) {
         var that = this
         //  获取用户信息 查询有效的
         wx.showLoading({
@@ -44,15 +45,19 @@ Page({
             wx.hideLoading();
             if (res.code = 200) {
               var skuList=this.data.skuList;
+              if (isreload) {
+                skuList = [];
+              } 
               var list = res.data.records;
               if(list){
                   for(var i=0;i<list.length;i++){
                     var o = list[i];
                     o.validTime = this.addMonth(new Date(),o.validMonth).getTime();
-
+               
                     skuList.push(o);
                   }
               }
+             
                 that.setData({
                     pages:res.data.pages,
                     skuList: skuList
@@ -137,7 +142,7 @@ addMonth (date, num){
             return false;
         }
         this.data.current++;
-        this.getSkuList( );
+        this.getSkuList(false );
     },
     buyNow:function(){
 

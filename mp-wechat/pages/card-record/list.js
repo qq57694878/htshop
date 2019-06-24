@@ -1,4 +1,5 @@
 // pages/card/list.js
+const app = getApp()
 Page({
 
     /**
@@ -34,14 +35,16 @@ Page({
         current:1,
         size:10,
         pages:1,
-        no_more: true
+        no_more: true,
+        scrollHeight:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.setData({ scrollHeight: wx.getSystemInfoSync().windowHeight });
+      this.getMyCardRecordList(true);
     },
 
     /**
@@ -56,21 +59,25 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getMyCardRecordList();
+     
     },
-    getMyCardRecordList() {
+  getMyCardRecordList(isreload) {
         var that = this
         //  获取用户信息 查询有效的
         wx.showLoading({
             title: '加载中',
         });
-        app._get("/mpapi/card-record/getMyCardRecordList", {current:this.data.current,size:this.data.size,validFlag:"1"}).then(res => {
+        app._get("/mpapi/card-record/getMyCardRecordList", {current:this.data.current,size:this.data.size}).then(res => {
             wx.hideLoading();
             if (res.code = 200) {
-                that.setData({
-                    pages:res.data.pages,
-                    cardRecordList: res.data.records
-                })
+              let list = this.data.cardRecordList;
+              if (isreload) {
+                list=[];
+              } 
+              that.setData({
+                pages: res.data.pages,
+                cardRecordList: list.concat(res.data.records)
+              })
             }
         })
     },
@@ -114,11 +121,11 @@ Page({
      */
     bindDownLoad: function () {
         // 已经是最后一页
-        if (this.data.page >= this.data.pages) {
+      if (this.data.current >= this.data.pages) {
             this.setData({ no_more: true });
             return false;
         }
         this.data.current++;
-        this.getMyCardRecordList( );
+        this.getMyCardRecordList(false);
     },
 })

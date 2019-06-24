@@ -39,7 +39,7 @@ public class CardController {
         QueryWrapper<Card>queryWrapper =  Wrappers.<Card>query();
         queryWrapper.eq("user_id",userId);
         queryWrapper.eq(StringUtils.isNotEmpty(cardListDto.getValidFlag()),"valid_flag",cardListDto.getValidFlag());
-        queryWrapper.orderByAsc("sort");
+        queryWrapper.orderByDesc("create_time");
         IPage<Card> cardList = iCardService.page(new Page<Card>(cardListDto.getCurrent(),cardListDto.getSize()),queryWrapper);
         return new R(cardList);
    }

@@ -92,10 +92,11 @@ Page({
             url: './register',
         })
     },
-    onMobileInput(val){
-        this.setData({mobile:val});
+    onMobileInput(e){
+        console.log(e)
+        this.setData({mobile:e.detail});
     },
-    onPasswordInput(val){
-        this.setData({password:val});
+    onPasswordInput(e){
+      this.setData({ password: e.detail});
     }
 })

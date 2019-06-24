@@ -28,7 +28,7 @@ public class MyTask {
     /**
      * 处理过期的卡片致状态为无效
      */
-    @Scheduled(cron = "0 0 24 * * ?")
+    @Scheduled(cron = "0 0 0 * * ?")
     public void processExpireCard() {
         UpdateWrapper<Card> updateWrapper = Wrappers.update();
         updateWrapper.set("valid_flag", "0");

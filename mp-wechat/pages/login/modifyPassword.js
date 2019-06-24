@@ -1,4 +1,5 @@
 // pages/login/register.js
+let App = getApp();
 Page({
 
     /**
@@ -66,14 +67,14 @@ Page({
     onShareAppMessage: function () {
 
     },
-    onNewPasswordInput(val) {
-        this.setData({newPassword: val});
+    onNewPasswordInput(e) {
+        this.setData({newPassword: e.detail});
     },
-    onPasswordInput(val) {
-        this.setData({password: val});
+    onPasswordInput(e) {
+      this.setData({ password: e.detail});
     },
-    onRepasswordInput(val) {
-        this.setData({repassword: val});
+    onRepasswordInput(e) {
+      this.setData({ repassword: e.detail});
     },
     /**
      * 修改密码
@@ -83,7 +84,7 @@ Page({
             App.showInfo("新密码最少6位");
             return;
         }
-        if (this.data.password != this.data.repassword) {
+      if (this.data.newPassword != this.data.repassword) {
             App.showInfo("两次输入的密码不一致");
             return;
         }

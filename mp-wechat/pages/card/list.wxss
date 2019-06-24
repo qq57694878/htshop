@@ -115,13 +115,12 @@
   font-weight: bold;
 }
 .my-go-used{
-  line-height:60rpx;
   font-size:30rpx;
   padding:20rpx;
-  border-radius: 60rpx;
+  border-radius: 50rpx;
   background: #fff;
   border:1rpx solid #ccc;
-  font-size:24rpx;
+  margin-bottom:30px;
 }
 .no-more {
   text-align: center;

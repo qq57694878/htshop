@@ -28,31 +28,33 @@ Page({
       },*/
     ],
       cardRecordList:[
-          {
-              afterUsedFrequency:19,
-              usedFrequency:1,
-              cardNo:"789456123012",
-              createTime: new Date().getTime(),
-          },
-          {
-              afterUsedFrequency:18,
-              usedFrequency:1,
-              cardNo:"789456123012",
-              createTime: new Date().getTime(),
-          }
+          // {
+          //     afterUsedFrequency:19,
+          //     usedFrequency:1,
+          //     cardNo:"789456123012",
+          //     createTime: new Date().getTime(),
+          // },
+          // {
+          //     afterUsedFrequency:18,
+          //     usedFrequency:1,
+          //     cardNo:"789456123012",
+          //     createTime: new Date().getTime(),
+          // }
       ],
 
       current:1,
       size:10,
       pages:1,
-      no_more: true
+      no_more: true,
+      scrollHeight: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({ scrollHeight: wx.getSystemInfoSync().windowHeight });
+    this.getMyCardList(true);
   },
 
   /**
@@ -66,9 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getMyCardList();
+
   },
-  getMyCardList() {
+  getMyCardList(isreload) {
     var that = this
     //  获取用户信息 查询有效的
       wx.showLoading({
@@ -77,10 +79,18 @@ Page({
     app._get("/mpapi/card/getMyCardList", {current:this.data.current,size:this.data.size,validFlag:"1"}).then(res => {
         wx.hideLoading();
       if (res.code = 200) {
-        that.setData({
-            pages:res.data.pages,
-          cardList: res.data.records
-        })
+        let list = this.data.cardList;
+        if (isreload){
+          that.setData({
+            pages: res.data.pages,
+            cardList: res.data.records
+          })
+        }else{
+          that.setData({
+            pages: res.data.pages,
+            cardList: list.concat(res.data.records)
+          })
+        }
       }
     })
   },
@@ -147,11 +157,11 @@ Page({
      */
     bindDownLoad: function () {
         // 已经是最后一页
-        if (this.data.page >= this.data.pages) {
+      if (this.data.current >= this.data.pages) {
             this.setData({ no_more: true });
             return false;
         }
         this.data.current++;
-        this.getMyCardList( );
+        this.getMyCardList(false);
     },
 })

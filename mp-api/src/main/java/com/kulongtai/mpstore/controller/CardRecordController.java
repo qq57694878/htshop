@@ -12,8 +12,10 @@ import com.kulongtai.mpstore.entity.Card;
 import com.kulongtai.mpstore.entity.CardRecord;
 import com.kulongtai.mpstore.service.ICardRecordService;
 import com.kulongtai.mpstore.service.ICardService;
+import com.kulongtai.mpstore.vo.CardRecordVo;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -34,7 +40,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/mpapi/card-record")
 public class CardRecordController {
-
+    @Autowired
+    private ICardService iCardService;
     @Autowired
     private ICardRecordService iCardRecordService;
 
@@ -53,7 +60,26 @@ public class CardRecordController {
         QueryWrapper<CardRecord> queryWrapper =  Wrappers.<CardRecord>query();
         queryWrapper.eq("user_id",userId);
         queryWrapper.orderByDesc("create_time");
-        IPage<CardRecord> cardList = iCardRecordService.page(new Page<CardRecord>(pageDto.getCurrent(),pageDto.getSize()),queryWrapper);
-        return new R(cardList);
+        IPage<CardRecord> cardRecordList = iCardRecordService.page(new Page<CardRecord>(pageDto.getCurrent(),pageDto.getSize()),queryWrapper);
+        List<CardRecord> list = cardRecordList.getRecords();
+       if(list!=null){
+           List<Integer> ids = list.stream().map(cardRecord -> {return cardRecord.getCardId();}).collect(Collectors.toList());
+           Map<Integer,Card> m = new HashMap<Integer,Card>();
+           iCardService.listByIds(ids).forEach(item->{
+               m.put(item.getCardId(),item);
+           });
+           List<CardRecordVo> records = list.stream().map(cardRecord -> {
+               CardRecordVo vo = new CardRecordVo();
+               BeanUtils.copyProperties(cardRecord,vo);
+               vo.setCatagory(m.get(cardRecord.getCardId()).getCatagory());
+               vo.setCardName(m.get(cardRecord.getCardId()).getCardName());
+               return vo;
+           }).collect(Collectors.toList());
+
+           IPage<CardRecordVo> result = new Page<CardRecordVo>(cardRecordList.getCurrent(),cardRecordList.getSize(),cardRecordList.getTotal());
+           result.setRecords(records);
+           return new R(result);
+       }
+        return new R(cardRecordList);
     }
 }

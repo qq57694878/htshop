@@ -1,6 +1,6 @@
 <wxs src="../../comm.wxs" module="tools" />
 <view class='container'>
-  <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{page.records.length > 0}}">
+  <scroll-view bindscrolltolower="bindDownLoad" class="weui-panel weui-panel_access" scroll-y="true" style="height: {{scrollHeight}}px; width: 750rpx;" wx:if="{{cardRecordList.length > 0}}">
 
     <view class="my-list ">
       <view class="my-list-item b-f" wx:for="{{cardRecordList}}" wx:key="id">
@@ -14,8 +14,10 @@
             </van-col>
             <van-col span="17">
               <view class="f-30 twolist-hidden my-card-name">{{item.cardName}}</view>
+                 <view class="my-create-time">卡号：{{item.cardNo}}</view>
                 <view class="my-item-content">
-                 <text class="my-rest-frequency">-{{item.usedFrequency}}次 </text>
+                <text>扣减：</text>
+                 <text class="my-rest-frequency">{{item.usedFrequency}}次 </text>
                   <text>余:{{item.afterUsedFrequency }}次</text>
               </view>
               <view class="my-create-time">{{tools.formatDateYMDHMS(item.createTime)}}</view>

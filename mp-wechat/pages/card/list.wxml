@@ -75,6 +75,9 @@
                         </view>
                     </view>
             </view>
+            <view class="my-dlg-item t-c" wx:if="{{cardRecordList.length==0}}">
+                   暂无消费记录
+            </view>
         </view>
         <view class="my-btn-bar">
             <van-button   plain hairline round type="warning" bindtap="closeUsedRecord" size="small">我知道了</van-button>

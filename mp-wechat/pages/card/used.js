@@ -7,50 +7,53 @@ Page({
      */
     data: {
         showDialog:false,
-        cardList: [{
-            cardName: "一次保养卡",
-            bussType: "1",
-            totalFrequency: 100,
-            restFrequency: 50,
-            cardNo: 123456789012,
-            validTime:new Date().getTime(),
-            catagory:'2'
-        },
-            {
-                cardName: "洗车20",
-                bussType: "1",
-                totalFrequency: 100,
-                restFrequency: 50,
-                cardNo: 123456789012,
-                validTime: new Date().getTime(),
-                catagory: '1'
-            },
+        cardList: [
+        //   {
+        //     cardName: "一次保养卡",
+        //     bussType: "1",
+        //     totalFrequency: 100,
+        //     restFrequency: 50,
+        //     cardNo: 123456789012,
+        //     validTime:new Date().getTime(),
+        //     catagory:'2'
+        // },
+        //     {
+        //         cardName: "洗车20",
+        //         bussType: "1",
+        //         totalFrequency: 100,
+        //         restFrequency: 50,
+        //         cardNo: 123456789012,
+        //         validTime: new Date().getTime(),
+        //         catagory: '1'
+        //     },
         ],
         cardRecordList:[
-            {
-                afterUsedFrequency:19,
-                usedFrequency:1,
-                cardNo:"789456123012",
-                createTime: new Date().getTime(),
-            },
-            {
-                afterUsedFrequency:18,
-                usedFrequency:1,
-                cardNo:"789456123012",
-                createTime: new Date().getTime(),
-            }
+            // {
+            //     afterUsedFrequency:19,
+            //     usedFrequency:1,
+            //     cardNo:"789456123012",
+            //     createTime: new Date().getTime(),
+            // },
+            // {
+            //     afterUsedFrequency:18,
+            //     usedFrequency:1,
+            //     cardNo:"789456123012",
+            //     createTime: new Date().getTime(),
+            // }
         ],
         current:1,
         size:10,
         pages:1,
-        no_more: false
+        no_more: false,
+       scrollHeight: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+      this.setData({ scrollHeight:wx.getSystemInfoSync().windowHeight});
+      this.getMyCardList(true);
     },
 
     /**
@@ -64,9 +67,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getMyCardList();
+    
     },
-    getMyCardRecordList() {
+  getMyCardList(isreload) {
         var that = this
         wx.showLoading({
             title: '加载中',
@@ -74,13 +77,20 @@ Page({
         //  获取用户信息 查询无效的
         app._get("/mpapi/card/getMyCardList", {current:this.data.current,size:this.data.size,validFlag:"0"}).then(res => {
             wx.hideLoading();
-            if (res.code = 200) {
-                console.log(res.data);
-                that.setData({
-                    pages:res.data.pages,
-                    cardList: res.data
-                })
+          if (res.code = 200) {
+            let list = this.data.cardList;
+            if (isreload) {
+              that.setData({
+                pages: res.data.pages,
+                cardList: res.data.records
+              })
+            } else {
+              that.setData({
+                pages: res.data.pages,
+                cardList: list.concat(res.data.records)
+              })
             }
+          }
         }).catch(res=>{
             wx.hideLoading();
         });
@@ -148,11 +158,11 @@ Page({
      */
     bindDownLoad: function () {
         // 已经是最后一页
-        if (this.data.page >= this.data.pages) {
+      if (this.data.current >= this.data.pages) {
             this.setData({ no_more: true });
             return false;
         }
         this.data.current++;
-        this.getMyCardRecordList( );
+        this.getMyCardList(false );
     },
 })

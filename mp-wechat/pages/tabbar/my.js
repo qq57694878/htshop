@@ -15,6 +15,7 @@ Page({
     userInfo:{},
     iconSize: 45,
     iconColor: '#999999',
+    isVip:false
 
   },
     /**
@@ -62,13 +63,16 @@ Page({
     //  获取用户信息
     app._get("/mpapi/user/getUserInfo", "").then(res => {
       var userInfo={};
+      var isVip= false;
       if (res.code = 200) {
         if(res.data&&res.data.userId){
             userInfo=res.data;
+            isVip =true;
         }
       }
         that.setData({
-            userInfo: userInfo
+            userInfo: userInfo,
+            isVip: isVip
         })
     })
   },
@@ -127,13 +131,13 @@ Page({
      *  登出
      */
     logout(){
-            App._get('/mpapi/logout',{}).then((response) => {
+            app._post('/mpapi/logout',{}).then((response) => {
                 if (response.code == 200) {
                     wx.setStorageSync('token', response.data);
                     //刷新页面
                     this.onShow();
                 } else {
-                    App.showError(response.msg);
+                    app.showError(response.msg);
                 }
             });
     },

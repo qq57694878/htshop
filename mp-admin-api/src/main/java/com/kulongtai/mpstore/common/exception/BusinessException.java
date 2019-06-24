@@ -4,7 +4,7 @@ package com.kulongtai.mpstore.common.exception;
  * Created by ace on 2017/9/8.
  */
 public class BusinessException extends RuntimeException {
-    private int status = 200;
+    private int status = 500;
 
     public int getStatus() {
         return status;
