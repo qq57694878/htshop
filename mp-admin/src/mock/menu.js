@@ -31,6 +31,14 @@ const first = [
     },
     {
         id: 69,
+        label: "消费记录",
+        path: '/card-record',
+        component: 'views/card-record/index',
+        icon: 'icon-wodeyouhuiquan',
+        children: [],
+    },
+    {
+        id: 70,
         label: "用户管理",
         path: '/wxuser',
         component: 'views/wxuser/index',

@@ -50,6 +50,7 @@
 <script>
     import {getNotice,saveNotice} from '@/api/notice';
     import { mapGetters } from 'vuex'
+    import moment from 'moment'
     export default{
         data(){
             return{
@@ -87,12 +88,14 @@
             handleGetNotice(){
                 getNotice().then(response=>{
                     var r =response.data.data;
+                    console.log(r);
+                    console.log(this.moment(new Date(r.startTime)).format('YYYY-MM-DD HH:mm:ss'));
                     if(r){
                         this.noticeForm.content = r.content;
                         this.noticeForm.id=r.id;
-                        this.noticerangetime=[r.startTime,r.endTime],
-                        this.noticeForm.startTime=r.startTime;
-                        this.noticeForm.endTime=r.endTime;
+                        this.noticerangetime=[new Date(r.startTime),new Date(r.endTime)],
+                        this.noticeForm.startTime=this.moment(new Date(r.startTime)).format('YYYY-MM-DD HH:mm:ss');
+                        this.noticeForm.endTime=this.moment(new Date(r.endTime)).format('YYYY-MM-DD HH:mm:ss');
                     }
                 });
             },

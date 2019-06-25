@@ -57,7 +57,6 @@ public class UserController {
                 .eq(StringUtils.isNotBlank(userListDto.getMobile()), "mobile", userListDto.getMobile())
                 .gt(userListDto.getStartTime() != null, "create_time", userListDto.getStartTime())
                 .lt(userListDto.getEndTime() != null, "create_time", userListDto.getEndTime())
-                .eq("del_flag", "0")
                 .orderByDesc("create_time");
         IPage<User> skuList = iUserService.page(new Page<>(userListDto.getCurrent(), userListDto.getSize()), queryWrapper);
         return new R(skuList);

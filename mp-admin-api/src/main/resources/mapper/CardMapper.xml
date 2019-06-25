@@ -35,15 +35,15 @@
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
         <result column="mobile" property="mobile" />
-        <result column="carNo" property="carNo" />
+        <result column="car_no" property="carNo" />
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         card_id, card_no, user_id, sku_id, card_name, total_frequency, rest_frequency, card_content, valid_flag, order_id, valide_time,catagory, create_time, update_time
     </sql>
     <select id="pageCardList" resultMap="CardListVoMap" parameterType="com.kulongtai.mpstore.dto.CardListDto">
-        select card_id, card_no, user_id, sku_id, card_name, total_frequency, rest_frequency, card_content, valid_flag, order_id, valide_time,catagory, create_time, update_time,
-        ,b.carNo,b.mobile
+        select a.card_id, a.card_no, a.user_id, a.sku_id, a.card_name, a.total_frequency, a.rest_frequency, a.card_content, a.valid_flag, a.order_id, a.valide_time,a.catagory, a.create_time, a.update_time
+        ,b.car_no,b.mobile
         from mp_card a,mp_user b
         where a.user_id=b.user_id
 
@@ -51,13 +51,13 @@
             AND a.user_id = #{p.userId}
         </if>
         <if test="p.cardNo != null and p.cardNo !=''">
-            AND a.cardNo = #{p.cardNo}
+            AND a.card_no = #{p.cardNo}
         </if>
         <if test="p.cardName != null and p.cardName !=''">
-            AND a.cardName = #{p.cardName}
+            AND a.card_name = #{p.cardName}
         </if>
         <if test="p.validFlag != null and p.validFlag !=''">
-            AND a.validFlag = #{p.validFlag}
+            AND a.valid_flag = #{p.validFlag}
         </if>
         <if test="p.startTime != null">
             AND a.create_time &gt;= #{p.startTime,jdbcType=TIMESTAMP}
@@ -66,7 +66,7 @@
             AND a.create_time &lt;= #{p.endTime,jdbcType=TIMESTAMP}
         </if>
         <if test="p.carNo != null and p.carNo !=''">
-            AND b.carNo = #{p.carNo}
+            AND b.car_no = #{p.carNo}
         </if>
         <if test="p.mobile != null and p.mobile !=''">
             AND b.mobile = #{p.mobile}

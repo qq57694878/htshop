@@ -53,8 +53,8 @@
                                 </el-select>
                             </el-form-item>
 
-                            <el-form-item label="有效期（月数）" prop="vaildMonth">
-                                <el-input type="number" v-model.number="skuForm.vaildMonth" class="tpl-form-input"></el-input>
+                            <el-form-item label="有效期（月数）" prop="validMonth">
+                                <el-input type="number" v-model.number="skuForm.validMonth" class="tpl-form-input"></el-input>
                             </el-form-item>
                             <el-form-item label="排序" prop="sort">
                                 <el-input type="number" v-model.number="skuForm.sort" class="tpl-form-input"></el-input>
@@ -100,17 +100,17 @@
         },
         data() {
             return {
-                bussTypeOptions:type2options("buss_type"),
+                catagoryOptions:type2options('catagory'),
                 skuStatusOptions: type2options("sku_status"),
                 skuForm: {
-                    frequency:1,
-                    catagory:"1",
+                    frequency:"",
+                    catagory:"",
                     skuName:"",
                     skuContent:"",
                     skuPrice:"",
-                    sort:100,
-                    skuStatus:"1",
-                    validMonth:36
+                    sort:"",
+                    skuStatus:"",
+                    validMonth:"",
                 },
                 other:{
                     minusNum:0
@@ -123,7 +123,7 @@
                         {required: true, message: '请输入次数', trigger: 'blur'},
                         { type: 'number', message: '次数必须为数字值'}
                     ],
-                    vaildMonth:[
+                    validMonth:[
                         {required: true, message: '请输入有效期（月数）', trigger: 'blur'},
                         { type: 'number', message: '有效期必须为数字值'}
                     ],

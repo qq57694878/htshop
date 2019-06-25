@@ -70,7 +70,7 @@
                                     <td class="am-text-middle">
                                         <div class="tpl-table-black-operation">
 
-                                            <a href="javascript:;" @click="handleResetPassword($item['userId'])" class="item-delete tpl-table-black-operation-del">
+                                            <a href="javascript:;" @click="handleResetPassword(userInfo['userId'])" class="item-delete tpl-table-black-operation-del">
                                                 <i class="am-icon-unlock-alt"></i> 重置密码
                                             </a>
 
@@ -213,12 +213,13 @@
              * 重置秘密吗
              */
             handleResetPassword(userId){
-                this.loading = true;
+
                 this.$confirm(`是否确认删除?`, '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning',
                 }).then(() => {
+                    this.loading = true;
                     resetPassword(userId)
                         .then(res => {
                             this.loading = false;

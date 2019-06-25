@@ -20,6 +20,12 @@ export const RefeshToken = () => request({
     method: 'post'
 })
 
+export const modifyPassword = (form) => request({
+    url: '/api/modifyPassword',
+    method: 'post',
+    data: form
+})
+
 export const getMenu = (type = 0) => request({
     url: '/user/getMenu',
     method: 'get',

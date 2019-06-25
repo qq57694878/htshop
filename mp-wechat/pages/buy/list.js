@@ -151,15 +151,15 @@ addMonth (date, num){
         wx.showLoading({
             title: '加载中',
         });
-        app._get("/mpapi/order/orderAndPay", {current:this.data.current,size:this.data.size}).then(res => {
+        app._get("/mpapi/order/orderAndPay", {current:this.data.current,size:this.data.size}).then(result => {
             wx.hideLoading();
-            if (res.code = 200) {
+            if (result.code = 200) {
                 //调起微信支付
                 // 发起微信支付
                 wx.requestPayment({
                     timeStamp: result.data.timeStamp,
                     nonceStr: result.data.nonceStr,
-                    package: 'prepay_id=' + result.data.prepay_id,
+                    package: result.data.package,
                     signType: 'MD5',
                     paySign: result.data.paySign,
                     success: function (res) {

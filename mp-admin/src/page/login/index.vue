@@ -105,8 +105,18 @@ export default {
         handleLogin() {
             this.$refs.loginForm.validate(valid => {
                 if (valid) {
-                    this.$store.dispatch("LoginByUsername", this.loginForm).then(() => {
-                        this.$router.push({ path: this.tagWel.value });
+                    this.$store.dispatch("LoginByUsername", this.loginForm).then((res) => {
+                        console.log(res);
+                        if(res.data.code==200){
+                            this.$router.push({ path: this.tagWel.value });
+                        }else{
+                            this.$notify({
+                                title: '登录失败',
+                                showClose: true,
+                                message: res.data.msg,
+                                type: 'error',
+                            });
+                        }
                     });
                 }
             });

@@ -3,9 +3,11 @@ package com.kulongtai.mpstore.mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kulongtai.mpstore.dto.CardListDto;
+import com.kulongtai.mpstore.dto.CardRecordListDto;
 import com.kulongtai.mpstore.entity.CardRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kulongtai.mpstore.vo.CardListVo;
+import com.kulongtai.mpstore.vo.CardRecordListVo;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -18,4 +20,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface CardRecordMapper extends BaseMapper<CardRecord> {
 
- }
+    IPage<CardRecordListVo> pageCardRecordList(Page<Object> objectPage, @Param("p") CardRecordListDto cardRecordListDto);
+}

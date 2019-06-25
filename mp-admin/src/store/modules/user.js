@@ -41,17 +41,20 @@ const user = {
             const user = encryption({
                 data: userInfo,
                 type: 'Aes',
-                key: 'htshop',
-                param: [ 'password']
+                key: '1234567890123456',
+                param: [ ]
             });
+            console.log(user);
             return new Promise((resolve) => {
                 loginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
-                    const data = res.data.data;
-                    commit('SET_TOKEN', data);
-                    commit('DEL_ALL_TAG');
-                    commit('CLEAR_LOCK');
-                    setToken(data);
-                    resolve();
+                    if(res.data.code==200){
+                        const data = res.data.data;
+                        commit('SET_TOKEN', data);
+                        commit('DEL_ALL_TAG');
+                        commit('CLEAR_LOCK');
+                        setToken(data);
+                    }
+                    resolve(res);
                 })
             })
         },

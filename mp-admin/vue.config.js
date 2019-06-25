@@ -37,14 +37,7 @@ module.exports = {
                 pathRewrite: {
                     '^/api': '/api'
                 }
-            },
-            '/api': {
-                target: baseUrl,
-                ws: false,
-                pathRewrite: {
-                    '^/api': '/api'
-                }
-            },
+            }
         }
     }
 }
