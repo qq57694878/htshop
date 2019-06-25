@@ -69,6 +69,7 @@ public class WebMvcConfig {
                         .excludePathPatterns("/public/*")
                         .excludePathPatterns("/webjars/*")
                         .excludePathPatterns("/api/public/*")
+                        .excludePathPatterns("/api/media/*")
                         .excludePathPatterns("/api/login");
             }
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-06-21 20:26:16
+Date: 2019-06-25 21:45:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,11 +24,6 @@ CREATE TABLE `mp_about` (
   `content` longtext COMMENT '关于我们',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='关于我们';
-
--- ----------------------------
--- Records of mp_about
--- ----------------------------
-INSERT INTO `mp_about` VALUES ('1', '我们地址在xxxxxx<img src=\"http://www.kulongtai.com/1.jpg\"/>来吧');
 
 -- ----------------------------
 -- Table structure for mp_card
@@ -50,15 +45,7 @@ CREATE TABLE `mp_card` (
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`card_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户卡券表';
-
--- ----------------------------
--- Records of mp_card
--- ----------------------------
-INSERT INTO `mp_card` VALUES ('1', '1234567981', '1', '1', '洗车卡', '20', '18', '<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '1', '1', '2019-07-06 00:37:44', '1', '2019-06-21 00:37:53', '2019-06-21 20:04:48');
-INSERT INTO `mp_card` VALUES ('2', '654987123', '1', '2', '保养卡', '10', '8', '更换机油机滤<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '1', '2', '2019-07-26 20:00:24', '2', '2019-06-21 19:59:37', '2019-06-21 20:05:04');
-INSERT INTO `mp_card` VALUES ('3', '654987333', '1', '1', '洗车卡', '10', '0', '洗车机油机滤<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '0', '3', '2019-07-26 20:00:24', '1', '2019-06-21 19:59:37', '2019-06-21 20:04:04');
-INSERT INTO `mp_card` VALUES ('4', '654987333', '1', '1', '保养卡1', '10', '0', '更换机油机滤<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '0', '3', '2019-07-26 20:00:24', '2', '2019-06-21 19:59:37', '2019-06-21 20:03:30');
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户卡券表';
 
 -- ----------------------------
 -- Table structure for mp_card_record
@@ -74,13 +61,7 @@ CREATE TABLE `mp_card_record` (
   `after_used_frequency` int(11) DEFAULT NULL COMMENT '消费后次数',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户卡券消费记录表';
-
--- ----------------------------
--- Records of mp_card_record
--- ----------------------------
-INSERT INTO `mp_card_record` VALUES ('1', '1', '1234567981', '1', '20', '1', '19', '2019-06-21 20:05:19');
-INSERT INTO `mp_card_record` VALUES ('2', '1', '1234567981', '1', '19', '1', '18', '2019-06-21 20:05:24');
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户卡券消费记录表';
 
 -- ----------------------------
 -- Table structure for mp_config
@@ -94,15 +75,6 @@ CREATE TABLE `mp_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='配置表';
 
 -- ----------------------------
--- Records of mp_config
--- ----------------------------
-INSERT INTO `mp_config` VALUES ('6', 'appid', 'wx712f0956a1ce6cf8');
-INSERT INTO `mp_config` VALUES ('7', 'appsecret', '0903e881ac49adab1e6a32a6419b1990');
-INSERT INTO `mp_config` VALUES ('8', 'mchid', null);
-INSERT INTO `mp_config` VALUES ('9', 'paykey', null);
-INSERT INTO `mp_config` VALUES ('10', 'server_phone_number', '13842823735');
-
--- ----------------------------
 -- Table structure for mp_notice
 -- ----------------------------
 DROP TABLE IF EXISTS `mp_notice`;
@@ -114,11 +86,6 @@ CREATE TABLE `mp_notice` (
   `del_flag` char(1) DEFAULT '0' COMMENT '删除标记',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='通知公告表';
-
--- ----------------------------
--- Records of mp_notice
--- ----------------------------
-INSERT INTO `mp_notice` VALUES ('3', '阿萨德是非得失', '2019-06-12 00:00:00', '2019-07-20 23:59:59', '0');
 
 -- ----------------------------
 -- Table structure for mp_order
@@ -135,10 +102,6 @@ CREATE TABLE `mp_order` (
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`order_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='订单表';
-
--- ----------------------------
--- Records of mp_order
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for mp_sku
@@ -159,13 +122,7 @@ CREATE TABLE `mp_sku` (
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`sku_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='卡券信息表';
-
--- ----------------------------
--- Records of mp_sku
--- ----------------------------
-INSERT INTO `mp_sku` VALUES ('1', '洗车券', '300.00', '30', '<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '100', '0', '1', '1', '36', '0', '2019-06-21 19:57:16', '2019-06-21 19:57:16');
-INSERT INTO `mp_sku` VALUES ('2', '小保养', '2500.00', '10', '更换机油机滤<img src=\"http://www.kulongtai.com/1.jpg\"/>我们洗车最实惠', '100', '0', '1', '2', '36', '0', '2019-06-21 19:58:05', '2019-06-21 20:00:12');
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='卡券信息表';
 
 -- ----------------------------
 -- Table structure for mp_user
@@ -184,9 +141,16 @@ CREATE TABLE `mp_user` (
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户表';
 
 -- ----------------------------
--- Records of mp_user
+-- Table structure for sys_user
 -- ----------------------------
-INSERT INTO `mp_user` VALUES ('1', '13842823735', '123', '黑A88888', 'lijinliang', null, 'ovvRs1X0NvmAYI5EWRXcEEF2i07M', '/tW9YAo5vZud6bywYODm5g==', '2019-06-21 20:19:40', '2019-06-21 00:35:05', '2019-06-21 00:35:37');
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_code` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

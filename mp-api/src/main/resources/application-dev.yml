@@ -16,7 +16,7 @@ spring:
       enabled: true
       force: true
 server:
-  port: 9999
+  port: 8888
   servlet:
     context-path:
   tomcat:
@@ -29,7 +29,7 @@ mpstore:
   aesKey: 1234567890123456
 jwt:
   header: Authorization
-  secret: mpadmin
+  secret: mpapi
   expiration: 604800
 
 logging:

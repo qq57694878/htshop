@@ -32,7 +32,7 @@ public class FileController {
 
     @Value("${mpstore.file.upload-path}")
     private String uploadPath;
-    @GetMapping("/media/**")
+    @GetMapping("/api/media/**")
     public void download(HttpServletRequest request, HttpServletResponse response)throws Exception{
         String uri= request.getRequestURI();
         String contentPath = request.getContextPath();
@@ -196,7 +196,7 @@ public class FileController {
 
 
     private String getDownloadUrl(String filePath){
-        return serverUrl+"/media"+filePath;
+        return serverUrl+"/api/media"+filePath;
     }
 
 

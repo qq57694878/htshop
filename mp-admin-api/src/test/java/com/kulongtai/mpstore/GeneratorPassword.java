@@ -10,7 +10,7 @@ public class GeneratorPassword {
 
     public static void main(String[] args) {
          BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-       String s =  passwordEncoder.encode("123456");
+       String s =  passwordEncoder.encode("12345678");
         System.out.println(s);
     }
 }

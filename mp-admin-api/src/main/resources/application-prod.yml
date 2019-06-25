@@ -1,8 +1,6 @@
 spring:
-  profiles:
-    active: @package.environment@
   datasource:
-          name: mpstore
+          name: htshop
           # url: jdbc:mysql://182.61.166.15:3306/test?useUnicode=true&characterEncoding=UTF8
           url: jdbc:mysql://118.25.132.139:3306/htshop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: root
@@ -24,21 +22,21 @@ server:
   tomcat:
     uri-encoding: UTF-8
 mpstore:
-  service-url: http://www.ganjinnuo.com
+  service-url: http://admin.ganjinnuo.com
   file:
-     upload-path: /data/upload
+     upload-path: /var/data/upload
   defaultPassword: 123456
   aesKey: 1234567890123456
 jwt:
   header: Authorization
-  secret: mpstore
+  secret: mpadmin
   expiration: 604800
 
 logging:
   level:
-    root: debug
-    org.springframework.web: debug
+    root: error
+    org.springframework.web: error
     org.hibernate: error
-    com.julong.cloud: debug
+    com.julong.cloud: error
 mybatis-plus:
  mapper-locations: classpath:/mapper/*Mapper.xml

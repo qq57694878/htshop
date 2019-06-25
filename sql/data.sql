@@ -1,0 +1,1 @@
+INSERT INTO `sys_user`(user_id,user_code,user_name,password) VALUES ('1', 'admin', 'admin', '$2a$10$6oXclqs8pI/eb.4rEdyb8OLxXfb.nOMuSACQVzJerb5mhjtSCh2ES');

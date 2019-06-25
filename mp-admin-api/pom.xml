@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.kulongtai.mpstore</groupId>
 	<artifactId>mp-admin-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>mp-admin-api</name>
 	<description>微信小程序管理后台api</description>
 
