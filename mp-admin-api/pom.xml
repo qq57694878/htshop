@@ -152,6 +152,25 @@
 			<version>2.3.28</version>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<package.environment>dev</package.environment>
+			</properties>
+			<!-- 是否默认 true表示默认-->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<package.environment>prod</package.environment>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
