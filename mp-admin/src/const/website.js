@@ -34,6 +34,8 @@ export default {
             children: 'children'
         }
     },
-    uploadImageUrl:'http://localhost:9999/api/upload',
-    uploadKindUrl:'http://localhost:9999/api/public/upload4kind'
+    //uploadImageUrl:'http://localhost:9999/api/upload',
+    //uploadKindUrl:'http://localhost:9999/api/public/upload4kind'
+    uploadImageUrl:'https://admin.ganjinnuo.com/api/upload',
+    uploadKindUrl:'https://admin.ganjinnuo.com//api/public/upload4kind'
 }

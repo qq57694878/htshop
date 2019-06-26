@@ -41,7 +41,7 @@
 
 
 
-    <view wx:if="{{cardList.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
+    <view wx:if="{{skuList.length==0}}" class="yoshop-notcont" style="margin-top:130px;">
         <view class="img">
             <image mode="aspectFit" src="../../images/no_content.png"></image>
         </view>

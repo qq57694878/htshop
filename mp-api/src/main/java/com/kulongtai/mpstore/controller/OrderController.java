@@ -105,7 +105,7 @@ public class OrderController {
         return new R(packageParams);
     }
 
-    @GetMapping("/orderAndPay")
+    @PostMapping("/orderAndPay")
     @ApiOperation(value="下单并支付")
     public R< Map<String, String>> orderAndPay(@RequestBody OrderAndPayDto p, HttpServletRequest request) throws PaymentException {
         Integer userId = BaseContextHandler.getUserId();

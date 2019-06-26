@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "我的",
+  "navigationBarTitleText": "金达汽车行",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "wxc-avatar": "/@minui/wxc-avatar/dist/index",

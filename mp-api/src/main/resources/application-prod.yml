@@ -22,7 +22,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
 mpstore:
-  service-url: http://www.ganjinnuo.com
+  service-url: https://www.ganjinnuo.com
   file:
      upload-path: /var/data/upload
   defaultPassword: 123456
@@ -34,9 +34,9 @@ jwt:
 
 logging:
   level:
-    root: error
-    org.springframework.web: error
-    org.hibernate: error
-    com.julong.cloud: error
+    root: info
+    org.springframework.web: info
+    org.hibernate: info
+    com.julong.cloud: info
 mybatis-plus:
  mapper-locations: classpath:/mapper/*Mapper.xml

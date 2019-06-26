@@ -37,6 +37,7 @@
                                         pluginsPath="/static/kindeditor/plugins/"
                                         :loadStyleMode="false"
                                         :items="kinditems"
+                                        :formatUploadUrl="false"
                                         @on-content-change="onSkuContentChange"></editor>
                             </el-form-item>
                             <div class="widget-head am-cf">

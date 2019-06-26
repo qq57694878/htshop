@@ -2,6 +2,7 @@ package com.kulongtai.mpstore.controller;
 
 import com.kulongtai.mpstore.common.R;
 import com.xiaoleilu.hutool.json.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -25,6 +26,7 @@ import java.util.*;
  * Created by Administrator on 2019/5/23 0023.
  */
 @Controller
+@Slf4j
 public class FileController {
 
     @Value("${mpstore.service-url}")
@@ -32,33 +34,35 @@ public class FileController {
 
     @Value("${mpstore.file.upload-path}")
     private String uploadPath;
-    @GetMapping("/api/media/**")
-    public void download(HttpServletRequest request, HttpServletResponse response)throws Exception{
-        String uri= request.getRequestURI();
-        String contentPath = request.getContextPath();
-        String filePath = uri.substring(contentPath.length()+6);
 
+    @GetMapping("/api/media/**")
+    public void download(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String uri = request.getRequestURI();
+        String contentPath = request.getContextPath();
+        String filePath = uri.replaceAll("/api/media", "");
         //获得需下载的文件
-        File file  =new File(uploadPath+filePath);
-        uri = uri.replace('\\','/');
-        String  fileName = uri.substring(uri.lastIndexOf("/")+1);
+        File file = new File(uploadPath + filePath);
+        uri = uri.replace('\\', '/');
+        String fileName = uri.substring(uri.lastIndexOf("/") + 1);
         //设置response 参数
 
-        String contentType =   Files.probeContentType(Paths.get(file.getPath()));
+        String contentType = Files.probeContentType(Paths.get(file.getPath()));
         response.setContentType(contentType);
-        if(!isAllow(contentType)){
-            response.addHeader("Content-Disposition","attachment;filename=" + new String(fileName.getBytes(),"utf-8"));
+        if (!isAllow(contentType)) {
+            response.addHeader("Content-Disposition", "attachment;filename=" + new String(fileName.getBytes(), "utf-8"));
         }
-        InputStream is =  new FileInputStream(file);
+        InputStream is = new FileInputStream(file);
         OutputStream os = response.getOutputStream();
-        IOUtils.copy(is,os);
+        IOUtils.copy(is, os);
         is.close();
         os.close();
     }
-    public boolean isAllow(String contentType ){
-        List<String> array = Arrays.asList("image/bmp","image/gif","image/jpg","image/jpeg","image/png","image/tiff","image/webp");
-        return array.stream().anyMatch(item->item.equals(contentType));
+
+    public boolean isAllow(String contentType) {
+        List<String> array = Arrays.asList("image/bmp", "image/gif", "image/jpg", "image/jpeg", "image/png", "image/tiff", "image/webp");
+        return array.stream().anyMatch(item -> item.equals(contentType));
     }
+
     @ResponseBody
     @PostMapping(value = "/api/upload")
     public R fileUpload(MultipartHttpServletRequest request,
@@ -70,22 +74,22 @@ public class FileController {
             MultipartFile item = itr.next();
             String fileName = item.getOriginalFilename();
             String extName = getFileExtName(fileName);
-            String newFileName =createFileName(extName);
+            String newFileName = createFileName(extName);
             //存储的文件
-            File file  =new File(uploadPath+File.separator+newFileName);
+            File file = new File(uploadPath + File.separator + newFileName);
             File fileParent = file.getParentFile();
-            if(!fileParent.exists()){
+            if (!fileParent.exists()) {
                 fileParent.mkdirs();
             }
-            IOUtils.copy(item.getInputStream(),new FileOutputStream(file));
-            list.add(getDownloadUrl(File.separator+newFileName));
+            IOUtils.copy(item.getInputStream(), new FileOutputStream(file));
+            list.add(getDownloadUrl(File.separator + newFileName));
         }
-       return new R(list.size()>1?list:list.get(0));
+        return new R(list.size() > 1 ? list : list.get(0));
     }
 
     @PostMapping(value = "/api/public/upload4kind")
     public void upload4kind(MultipartHttpServletRequest request,
-                           HttpServletResponse response) throws IOException {
+                            HttpServletResponse response) throws IOException {
         //告知浏览器编码方式;防止乱码
         response.setHeader("Content-type", "text/html;charset=UTF-8");
         PrintWriter writer = response.getWriter();
@@ -94,7 +98,7 @@ public class FileController {
         extMap.put("flash", "swf,flv");
         extMap.put("media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
         extMap.put("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
-        long maxSize = 1024L*1024L;
+        long maxSize = 1024L * 1024L;
         response.reset();
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
@@ -130,19 +134,19 @@ public class FileController {
             }
             //上传文件
             String extName = getFileExtName(fileName);
-            String newFileName =createFileName(extName);
+            String newFileName = createFileName(extName);
             //存储的文件
-            File file  =new File(uploadPath+File.separator+newFileName);
+            File file = new File(uploadPath + File.separator + newFileName);
             File fileParent = file.getParentFile();
-            if(!fileParent.exists()){
+            if (!fileParent.exists()) {
                 fileParent.mkdirs();
             }
-            IOUtils.copy(item.getInputStream(),new FileOutputStream(file));
-                String downUrl = getDownloadUrl(File.separator+newFileName);
-                JSONObject obj = new JSONObject();
-                obj.put("error", 0);
-                obj.put("url", downUrl);
-                writer.println(obj.toJSONString(1));
+            IOUtils.copy(item.getInputStream(), new FileOutputStream(file));
+            String downUrl = getDownloadUrl(File.separator + newFileName);
+            JSONObject obj = new JSONObject();
+            obj.put("error", 0);
+            obj.put("url", downUrl);
+            writer.println(obj.toJSONString(1));
         }
     }
 
@@ -192,37 +196,35 @@ public class FileController {
 */
 
 
-
-
-
-    private String getDownloadUrl(String filePath){
-        return serverUrl+"/api/media"+filePath;
+    private String getDownloadUrl(String filePath) {
+        log.info("getDownloadUrl:" + serverUrl + "/api/media" + filePath);
+        return serverUrl + "/api/media" + filePath;
     }
 
 
-
-    public String getFileExtName(String fileName){
-        String ext="";
-        String[] ss=fileName.split("\\.");
-        if(ss.length==2){
+    public String getFileExtName(String fileName) {
+        String ext = "";
+        String[] ss = fileName.split("\\.");
+        if (ss.length == 2) {
             ext = ss[1];
         }
         return ext;
     }
 
-    public String createFileName(String ext){
-        String part1 = DateFormatUtils.format(new Date(),"yyyyMMddHHmmss");
+    public String createFileName(String ext) {
+        String part1 = DateFormatUtils.format(new Date(), "yyyyMMddHHmmss");
         String part2 = RandomStringUtils.randomAlphanumeric(3);
-        return part1+part2+"."+ext;
+        return part1 + part2 + "." + ext;
     }
 
     /**
      * 文件扩展名是否允许
+     *
      * @param fileType
      * @param ext
      * @return
      */
-    public boolean isAllowedFileExt (String fileType,String ext){
+    public boolean isAllowedFileExt(String fileType, String ext) {
         HashMap<String, String> extMap = new HashMap<>();
         extMap.put("image", "gif,jpg,jpeg,png,bmp");
         extMap.put("flash", "swf,flv");

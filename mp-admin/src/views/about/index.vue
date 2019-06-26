@@ -17,6 +17,7 @@
                                                 :uploadJson="website.uploadKindUrl"
                                                 pluginsPath="/static/kindeditor/plugins/"
                                                 :loadStyleMode="false"
+                                                :formatUploadUrl="false"
                                                 @on-content-change="onAboutContentChange"></editor>
                                     </el-form-item>
                                 </el-form>

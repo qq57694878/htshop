@@ -14,12 +14,14 @@ Page({
     sortPrice: false,   // 价格从低到高
 
     option: {},
-    list: [{ skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl:"http://www.kulongtai.com/1.jpg"},
-      { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
-      { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
-      { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
-      { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
-      { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },],
+    list: [
+      //   { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl:"http://www.kulongtai.com/1.jpg"},
+      // { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
+      // { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
+      // { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
+      // { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
+      // { skuName: "小保养", skuPrice: 100, linePrice: 120, mainUrl: "http://www.kulongtai.com/1.jpg" },
+    ],
 
     noList: true,
     no_more: false,

@@ -144,14 +144,14 @@ addMonth (date, num){
         this.data.current++;
         this.getSkuList(false );
     },
-    buyNow:function(){
-
+    buyNow:function(e){
+        let id = e.currentTarget.dataset.id;
         var that = this
         //  获取用户信息 查询有效的
         wx.showLoading({
             title: '加载中',
         });
-        app._get("/mpapi/order/orderAndPay", {current:this.data.current,size:this.data.size}).then(result => {
+        app._post("/mpapi/order/orderAndPay", {skuId:id}).then(result => {
             wx.hideLoading();
             if (result.code = 200) {
                 //调起微信支付
