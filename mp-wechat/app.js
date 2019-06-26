@@ -1,6 +1,5 @@
 //app.js
 import properties from "./utils/properties.js"
-import aa from "./mock/index.js"
 import {_get,_post,_delete,_put} from "./utils/request.js"
 import {checkPhone,checkCarNo} from "./utils/check.js"
 App({

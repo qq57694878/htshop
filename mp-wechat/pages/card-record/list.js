@@ -74,10 +74,12 @@ Page({
               if (isreload) {
                 list=[];
               } 
-              that.setData({
-                pages: res.data.pages,
-                cardRecordList: list.concat(res.data.records)
-              })
+              if(res.data){
+                that.setData({
+                  pages: res.data.pages,
+                  cardRecordList: list.concat(res.data.records)
+                })
+              }
             }
         })
     },
