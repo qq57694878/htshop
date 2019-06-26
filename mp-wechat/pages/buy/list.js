@@ -167,7 +167,7 @@ addMonth (date, num){
                       app.showSuccess('支付成功')
                     },
                     fail: function () {
-                        app.showError('订单未支付成功');
+                        app.showError('订单支付失败');
                     },
                 });
             }
