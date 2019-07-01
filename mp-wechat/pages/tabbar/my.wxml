@@ -17,12 +17,21 @@
 
         <view wx:else class="userinfo">
             <navigator url="/pages/login/login" hover-class="none" class="a">
-                <wxc-avatar class="userinfo-avatar-no" mold="square" src="/images/visitor_head.jpg"
+                <view class="my-img-wrap">
+                    <image class="userinfo-avatar-no" src="/images/visitor_head.jpg"></image>
+                    <view class='userinfo-text'>
+                        <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆</text>
+                        <view style='height:10rpx;'></view>
+                    </view>
+                </view>
+               <!--
+                <wxc-avatar  mold="square" src="/images/visitor_head.jpg"
                             bindtap="relogin"></wxc-avatar>
                 <view class='userinfo-text'>
                     <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆</text>
                     <view style='height:10rpx;'></view>
                 </view>
+                -->
             </navigator>
         </view>
 
