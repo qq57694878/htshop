@@ -21,6 +21,7 @@ import com.kulongtai.mpstore.service.IOrderService;
 import com.kulongtai.mpstore.service.ISkuService;
 import com.kulongtai.mpstore.service.IUserService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,7 @@ import java.util.Map;
  * @author lijinliang
  * @since 2019-06-13
  */
+@Slf4j
 @RestController
 @RequestMapping("/mpapi/order")
 public class OrderController {
@@ -120,8 +122,9 @@ public class OrderController {
         order.setPayStatus("0");//支付状态(0:未支付;1:已支付)
         order.setSkuId(sku.getSkuId());
         iOrderService.save(order);
-        Integer orderId =order.getOrderId();
 
+        Integer orderId =order.getOrderId();
+        log.info("orderId:"+orderId);
         //调用微信支付统一下单
         String appid =iConfigService.getAppid();//小程序ID	appid	是
         String mchid = iConfigService.getMchid();// 商户号	mch_id	是

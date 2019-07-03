@@ -16,6 +16,7 @@ public class ExceptionHandle {
 
     @ExceptionHandler(value = Exception.class)
     public R handler(Exception e){
+        e.printStackTrace();
         logger.info("[系统异常] {}",e.getMessage());
         return new R(500,e.getMessage());
     }

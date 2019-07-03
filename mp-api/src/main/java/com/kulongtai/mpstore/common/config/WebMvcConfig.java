@@ -57,7 +57,8 @@ public class WebMvcConfig {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(getUserAuthRestInterceptor()).
                         addPathPatterns("/**/*")
-                        .excludePathPatterns("/mpapi/public/*")
+                        .excludePathPatterns("/mpapi/public/**/*")
+                        .excludePathPatterns("/mpapi/public/notify/wxPayNotify")
                         .excludePathPatterns("/mpapi/login");
             }
 

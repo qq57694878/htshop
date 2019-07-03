@@ -55,7 +55,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setUpdateTime(new Date());
         order.setPayTime(DateUtil.parse(timeEnd,"yyyyMMddHHmmss"));
         this.updateById(order);
-        Sku sku = iSkuService.getById(orderId);
+        Sku sku = iSkuService.getById(order.getSkuId());
 
         //2.发放卡片
 

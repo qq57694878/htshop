@@ -29,4 +29,8 @@ public class NoGenerator {
         return baseNum + new Double(Math.random() * BASE_NUM).longValue();
     }
 
+    public static void main(String[] args) {
+        System.out.println(cardNo());;
+    }
+
 }

@@ -6,6 +6,7 @@ import com.kulongtai.mpstore.entity.Order;
 import com.kulongtai.mpstore.service.IConfigService;
 import com.kulongtai.mpstore.service.IOrderService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 2019/6/16 0016.
  */
+@Slf4j
 @Controller
 @RequestMapping("/mpapi/public/notify")
 public class NotifyController {
@@ -31,7 +33,7 @@ public class NotifyController {
     public String wxPayNotify(HttpServletRequest request){
        // 支付结果通用通知文档: https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_7
         String xmlMsg = HttpKit.readData(request);
-        System.out.println("支付通知="+xmlMsg);
+        log.info("支付通知="+xmlMsg);
         Map<String, String> params = PaymentKit.xmlToMap(xmlMsg);
 
         String result_code  = params.get("result_code");
@@ -47,8 +49,10 @@ public class NotifyController {
             if (("SUCCESS").equals(result_code)) {
                 //更新订单信息
                 System.out.println("更新订单信息");
+                log.info("订单编号："+orderIdStr);
                 Integer orderId = Integer.parseInt(orderIdStr);
                 Order order =  iOrderService.getById(orderId);
+                log.info("订单信息："+order);
                 if("0".equals(order.getPayStatus())){
                     iOrderService.processPayedOrder(params);
                 }
@@ -57,6 +61,8 @@ public class NotifyController {
                 xml.put("return_msg", "OK");
                 result =  PaymentKit.toXml(xml);
             }
+        }else{
+            log.info("验签失败");
         }
         return result;
     }
