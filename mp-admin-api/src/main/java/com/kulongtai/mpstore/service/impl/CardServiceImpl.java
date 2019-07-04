@@ -51,7 +51,7 @@ public class CardServiceImpl extends ServiceImpl<CardMapper, Card> implements IC
     @Transactional
     @Override
     public boolean consumeCard(ConsumeCardDto consumeFrequencyCardDto){
-        Integer cardNo = consumeFrequencyCardDto.getCardNo();
+        Long cardNo = consumeFrequencyCardDto.getCardNo();
         Integer usedFrequency = consumeFrequencyCardDto.getUsedFrequency();
 
        Card card =  this.getOne(Wrappers.<Card>query().eq("card_no",cardNo));

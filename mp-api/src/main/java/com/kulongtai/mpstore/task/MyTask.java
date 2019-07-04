@@ -34,7 +34,7 @@ public class MyTask {
         updateWrapper.set("valid_flag", "0");
         updateWrapper.set("update_time", new Date());
         updateWrapper.eq("valid_flag", "1");
-        updateWrapper.gt("valide_time", new Date());
+        updateWrapper.lt("valide_time", new Date());
         iCardService.update(updateWrapper);
     }
 }

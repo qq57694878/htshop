@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Data
 public class ConsumeCardDto implements Serializable {
     @ApiModelProperty(value = "卡券消费码")
-    private Integer cardNo;
+    private Long cardNo;
     @ApiModelProperty(value = "本次消费次数")
     private Integer usedFrequency;
 }

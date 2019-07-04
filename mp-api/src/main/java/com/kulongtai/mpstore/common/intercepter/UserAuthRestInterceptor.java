@@ -48,23 +48,21 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
             if (annotation != null) {
                 return super.preHandle(request, response, handler);
             }
-            if ("1".equals(request.getParameter("i"))) {
-                return super.preHandle(request, response, handler);
-            }
 
             if (token != null && token.startsWith("Bearer ")) {
                 String authToken = token.substring(7);
                 Claims claims = jwtTokenUtil.getAllClaimsFromToken(authToken);
                 if (claims.getExpiration().before(new Date())) {
-                    throw new UserTokenException("token 已过期");
+                    throw new UserTokenException("token 已过期："+authToken);
                 } else {
                     if (StringUtils.isNotEmpty(claims.getSubject())) {
                         BaseContextHandler.setUserID(Integer.parseInt(claims.getSubject()) );
                     } else {
-                        throw new UserTokenException("token 无效");
+                        throw new UserTokenException("token 无效："+authToken);
                     }
                 }
             } else {
+                logger.info("token 的request uri:"+request.getRequestURI());
                 throw new UserTokenException("token 验证失败");
             }
         }

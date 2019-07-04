@@ -62,7 +62,7 @@ public class CardRecordController {
         queryWrapper.orderByDesc("create_time");
         IPage<CardRecord> cardRecordList = iCardRecordService.page(new Page<CardRecord>(pageDto.getCurrent(),pageDto.getSize()),queryWrapper);
         List<CardRecord> list = cardRecordList.getRecords();
-       if(list!=null){
+       if(list!=null&&list.size()>0){
            List<Integer> ids = list.stream().map(cardRecord -> {return cardRecord.getCardId();}).collect(Collectors.toList());
            Map<Integer,Card> m = new HashMap<Integer,Card>();
            iCardService.listByIds(ids).forEach(item->{

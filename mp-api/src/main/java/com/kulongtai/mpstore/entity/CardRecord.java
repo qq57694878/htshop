@@ -41,7 +41,7 @@ import java.util.Date;
 
             @ApiModelProperty(value = "卡券消费码")
         @TableField("card_no")
-    private Integer cardNo;
+    private Long cardNo;
 
             @ApiModelProperty(value = "用户id")
         @TableField("user_id")

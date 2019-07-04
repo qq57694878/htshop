@@ -55,8 +55,8 @@
             use-slot
             showConfirmButton="{{false}}"
             show="{{ showDialog }}">
-        <view class="my-dlg-wrap">
-            <view class="my-title">消费记录:</view>
+        <view class="my-title">消费记录:</view>
+        <scroll-view  class="my-dlg-wrap" scroll-y="true" style="height: 300px;" >
             <view class="my-dlg-item" wx:for="{{cardRecordList}}" wx:key="id" >
                     <view class=" dis-flex">
                         <view class="flex-box t-l">
@@ -78,7 +78,7 @@
             <view class="my-dlg-item t-c" wx:if="{{cardRecordList.length==0}}">
                    暂无消费记录
             </view>
-        </view>
+        </scroll-view>
         <view class="my-btn-bar">
             <van-button   plain hairline round type="warning" bindtap="closeUsedRecord" size="small">我知道了</van-button>
         </view>
